@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+		<meta charset="utf-8" />
+		<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<title>ДЦ</title>
+        <link href="../BackboneShared/assets/imgs/favicon.ico" rel="SHORTCUT ICON" />
+		<link href="/BackboneShared/assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="/BackboneShared/assets/css/jquery.handsontable.full.min.css" rel="stylesheet" />
+		<link href="/BackboneShared/assets/css/jquery.handsontable.bootstrap.css" rel="stylesheet" />
+        <link href="/BackboneShared/assets/css/pnotify.custom.min.css" rel="stylesheet" />
+		<link href="/BackboneShared/assets/css/style.css" rel="stylesheet" />
+		<script domain="BackboneDataEntry" id="require-script" src="/BackboneShared/js/lib/require-min.js" data-main="/BackboneShared/require_config.js"></script>
+	<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="require_config" src="/BackboneShared/require_config.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery" src="/BackboneShared/js/lib/jquery-1.11.1.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pnotify" src="/BackboneShared/js/lib/pnotify.core.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="main" src="BackboneDataEntry/js/main.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="routers/router" src="BackboneDataEntry/js/routers/router.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bootstrap" src="/BackboneShared/js/lib/bootstrap.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="shared/regions/menu" src="/BackboneShared/js/regions/menu.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="controllers/station_list_controller" src="BackboneDataEntry/js/controllers/station_list_controller.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="controllers/station_card_controller" src="BackboneDataEntry/js/controllers/station_card_controller.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="controllers/expense_char_controller" src="BackboneDataEntry/js/controllers/expense_char_controller.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="controllers/ga_card_controller" src="BackboneDataEntry/js/controllers/ga_card_controller.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="controllers/vc_controller" src="BackboneDataEntry/js/controllers/vc_controller.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="controllers/ap_report_controller" src="BackboneDataEntry/js/controllers/ap_report_controller.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="controllers/outcome_controller" src="BackboneDataEntry/js/controllers/outcome_controller.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="controllers/an_plan_report_controller" src="BackboneDataEntry/js/controllers/an_plan_report_controller.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="controllers/ga_optimization_controller" src="BackboneDataEntry/js/controllers/ga_optimization_controller.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="shared/layout/app_layout" src="/BackboneShared/js/layout/app_layout.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="underscore" src="/BackboneShared/js/lib/lodash.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="text" src="/BackboneShared/js/lib/text.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="shared/collections/station_list_collection" src="/BackboneShared/js/collections/station_list_collection.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="shared/collections/cascade_list" src="/BackboneShared/js/collections/cascade_list.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="shared/models/user_model" src="/BackboneShared/js/models/user_model.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="shared/models/cascade" src="/BackboneShared/js/models/cascade.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="backbone" src="/BackboneShared/js/lib/backbone-min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="collections/station_list_collection" src="BackboneDataEntry/js/collections/station_list_collection.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="views/station_list_view" src="BackboneDataEntry/js/views/station_list_view.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="collections/ga_card_collection" src="BackboneDataEntry/js/collections/ga_card_collection.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="views/ga_card_view" src="BackboneDataEntry/js/views/ga_card_view.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="collections/station_card_collection" src="BackboneDataEntry/js/collections/station_card_collection.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="views/station_card_view" src="BackboneDataEntry/js/views/station_card_view.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="collections/vc_collection" src="BackboneDataEntry/js/collections/vc_collection.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="views/vc_view" src="BackboneDataEntry/js/views/vc_view.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="collections/station_names_collection" src="BackboneDataEntry/js/collections/station_names_collection.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="collections/ap_report_collection" src="BackboneDataEntry/js/collections/ap_report_collection.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="views/ap_report/ap_report_menu" src="BackboneDataEntry/js/views/ap_report/ap_report_menu.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="collections/cascade_list_collection" src="BackboneDataEntry/js/collections/cascade_list_collection.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="collections/scenarios_list_collection" src="BackboneDataEntry/js/collections/scenarios_list_collection.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="views/an_plan_report_view" src="BackboneDataEntry/js/views/an_plan_report_view.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="collections/expense_char_collection" src="BackboneDataEntry/js/collections/expense_char_collection.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="views/expense_char_view" src="BackboneDataEntry/js/views/expense_char_view.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="collections/outcome_collection" src="BackboneDataEntry/js/collections/outcome_collection.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="views/outcome_view" src="BackboneDataEntry/js/views/outcome_view.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="regions/ga_optimization_region" src="BackboneDataEntry/js/regions/ga_optimization_region.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="views/ga_optimization/results_view" src="BackboneDataEntry/js/views/ga_optimization/results_view.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="models/ga_optimization/results_model" src="BackboneDataEntry/js/models/ga_optimization/results_model.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="models/ga_optimization/control_model" src="BackboneDataEntry/js/models/ga_optimization/control_model.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="collections/ga_optimization_collection" src="BackboneDataEntry/js/collections/ga_optimization_collection.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="shared/utils/utils" src="/BackboneShared/js/utils/utils.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="views/ap_report/ap_report_table_view" src="BackboneDataEntry/js/views/ap_report/ap_report_table_view.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="views/ga_optimization/tables/results_table" src="BackboneDataEntry/js/views/ga_optimization/tables/results_table.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pnotify.buttons" src="/BackboneShared/js/lib/pnotify.buttons.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="htutils" src="/BackboneShared/js/utils/ht_utils.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="models/ap_report_row_model" src="BackboneDataEntry/js/models/ap_report_row_model.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="numeral" src="/BackboneShared/js/lib/numeral.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="handsontable" src="/BackboneShared/js/lib/jquery.handsontable.full.min.js"></script></head>
+	<body class="mediumterm-background">
+        <div id="menu"><nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+    <div class="navbar-header">
+        <a href="/BackboneMediumTerm.mvc#" class="navbar-brand">
+            <span><img height="20" src="/BackboneShared/assets/imgs/logo-hydro.png" alt="Brand" /></span> ДЦ
+        </a>
+    </div>
+	<div class="collapse navbar-collapse">
+		<ul class="nav navbar-nav">
+			<li class="dropdown">
+				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Среднесрочное моделирование <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+                    
+                        <li><a href="/BackboneMediumTerm.mvc#aek/scenarios">Ангаро-Енисейский каскад</a></li>
+                    
+                        <li><a href="/BackboneMediumTerm.mvc#vkk/scenarios">Волжско-Камский каскад</a></li>
+                    
+                        <li><a href="/BackboneMediumTerm.mvc#zbk/scenarios">ГЭС на реках Зея, Бурея</a></li>
+                    
+                        <li><a href="/BackboneMediumTerm.mvc#kkges/scenarios">Каскад Кубанских ГЭС</a></li>
+                    
+                        <li><a href="/BackboneMediumTerm.mvc#novges/scenarios">Новосибирская ГЭС</a></li>
+                    
+                        <li><a href="/BackboneMediumTerm.mvc#sk/scenarios">Сулакский каскад</a></li>
+                    
+                    
+                    <li class="divider"></li>
+                    <li><a href="/BackboneDataEntry.mvc#/AnnualPlanningReport">Сводные отчеты по долгосрочному планированию</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/Flowoff.mvc#scenarios/list">Модель планирования притока</a></li>
+				</ul>
+                
+
+			</li>
+			<li class="dropdown">
+				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Краткосрочное моделирование <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					
+                        <li><a href="/BackboneShortTerm.mvc#scenarios/chebGes">Чебоксарская ГЭС</a></li>
+                    
+                        <li><a href="/BackboneShortTerm.mvc#scenarios/sarGes">Саратовская ГЭС</a></li>
+                    
+                        <li><a href="/BackboneShortTerm.mvc#scenarios/camGes">Камская ГЭС</a></li>
+                    
+                        <li><a href="/BackboneShortTerm.mvc#scenarios/votGes">Воткинская ГЭС</a></li>
+                    
+                        <li><a href="/BackboneShortTerm.mvc#scenarios/volGes">Волжская ГЭС</a></li>
+                    
+                        <li><a href="/BackboneShortTerm.mvc#scenarios/zigGes">Жигулевская ГЭС</a></li>
+                    
+                        <li><a href="/BackboneShortTerm.mvc#scenarios/nizGes">Нижегородская ГЭС</a></li>
+                    
+                    <li class="divider"></li>
+                    <li><a href="/BackboneDataEntry.mvc#gaOptimization">Оптимизация состава ГА</a></li>
+				</ul>
+			</li>
+			<li class="dropdown">
+				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Редактирование данных <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/VolumeCurves.mvc">Кривые объема</a></li>
+					<li><a href="/Station.mvc">Справочные данные по ГЭС</a></li>
+					<li><a href="/CharacteristicLimits.mvc">Ограничения характеристик 17 макета</a></li>
+					<!--<li><a href="/NewFAVR.mvc">Указание ФАВР</a></li>-->
+					<li><a href="/DcHydroLimits.mvc">Ограничения деп-та упр. режимами</a></li>
+					<li><a href="/ArmHydro/GaCharacteristics.mvc">Расходные характеристики ГА</a></li>
+					<li><a href="/ArmHydro/PressureLosses.mvc">Характеристики потерь напора</a></li>
+					<li><a href="/ArmHydro/Spillway.mvc">Характеристики водосбросов</a></li>
+					<li><a href="/ScenarioCalculation.mvc/GetFavrOrderReport">Отчет о выполнении указаний</a></li>
+					<li><a href="/EffectiveInflow.mvc/EffectiveInflowScenarios">Расчет невязки на произвольный период</a></li>
+					<li><a href="/ArmHydro/Maket17.mvc">Редактирование данных макета 17</a></li>
+					<li><a href="/ArmHydro/Maket17.mvc/Maket17Year">Данные макета 17 по годам</a></li>
+                    <!--резервная форма на случай, когда bi не работает-->
+					<!--<li><a href="/ArmHydro/Report.mvc/VBNBLevelsReport">Отчет по уровням ВБ и НБ</a></li>-->
+				</ul>
+			</li>
+			<li class="dropdown">
+				<a data-toggle="dropdown" class="dropdown-toggle" href="#">АРМ Гидролога <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/ArmHydro/WaterEnrSummaryExport.mvc">Водноэнергетическая сводка</a></li>
+                    <li><a href="/BackboneDataEntry.mvc#outcome">Отчёт расхода ГЭС</a></li>
+					<li><a href="/ArmHydro/SpillwayHandlingLog.mvc">Журнал маневрирования водосбросами</a></li>
+					<li><a href="/ArmHydro/CalculationStatus.mvc/CalculationStatus">Состояние расчётов</a></li>
+                    <li><a href="/ArmEngineer/RepairsReport/RepairsReport">Отчёт о факте ремонтов</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/BackboneDataEntry.mvc#/AvailablePowerReport">Отчёт о проверке располагаемой мощности</a></li>
+				</ul>
+			</li>
+			<!--<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">АРМ Инженера <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/ArmEngineer/LoadCurveExecution/LoadCurveExecution">Выполнение графика нагрузки</a></li>
+					<li><a href="/ArmEngineer/StandardCommandJournal/StandardCommandJournal">Журнал стандартных диспетчерских комманд</a></li>
+					<li><a href="/ArmEngineer/EquipmentGESConditions/EquipmentGESConditions">Отчёт о состоянии оборудования</a></li>
+					<li><a href="/ArmEngineer/GESOutputPer8Hours/GESOutputPer8Hours">Отчёт по рассчёту восьмичасовой мощности</a></li>
+					<li><a href="/ArmEngineer/GESOutputPerDay/GESOutputPerDay">Отчёт о выработке и состоянии гидроагрегатов</a></li>
+					<li><a href="/ArmEngineer/SummaryReport/SummaryReport">Отчёт о балансе электроэнергии и мощности</a></li>
+                    <li><a href="/ArmEngineer/RepairsReport/RepairsReport">Отчёт о факте ремонтов</a></li>
+				</ul>
+			</li>-->
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+            <li>
+                <a id="user-manual" title="Скачать руководство пользователя" href="#"><span style="color: #337ab7;" class="glyphicon glyphicon-question-sign"></span></a>
+            </li>
+            <li>
+                <a style="color: #337ab7; " target="_blank" href="http://sr-codkg-139a:9704/analytics/">Система отчётности</a>
+            </li>
+			<li class="dropdown">
+				<a data-toggle="dropdown" class="dropdown-toggle" href="#"><b>Weber</b> <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/Account.mvc/LogOff">Выйти</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+        </div>
+</nav>
+<form style="display:none;" method="get" action="Export.mvc/UserManual" id="user-manual-form">
+    <input type="submit" />
+</form></div>
+        <div id="main-content"><div><div class="container-fluid">
+    <div class="row">
+        <div class="col-md-5">
+            <h3 style="margin-top: 0px;"><span class="label label-mediumterm">Оптимизация состава ГА</span></h3>
+        </div>
+        <div class="col-md-7">
+            <form class="form-inline pull-right">
+                <div class="form-group">
+                    <label for="target-station">Станция:</label>
+                    <select class="form-control" id="target-station">
+                    </select>
+                    <label for="target-date">Дата:</label>
+                    <input type="date" value="2016-09-01" class="form-control" id="target-date" />
+                    <button class="btn btn-mediumterm" type="button" id="show-results">
+                        <span style="display:none;" class="glyphicon glyphicon-refresh glyphicon-refresh-animate fetching-data"></span>
+                        Показать
+                    </button>                    
+                </div>
+            </form>
+        </div>        
+    </div>
+    <div id="grid-region">
+    </div>
+</div>
+</div></div>           
+        <div id="footer">
+        </div>
+    
+<div class="ui-pnotify " style="width: 300px; opacity: 1; display: block; overflow: visible; right: 25px; top: 25px;"><div class="alert ui-pnotify-container alert-danger ui-pnotify-shadow" style="min-height: 16px; overflow: hidden;"><div class="ui-pnotify-closer" style="cursor: pointer; visibility: hidden;"><span class="glyphicon glyphicon-remove" title="Close"></span></div><div class="ui-pnotify-sticker" style="cursor: pointer; visibility: hidden;"><span class="glyphicon glyphicon-pause" title="Stick"></span></div><div class="ui-pnotify-icon"><span class="glyphicon glyphicon-warning-sign"></span></div><h4 class="ui-pnotify-title">Ошибка про обращении к серверу</h4><div class="ui-pnotify-text">Код ошибки: 500<br /> Сообщение: Internal Server Error<br /> Нажмите F12 для подробного сообщения.</div></div></div><div class="ui-pnotify " style="width: 300px; opacity: 1; display: block; overflow: visible; right: 25px; top: 201px;"><div class="alert ui-pnotify-container alert-danger ui-pnotify-shadow" style="min-height: 16px; overflow: hidden;"><div class="ui-pnotify-closer" style="cursor: pointer; visibility: hidden;"><span class="glyphicon glyphicon-remove" title="Close"></span></div><div class="ui-pnotify-sticker" style="cursor: pointer; visibility: hidden;"><span class="glyphicon glyphicon-pause" title="Stick"></span></div><div class="ui-pnotify-icon"><span class="glyphicon glyphicon-warning-sign"></span></div><h4 class="ui-pnotify-title">Ошибка про обращении к серверу</h4><div class="ui-pnotify-text">Код ошибки: 500<br /> Сообщение: Internal Server Error<br /> Нажмите F12 для подробного сообщения.</div></div></div></body></html>

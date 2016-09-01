@@ -1,4 +1,4 @@
-package test.page;
+package ru.dserg.autotest.page;
 
 import org.openqa.selenium.By;
 

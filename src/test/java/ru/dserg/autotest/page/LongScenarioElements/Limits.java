@@ -1,7 +1,7 @@
-package test.page.LongScenarioElements;
+package ru.dserg.autotest.page.LongScenarioElements;
 
 import org.openqa.selenium.By;
-import test.Utils.SelenideTable;
+import ru.dserg.autotest.Utils.SelenideTable;
 
 import static com.codeborne.selenide.Selenide.$;
 

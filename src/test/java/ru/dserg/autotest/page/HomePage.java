@@ -1,8 +1,6 @@
-package test.page;
+package ru.dserg.autotest.page;
 
-import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Selenide.$;
 
 /**
  * Created by Kalinin.S on 05.08.2016.

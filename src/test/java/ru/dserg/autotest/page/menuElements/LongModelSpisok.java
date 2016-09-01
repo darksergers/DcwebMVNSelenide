@@ -1,4 +1,4 @@
-package test.page.menuElements;
+package ru.dserg.autotest.page.menuElements;
 
 import org.openqa.selenium.By;
 

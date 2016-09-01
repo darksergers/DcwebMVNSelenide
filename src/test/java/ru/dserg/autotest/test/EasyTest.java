@@ -1,8 +1,13 @@
-package test.test;
+package ru.dserg.autotest.test;
+
+
+
+
 
 import org.junit.Ignore;
 import org.junit.Test;
-import test.page.*;
+import ru.dserg.autotest.page.*;
+
 import static  com.codeborne.selenide.Selenide.screenshot;
 
 
@@ -52,6 +57,7 @@ public class EasyTest {
         LoginPage loginPage = new LoginPage();
         loginPage.typeUserName();
         loginPage.typePassword();
+        HomePage homePage=loginPage.login();
     }
 
 

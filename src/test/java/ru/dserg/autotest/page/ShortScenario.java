@@ -1,11 +1,8 @@
-package test.page;
+package ru.dserg.autotest.page;
 
 import org.openqa.selenium.By;
-import test.Utils.SelenideTable;
-import test.page.ShortScenarioElements.Condition;
-import test.page.ShortScenarioElements.Main;
-import test.page.ShortScenarioElements.Meteo;
-import test.page.ShortScenarioElements.Results;
+import ru.dserg.autotest.page.ShortScenarioElements.*;
+
 
 import static com.codeborne.selenide.Selenide.$;
 

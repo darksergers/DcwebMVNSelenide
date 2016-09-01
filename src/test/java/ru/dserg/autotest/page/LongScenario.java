@@ -1,7 +1,7 @@
-package test.page;
+package ru.dserg.autotest.page;
 
-import test.page.LongModelElements.SpisoGES;
-import test.page.LongScenarioElements.Characteristics;
+import ru.dserg.autotest.page.LongModelElements.SpisoGES;
+import ru.dserg.autotest.page.LongScenarioElements.Characteristics;
 
 import static com.codeborne.selenide.Selenide.$;
 

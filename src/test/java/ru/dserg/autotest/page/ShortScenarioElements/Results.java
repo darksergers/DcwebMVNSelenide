@@ -1,7 +1,7 @@
-package test.page.ShortScenarioElements;
+package ru.dserg.autotest.page.ShortScenarioElements;
 
 import org.openqa.selenium.By;
-import test.Utils.SelenideTable;
+import ru.dserg.autotest.Utils.SelenideTable;
 
 import static com.codeborne.selenide.Selenide.$;
 

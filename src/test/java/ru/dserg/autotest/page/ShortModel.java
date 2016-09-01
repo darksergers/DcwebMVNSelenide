@@ -1,8 +1,9 @@
-package test.page;
+package ru.dserg.autotest.page;
 
 import org.openqa.selenium.By;
+import ru.dserg.autotest.page.ShortScenario;
 
-import java.sql.Time;
+
 
 import static com.codeborne.selenide.Selenide.$;
 

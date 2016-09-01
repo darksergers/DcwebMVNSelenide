@@ -1,4 +1,4 @@
-package test.Utils;
+package ru.dserg.autotest.Utils;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;

@@ -1,8 +1,8 @@
-package test.page;
+package ru.dserg.autotest.page;
 
 import org.openqa.selenium.By;
-import test.page.LongModelElements.*;
-import test.page.LongScenarioElements.Characteristics;
+import ru.dserg.autotest.page.LongModelElements.*;
+import ru.dserg.autotest.page.LongScenarioElements.Characteristics;
 
 import static com.codeborne.selenide.Selenide.$;
 

@@ -1,11 +1,10 @@
-package test.page.menuElements;
+package ru.dserg.autotest.page.menuElements;
 
-import com.codeborne.selenide.SelenideElement;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import ru.yandex.qatools.htmlelements.element.HtmlElement;
-import test.page.ShortModel;
+
+
+
 
 import static com.codeborne.selenide.Selenide.$;
 

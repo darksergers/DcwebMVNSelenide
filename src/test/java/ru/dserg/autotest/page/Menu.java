@@ -1,6 +1,6 @@
-package test.page;
+package ru.dserg.autotest.page;
 
-import test.page.menuElements.ShortModelSpisok;
+import ru.dserg.autotest.page.menuElements.ShortModelSpisok;
 
 /**
  * Created by Kalinin.S on 06.08.2016.
