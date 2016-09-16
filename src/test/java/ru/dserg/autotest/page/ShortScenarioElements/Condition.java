@@ -15,59 +15,61 @@ public class Condition {
 
     public void  editTable(int str,int rows,String condition){
 
-            table.choiceTr(str, rows).doubleClick();
-            switch (condition){
-                case "ВКЛ": {
+        table.choiceTr(str, rows).doubleClick();
+        table.choiceTr(str, rows).click();
+
+        switch (condition){
+             case "ВКЛ": {
                     $("#ga-condition-table > select").click();
                    Util.selectSelelector($("#ga-condition-table > select"),0).click();
                     break;
                 }
-                case "ХР": {
+             case "ХР": {
                     $("#ga-condition-table > select").click();
                     Util.selectSelelector($("#ga-condition-table > select"),1).click();
                     break;
                 }
-                case "ТР": {
+             case "ТР": {
                     $("#ga-condition-table > select").click();
                     Util.selectSelelector($("#ga-condition-table > select"),2).click();
                     break;
                 }
-                case "СР": {
+             case "СР": {
                     $("#ga-condition-table > select").click();
                     Util.selectSelelector($("#ga-condition-table > select"),3).click();
                     break;
                 }
-                case "КР": {
+             case "КР": {
                     $("#ga-condition-table > select").click();
                     Util.selectSelelector($("#ga-condition-table > select"),4).click();
                     break;
                 }
-                case "АР": {
+             case "АР": {
                     $("#ga-condition-table > select").click();
                     Util.selectSelelector($("#ga-condition-table > select"),5).click();
                     break;
                 }
-                case "НР": {
+             case "НР": {
                     $("#ga-condition-table > select").click();
                     Util.selectSelelector($("#ga-condition-table > select"),6).click();
                     break;
                 }
-                case "ВПР": {
+             case "ВПР": {
                     $("#ga-condition-table > select").click();
                     Util.selectSelelector($("#ga-condition-table > select"),7).click();
                     break;
                 }
-                case "ЗРР": {
+             case "ЗРР": {
                     $("#ga-condition-table > select").click();
                     Util.selectSelelector($("#ga-condition-table > select"),8).click();
                     break;
                 }
-                case "КН": {
+             case "КН": {
                     $("#ga-condition-table > select").click();
                     Util.selectSelelector($("#ga-condition-table > select"),9).click();
                     break;
                 }
-                case "ИСП": {
+             case "ИСП": {
                     $("#ga-condition-table > select").click();
                     Util.selectSelelector($("#ga-condition-table > select"),10).click();
                     break;

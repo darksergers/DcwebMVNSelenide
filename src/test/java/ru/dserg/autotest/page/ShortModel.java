@@ -1,6 +1,7 @@
 package ru.dserg.autotest.page;
 
 import org.openqa.selenium.By;
+import ru.dserg.autotest.Utils.Util;
 import ru.dserg.autotest.page.ShortScenario;
 
 
@@ -24,6 +25,9 @@ public class ShortModel {
     public ShortScenario createScenario(){
         $("#createScenario").click();
         return new ShortScenario();
+    }
+    public void  time(){
+        Util.choiseDate("#beginDate","2015-09-08");
     }
     //*[@id="inflow-table"]/div[1]/div[1]/div/div[1]/table/tbody/tr[1]/td[1]
     //*[@id="inflow-table"]/div[1]/div[1]/div/div[1]/table/tbody/tr[1]/td[2]

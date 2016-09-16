@@ -12,7 +12,6 @@ public class LoginPage {
     private boolean isFirst;
     public void typeUserName() {
        $(By.name("UserName")).setValue("Weber");
-
     }
 
     public LoginPage() {

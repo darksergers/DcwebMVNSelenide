@@ -1,7 +1,10 @@
 package ru.dserg.autotest.page.ShortScenarioElements;
 
+import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import ru.dserg.autotest.Utils.SelenideTable;
+import ru.dserg.autotest.Utils.Util;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -12,20 +15,24 @@ public class Results {
     SelenideTable table =
             new SelenideTable($(By.xpath("//*[@id=\'results-table\']/div[1]/div[2]/div/div/div[1]/table")));
 
+    private void  editCell(int str,int rows,String text){//внутреняя функция
+        table.typeInTable(str, rows,"#results-table > div.handsontableInputHolder > textarea",text);
+    }
+    // заполняют столбики в результируещей таблице
     public void editHpot(int str,String text){
-        table.choiceTr(str, 5).setValue(text);
+        editCell(str, 5,text);
     }
     public void editQturb(int str,String text){
-        table.choiceTr(str, 7).setValue(text);
+        editCell(str,7,text);
     }
     public void editP1(int str,String text){
-        table.choiceTr(str, 9).setValue(text);
+        editCell(str,9,text);
     }
     public void editP2(int str,String text){
-        table.choiceTr(str, 10).setValue(text);
+        editCell(str, 10,text);
     }
     public void editCost(int str,String text){
-        table.choiceTr(str, 15).setValue(text);
+        editCell(str, 15,text);
     }
 
     public  void  checkBoxUNB(){
@@ -73,5 +80,9 @@ public class Results {
     }
     public void export(){
         $("#export").click();
+    }
+    public void optTime(int choice){
+        Util.selectSelelector($("#opt-type"),choice).click();
+        ((JavascriptExecutor) WebDriverRunner.getWebDriver()).executeScript("window.scrollTo(0, document.head.scrollHeight)");
     }
 }

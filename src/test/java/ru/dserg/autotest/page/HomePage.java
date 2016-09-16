@@ -16,6 +16,9 @@ public class HomePage {
     public OptimizationPage openOptimization(){
         return menu.optimization();
     }
+    public LongModel longModel(){
+        return menu.longModel();
+    }
 
 
 }

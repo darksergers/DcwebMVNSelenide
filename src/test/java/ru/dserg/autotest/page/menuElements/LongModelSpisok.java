@@ -10,31 +10,31 @@ import static com.codeborne.selenide.Selenide.$;
 public class LongModelSpisok {
 
     public void  clickSpisok(){
-        $(By.xpath("//*[@id=\'menu\']/nav/div/div[2]/ul[1]/li[1]/ul/li[1]/a")).click();
+        $("#menu").$(By.linkText("Среднесрочная модель")).click();
     }
     public void  angaroEnisei(){
-        $(By.xpath("//*[@id='menu']/nav/div/div[2]/ul[1]/li[1]/ul/li[1]/a")).click();
+        $("#menu").$(By.linkText("Ангаро-Енисейский каскад")).click();
     }
     public void  volzhskoKamskii(){
-        $(By.xpath("//*[@id='menu']/nav/div/div[2]/ul[1]/li[1]/ul/li[2]/a")).click();
+        $("#menu").$(By.linkText("Волжско-Камский каскад")).click();
     }
     public void  GESnaZeya(){
-        $(By.xpath("//*[@id='menu']/nav/div/div[2]/ul[1]/li[1]/ul/li[3]/a")).click();
+        $("#menu").$(By.linkText("ГЭС на реках Зея, Бурея")).click();
     }
     public void  kaskadKubanskih(){
-        $(By.xpath("//*[@id='menu']/nav/div/div[2]/ul[1]/li[1]/ul/li[4]/a")).click();
+        $("#menu").$(By.linkText("Каскад Кубанских ГЭС")).click();
     }
     public void  novosibGes(){
-        $(By.xpath("//*[@id='menu']/nav/div/div[2]/ul[1]/li[1]/ul/li[5]/a")).click();
+        $("#menu").$(By.linkText("Новосибирская ГЭС")).click();
     }
     public void  sulakskiiKaskad(){
-        $(By.xpath("//*[@id='menu']/nav/div/div[2]/ul[1]/li[1]/ul/li[6]/a")).click();
+        $("#menu").$(By.linkText("Сулакский каскад")).click();
     }
-    public void svod(){
+    /*public void svod(){
         $(By.xpath("//*[@id=\'menu\']/nav/div/div[2]/ul[1]/li[1]/ul/li[8]/a")).click();
-    }
+    }*/
     public void model(){
-        $(By.xpath("//*[@id=\'menu\']/nav/div/div[2]/ul[1]/li[1]/ul/li[10]/a")).click();
+        $("#menu").$(By.linkText("Модель планирования притока")).click();
     }
 
 }

@@ -17,71 +17,20 @@ public class Characteristics {
     }
     private enum Tab{
 
-        KrivieVB,KrivieNB,PoteriNapora,HidroVB,PropuskVodosbrosa,RashodCharacteristics,RashodSelfNeed
+        KrivieVB,KrivieNB,VbWinter,NbWinter,PoteriNapora,HidroVB,Filtration,IceLosses,SteamLosses,
+        PropuskVodosbrosa,RashodCharacteristics,RashodSelfNeed,Dispgraph,SeasonCorrecting
     }
     private Tab tab= Tab.KrivieVB;
     public SelenideTable getTable(int choice){
         switch (tab){
             case KrivieVB:{
                if (choice==0)
-                   return new SelenideTable($(By.xpath("//*[@id='vb-curve-table']/div[1]/div[1]/div/div[1]/table")));
+                   return new SelenideTable($("#vb-curve-table").$(By.tagName("table")));
                 else
                    return new
-                           SelenideTable($(By.xpath("//*[@id='surface-curve-table']/div[1]/div[1]/div/div[1]/table")));
+                           SelenideTable($("#surface-curve-table").$(By.tagName("table")));
             }
-            case RashodCharacteristics:
-                switch (choice){
-                    case 0:{
-                        return new
-                                SelenideTable(
-                                $(By.xpath("//*[@id='ga-expense-1-table']/div[1]/div[1]/div/div[1]/table")));
-                    }
-                    case 1:{
-                        return new
-                                SelenideTable(
-                                $(By.xpath("//*[@id='ga-expense-2-table']/div[1]/div[1]/div/div[1]/table")));
-                    }
-                    case 2:{
-                        return new
-                                SelenideTable(
-                                $(By.xpath("//*[@id='ga-expense-3-table']/div[1]/div[1]/div/div[1]/table")));
-                    }
-                    case 3:{
-                        return new
-                                SelenideTable(
-                                $(By.xpath("//*[@id='ga-expense-4-table']/div[1]/div[1]/div/div[1]/table")));
-                    }
-                    case 4:{
-                        return new
-                                SelenideTable(
-                                $(By.xpath("//*[@id='ga-expense-5-table']/div[1]/div[1]/div/div[1]/table")));
-                    }
-                    case 5:{
-                        return new
-                                SelenideTable(
-                                $(By.xpath("//*[@id='ga-expense-6-table']/div[1]/div[1]/div/div[1]/table")));
-                    }
-                    case 6:{
-                        return new
-                                SelenideTable(
-                                $(By.xpath("//*[@id='ga-expense-7-table']/div[1]/div[1]/div/div[1]/table")));
-                    }
-                    case 7:{
-                        return new
-                                SelenideTable(
-                                $(By.xpath("//*[@id='ga-expense-8-table']/div[1]/div[1]/div/div[1]/table")));
-                    }
-                    case 8:{
-                        return new
-                                SelenideTable(
-                                $(By.xpath("//*[@id='ga-expense-9-table']/div[1]/div[1]/div/div[1]/table")));
-                    }
-                    case 9:{
-                        return new
-                                SelenideTable(
-                                $(By.xpath("//*[@id='ga-expense-10-table']/div[1]/div[1]/div/div[1]/table")));
-                    }
-                }
+
         }
         return null;
 
@@ -91,23 +40,32 @@ public class Characteristics {
         switch (tab){
             case KrivieNB:{
                 return new
-                        SelenideTable($(By.xpath("//*[@id='nb-curve-table']/div[1]/div[1]/div/div[1]/table")));
+                        SelenideTable($("#nb-curve-table").$(By.tagName("table")));
             }
+            case VbWinter:{
+                return new
+                        SelenideTable($("#vb-winter-table") .$(By.tagName("table")));
+            }
+            case NbWinter:{
+                return new
+                        SelenideTable($("#nb-winter-table") .$(By.tagName("table")));
+            }
+
             case PoteriNapora:{
                 return new
-                        SelenideTable($(By.xpath("//*[@id='h-losses-table']/div[1]/div[1]/div/div[1]/table")));
+                        SelenideTable($("#h-losses-table").$(By.tagName("table")));
             }
             case HidroVB:{
                 return new
-                        SelenideTable($(By.xpath("//*[@id='vb-curve-table']/div[1]/div[1]/div/div[1]/table")));
+                        SelenideTable($("#vb-curve-table").$(By.tagName("table")));
             }
             case PropuskVodosbrosa:{
                 return new
-                        SelenideTable($(By.xpath("//*[@id='spillways-table']/div[1]/div[1]/div/div[1]/table")));
+                        SelenideTable($("#spillways-table").$(By.tagName("table")));
             }
             case RashodSelfNeed:{
                 return new
-                        SelenideTable($(By.xpath("//*[@id='ownExpensesLosses']/div[1]/div[1]/div/div[1]/table")));
+                        SelenideTable($("#ownExpensesLosses").$(By.tagName("table")));
             }
             }
 

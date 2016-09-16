@@ -1,13 +1,19 @@
 package ru.dserg.autotest.page;
 
+import org.openqa.selenium.By;
+import ru.dserg.autotest.page.menuElements.LongModelSpisok;
 import ru.dserg.autotest.page.menuElements.ShortModelSpisok;
+
+import static com.codeborne.selenide.Selenide.$;
 
 /**
  * Created by Kalinin.S on 06.08.2016.
  */
 public class Menu {
 
-   private ShortModelSpisok shortModelSpisok= new ShortModelSpisok();
+
+    private ShortModelSpisok shortModelSpisok= new ShortModelSpisok();
+    private LongModelSpisok longModelSpisok = new LongModelSpisok();
 
     public  ShortModel choiceShortGes(int a){//выбор гэс
         shortModelSpisok.clickSpisok();
@@ -51,6 +57,17 @@ public class Menu {
         shortModelSpisok.optimization();
         return new OptimizationPage();
 
+    }
+
+    public LongModel longModel(){//// TODO: 15.09.2016 свитч кейс по всем станциям 
+        longModelSpisok.clickSpisok();
+        longModelSpisok.volzhskoKamskii();
+        return  new LongModel();
+        
+    }
+    public static void logOut(){
+        $("#menu").$(By.linkText("Weber")).click();
+        $("#menu").$(By.linkText("Выйти")).click();
     }
 
 }

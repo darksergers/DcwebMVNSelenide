@@ -23,7 +23,7 @@ public class LongScenario {
         tab= Tab.Results;
     }
     public void characteristics(){
-        $("#characteristics\\2f vbCurves").click();
+        $("#characteristics/vbCurves").click();
         tab = Tab.Characteristics;
     }
     public void choiceGes(int choice){

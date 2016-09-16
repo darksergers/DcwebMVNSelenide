@@ -6,6 +6,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 /**
  * Created by Kalinin.S on 18.08.2016.
+ * класс описывающий выпадающий списог с названия ГЭС
  */
 public class SpisoGES {
     private String s= "#stationSelect";

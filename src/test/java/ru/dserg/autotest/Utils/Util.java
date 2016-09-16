@@ -1,7 +1,9 @@
 package ru.dserg.autotest.Utils;
 
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -23,10 +25,14 @@ public class Util {
         return element.$(By.tagName("option"),choice);
     }
 
-    static public void choiseDate(SelenideElement element,String day,String month){
-        element.click();
-        element.sendKeys(day);
-        element.sendKeys(month);
+    static public void choiseDate(String selector,String date){
+        /**
+         * выбор даты, формат даты yyyy-mm-dd
+         */
+        JavascriptExecutor js = (JavascriptExecutor) WebDriverRunner.getWebDriver();
+        js.executeScript(
+                "document.querySelector('input"+selector+"') " + ".value='"+date+"';");
+
     }
 
 }

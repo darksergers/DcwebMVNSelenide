@@ -51,6 +51,6 @@ public class ShortModelSpisok  {
     }
     public void optimization(){
 
-        $(By.xpath("//*[@id=\'menu\']/nav/div/div[2]/ul[1]/li[2]/ul/li[9]/a")).click();
+        $("#menu").$(By.linkText("Оптимизация состава ГА")).click();
     }
 }
