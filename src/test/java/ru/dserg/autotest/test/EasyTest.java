@@ -66,7 +66,7 @@ public class EasyTest {
     }
 
 
-    
+
     @Test
     public void test1(){
         LoginPage loginPage = new LoginPage();
