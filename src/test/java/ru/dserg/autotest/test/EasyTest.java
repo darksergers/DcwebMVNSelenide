@@ -37,7 +37,7 @@ public class EasyTest {
         Menu.logOut();
     }
 
-    @Ignore
+
     @Test
     public void test(){
 
@@ -66,7 +66,7 @@ public class EasyTest {
     }
 
 
-    @Ignore
+    
     @Test
     public void test1(){
         LoginPage loginPage = new LoginPage();
