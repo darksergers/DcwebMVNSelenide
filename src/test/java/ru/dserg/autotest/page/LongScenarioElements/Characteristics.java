@@ -23,101 +23,134 @@ public class Characteristics {
     private Tab tab= Tab.KrivieVB;
     public SelenideTable getTable(int choice){
         switch (tab){
-            case KrivieVB:{
-               if (choice==0)
-                   return new SelenideTable($("#vb-curve-table").$(By.tagName("table")));
-                else
-                   return new
-                           SelenideTable($("#surface-curve-table").$(By.tagName("table")));
+            case KrivieVB: if (choice==0)return new SelenideTable($("#vb-curve-table").$(By.tagName("table")));
+                else return new SelenideTable($("#surface-curve-table").$(By.tagName("table")));
             }
 
-        }
+
         return null;
 
     }
 
-    public SelenideTable getTable(){
+    public SelenideTable getTable(){//Todo захерачить выборс спецального ексепшена "не та вкладка", хотя nullpointerexception тоже ок(не совсем)
         switch (tab){
-            case KrivieNB:{
-                return new
-                        SelenideTable($("#nb-curve-table").$(By.tagName("table")));
-            }
-            case VbWinter:{
-                return new
-                        SelenideTable($("#vb-winter-table") .$(By.tagName("table")));
-            }
-            case NbWinter:{
-                return new
-                        SelenideTable($("#nb-winter-table") .$(By.tagName("table")));
-            }
-
-            case PoteriNapora:{
-                return new
-                        SelenideTable($("#h-losses-table").$(By.tagName("table")));
-            }
-            case HidroVB:{
-                return new
-                        SelenideTable($("#vb-curve-table").$(By.tagName("table")));
-            }
-            case PropuskVodosbrosa:{
-                return new
-                        SelenideTable($("#spillways-table").$(By.tagName("table")));
-            }
-            case RashodSelfNeed:{
-                return new
-                        SelenideTable($("#ownExpensesLosses").$(By.tagName("table")));
-            }
-            }
+            case KrivieNB: return new SelenideTable($("#nb-curve-table").$(By.tagName("table")));
+            case VbWinter: return new SelenideTable($("#vb-winter-table") .$(By.tagName("table")));
+            case NbWinter: return new SelenideTable($("#nb-winter-table") .$(By.tagName("table")));
+            case PoteriNapora: return new SelenideTable($("#h-losses-table").$(By.tagName("table")));
+            case HidroVB: return new SelenideTable($("#vb-curve-table").$(By.tagName("table")));
+            case Filtration: return new SelenideTable($("#filtration-table").$(By.tagName("table")));
+            case IceLosses: return new SelenideTable($("#ice-losses-table").$(By.tagName("table")));
+            case SteamLosses: return new SelenideTable($("#steam-losses-table").$(By.tagName("table")));
+            case PropuskVodosbrosa: return new SelenideTable($("#spillways-table").$(By.tagName("table")));
+            case RashodSelfNeed: return new SelenideTable($("#ownExpensesLosses").$(By.tagName("table")));
+            case Dispgraph: return new SelenideTable($("#dg-table").$(By.tagName("table")));
+            case SeasonCorrecting: return new SelenideTable($("#season-correcting-coef").$(By.tagName("table")));
+        }
 
         return null;
     }
 
+    /**
+     * кнопка сохранить
+     */
     public void save(){
        $("#save-characteristics-button").click();
     }
+
+    /**
+     * кнопка импорт
+     */
 
     public void importCharacteristics(){
         $("#import-chars-dialog-button").click();
     }
 
+    /**
+     * переключает на вкладку Киривые вб и вносит значение в тамблицу
+     * @param choiceTable
+     * @param str
+     * @param rows
+     * @param number
+     */
+
     public void vbCurves(int choiceTable,int str,int rows,String number){
-        $("#vbCurves").click();
-        tab = Tab.KrivieVB;
-        getTable(choiceTable).typeInTable(str,rows,(choiceTable==0)?"#vb-curve-table":"#surface-curve-table"+
+        vbCurves(choiceTable).typeInTable(str,rows,(choiceTable==0)?"#vb-curve-table":"#surface-curve-table"+
                 " > div.handsontableInputHolder > textarea",number);
     }
-    public void expenseChars(int choiceTable,int str,int rows,String number){
-        $("#expenseChars").click();
-        tab = Tab.RashodCharacteristics;
-        getTable(choiceTable).
-                typeInTable(str,rows,"#ga-expense-"+(1+choiceTable)+"-table > div.handsontableInputHolder > textarea",
-                        number);
+
+    /**
+     * переключает на вкладку Киривые вб и возвращает таблицу
+     * @param choiceTable
+     * @return
+     */
+    public SelenideTable vbCurves(int choiceTable){
+        $("#vbCurves").click();
+        tab = Tab.KrivieVB;
+        return getTable(choiceTable);
     }
+    public SelenideTable vbCurves(){
+        return vbCurves(0);
+    }
+
+
     public void nbCurves(int str,int rows,String number){
+        nbCurves().typeInTable(str,rows,"#nb-curve-table > div.handsontableInputHolder > textarea",number);
+    }
+    public SelenideTable nbCurves() {
         $("#hydroNbCurve").click();
         tab = Tab.KrivieNB;
-        getTable().typeInTable(str,rows,"#nb-curve-table > div.handsontableInputHolder > textarea",number);
+        return getTable();
+    }
+    public void nbWinter(int str,int rows,String number){
+        nbWinter().typeInTable(str,rows,"#nb-winter-table > div.handsontableInputHolder > textarea",number);
 
     }
+    public SelenideTable nbWinter(){
+        $("#nbWinter").click();
+        tab = Tab.NbWinter;
+        return getTable();
+    }
     public void poteriNapora(int str,int rows,String number){
+        poteriNapora().typeInTable(str,rows,"#h-losses-table > div.handsontableInputHolder > textarea",number);
+    }
+    public SelenideTable poteriNapora(){
         $("#dhCurves").click();
         tab = Tab.PoteriNapora;
-        getTable().typeInTable(str,rows,"#h-losses-table > div.handsontableInputHolder > textarea",number);
+        return getTable();
     }
+
     public void hidroVB(int str,int rows,String number){
+        hidroVB().typeInTable(str,rows,"#vb-curve-table > div.handsontableInputHolder > textarea",number);
+    }
+    public SelenideTable hidroVB(){
         $("#hydroVbCurve").click();
         tab = Tab.HidroVB;
-        getTable().typeInTable(str,rows,"#vb-curve-table > div.handsontableInputHolder > textarea",number);
+        return getTable();
     }
     public void spillwayCapacity(int str,int rows,String number){
+        spillwayCapacity().typeInTable(str,rows,"#spillways-table > div.handsontableInputHolder > textarea",number);
+    }
+    public SelenideTable spillwayCapacity(){
         $("#spillwayCapacity").click();
         tab = Tab.PropuskVodosbrosa;
-        getTable().typeInTable(str,rows,"#spillways-table > div.handsontableInputHolder > textarea",number);
+        return getTable();
+    }
+    public void expenseChars(int str,int rows,String number){
+        expenseChars().typeInTable(str,rows,"#outflow-chars-table > div.handsontableInputHolder > textarea", number);
+    }
+    public SelenideTable expenseChars(){
+        $("#outflowChars").click();
+        tab = Tab.RashodCharacteristics;
+        return getTable();
     }
     public void ownExpensesLosses(int str,int rows,String number){
+        ownExpensesLosses().typeInTable(str,rows,"#ownExpensesLosses > div.handsontableInputHolder > textarea",number);
+    }
+    public SelenideTable ownExpensesLosses(){
         $("#ownExpensesLosses").click();
         tab = Tab.RashodSelfNeed;
-        getTable().typeInTable(str,rows,"#ownExpensesLosses > div.handsontableInputHolder > textarea",number);
+        return getTable();
     }
 
 

@@ -4,16 +4,21 @@ package ru.dserg.autotest.test;
 
 
 
-import org.junit.After;
-import org.junit.BeforeClass;
-import org.junit.Ignore;
-import org.junit.Test;
+import com.gurock.testrail.APIException;
+import com.gurock.testrail.DDtestrail;
+import org.junit.*;
 import ru.dserg.autotest.page.*;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 
+import static com.codeborne.selenide.Selenide.close;
 import static  com.codeborne.selenide.Selenide.screenshot;
 
 
@@ -22,8 +27,9 @@ import static  com.codeborne.selenide.Selenide.screenshot;
  * Created by Kalinin.S on 05.08.2016.
  */
 public class EasyTest {
-    Date d = new Date();
-    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd ");
+    static Date d = new Date();
+    static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+    private static HashMap data = new HashMap();
 
 
 
@@ -31,6 +37,9 @@ public class EasyTest {
     public static  void bfr(){
         for (File file: new File("build/reports/tests").listFiles())
             if (file.isFile()) file.delete();
+        for (int i=0;i<3;i++){
+            data.put(i,4);
+        }
     }
     @After
     public void aftr(){
@@ -38,9 +47,10 @@ public class EasyTest {
     }
 
 
+    @Ignore
     @Test
     public void test(){
-
+        data.put(0,5);
         LoginPage loginPage = new LoginPage();
         loginPage.typeUserName();
         loginPage.typePassword();
@@ -59,16 +69,20 @@ public class EasyTest {
         shortScenario.getResults().showGA();
         shortScenario.getResults().optTime(1);
         shortScenario.getResults().play();
-        shortScenario.back();
         screenshot("Ololo1");
+        shortScenario.back();
+        data.put(0,1);
 
 
     }
 
 
 
+
+    @Ignore
     @Test
     public void test1(){
+        data.put(2,5);
         LoginPage loginPage = new LoginPage();
         loginPage.typeUserName();
         loginPage.typePassword();
@@ -77,13 +91,15 @@ public class EasyTest {
         optimizationPage.select(14);
         optimizationPage.show();
         screenshot("Ololo2");
+        data.put(2,1);
 
 
     }
 
-    @Ignore
+
     @Test
     public void test3(){
+        data.put(1,5);
         LoginPage loginPage = new LoginPage();
         loginPage.typeUserName();
         loginPage.typePassword();
@@ -96,9 +112,25 @@ public class EasyTest {
         longModel.getCreate().endDateCalculation("2015-09-25");
         LongScenario longScenario = longModel.getCreate().create();
         longScenario.characteristics();
-        screenshot("Ololo3");
-    }
 
+        screenshot("Ololo3");
+        data.put(1,1);
+    }
+    @AfterClass
+    public static void testrail() throws IOException, APIException {//TODO перемещение фалов на сетевой диск,сохранить адреса в массив, добавить к коментам в тестрейл ссылки на файл
+        close();
+        File myPath = new File("S:/Topics/ДРСК/Тестирование/DcWebScreenshot/Мониторинг"+format.format(d));
+        myPath.mkdir();
+        for (File file: new File("build/reports/tests").listFiles())
+            if (file.isFile()) copy(file, Paths.get("S:/Topics/ДРСК/Тестирование/DcWebScreenshot/Мониторинг"+format.format(d)+"/"+file.getName()));
+
+        DDtestrail testrail= new DDtestrail(58,2537);
+        testrail.completeTest(data,"Мониторинг"+format.format(d));
+
+    }
+    public static void copy(File source, Path dest) throws IOException {
+        Files.copy(source.toPath(), dest);
+    }
 
 
 }

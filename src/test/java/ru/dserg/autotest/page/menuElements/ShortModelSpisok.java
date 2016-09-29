@@ -17,11 +17,11 @@ public class ShortModelSpisok  {
 
 
     public void clickSpisok(){
-       $(By.xpath("//*[@id=\'menu\']/nav/div/div[2]/ul[1]/li[2]/a")).click();
+        $("#menu").$(By.partialLinkText("Краткосрочная модель")).click();
     }
 
     public void cheboxGES(){
-        $(By.xpath("//*[@id=\'menu\']/nav/div/div[2]/ul[1]/li[2]/ul/li[1]/a")).click();
+        $("#menu").$(By.linkText("Чебоксарская ГЭС")).click();
 
     }
 

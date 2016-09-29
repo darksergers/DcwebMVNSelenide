@@ -1,5 +1,6 @@
 package ru.dserg.autotest.page;
 
+import org.openqa.selenium.By;
 import ru.dserg.autotest.page.LongModelElements.SpisoGES;
 import ru.dserg.autotest.page.LongScenarioElements.Characteristics;
 
@@ -23,9 +24,14 @@ public class LongScenario {
         tab= Tab.Results;
     }
     public void characteristics(){
-        $("#characteristics/vbCurves").click();
+        $(By.xpath("//*[@id=\"main-content\"]/div/div[1]/div[1]/div[1]/div/label[2]")).click();
         tab = Tab.Characteristics;
     }
+
+    public Characteristics getCharacteristics() {
+        return(tab==Tab.Characteristics)? characteristics:null;
+    }
+
     public void choiceGes(int choice){
         spisoGES.click();
         spisoGES.choice(choice);
