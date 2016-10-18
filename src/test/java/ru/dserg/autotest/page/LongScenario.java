@@ -1,8 +1,12 @@
 package ru.dserg.autotest.page;
 
+import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import ru.dserg.autotest.page.LongModelElements.SpisoGES;
 import ru.dserg.autotest.page.LongScenarioElements.Characteristics;
+import ru.dserg.autotest.page.LongScenarioElements.Remont;
+import ru.dserg.autotest.page.LongScenarioElements.Results;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -16,11 +20,13 @@ public class LongScenario {
     private Tab tab= Tab.Results;
     private SpisoGES spisoGES= new SpisoGES();
     private Characteristics characteristics = new Characteristics();
+    private Remont remont = new Remont();
+    private Results results = new Results();
 
 
 
     public void results(){
-        $("#results").click();
+        $("#results").parent().click();
         tab= Tab.Results;
     }
     public void characteristics(){
@@ -33,10 +39,30 @@ public class LongScenario {
     }
 
     public void choiceGes(int choice){
-        spisoGES.click();
         spisoGES.choice(choice);
     }
 
+    public Results getResults() {
+        return (tab==Tab.Results)? results: null;
+    }
+    public void pnotifyClose(){
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        JavascriptExecutor js = (JavascriptExecutor) WebDriverRunner.getWebDriver();
+        js.executeScript("document.body.removeChild(document.body.children[4]);");
 
+    }
+    public void remont(){
+        $("#repairs").parent().click();
+        tab = Tab.Remont;
+
+    }
+
+    public Remont getRemont() {
+        return remont;
+    }
 
 }

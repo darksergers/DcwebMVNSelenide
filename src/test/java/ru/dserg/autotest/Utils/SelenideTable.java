@@ -28,7 +28,8 @@ public class SelenideTable {
         JavascriptExecutor js = (JavascriptExecutor) WebDriverRunner.getWebDriver();
         js.executeScript(
                 "var textarea= document.querySelector('"+query+"') ;"+
-                        "textarea.value="+number+";");
+                        "textarea.value="+number+";");//если исполюзуется дробное число через запятую/текст требуется' '
+        //либо через точку так как передается напрямую без ковычек
         choiceTr(str, rows).pressEnter();
 
     }

@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
  */
 public class Remont {
     private SelenideTable table =
-            new SelenideTable($(By.xpath("//*[@id=\"RepairsTable\"]/div[1]/div[1]/div/div[1]/table")));
+            new SelenideTable($("#RepairsTable").$(By.tagName("table")));
 
     public  void loadFromREO(){
         $("#loadFromREO").click();
@@ -26,7 +26,7 @@ public class Remont {
     public void save(){
         $("#saveRepairs").click();
     }
-    public void changeTable(int str,int row,String number){//внести значение в ячейку пргнз подпора
+    public void typeInTable(int str,int row,String number){//внести значение в ячейку пргнз подпора
         table.typeInTable(str, row,"#RepairsTable > div.handsontableInputHolder > textarea",number);
     }
 

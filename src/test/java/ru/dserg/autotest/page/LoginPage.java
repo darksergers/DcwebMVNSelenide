@@ -15,7 +15,7 @@ public class LoginPage {
     }
 
     public LoginPage() {
-        open("http://dc-web.vdrsk.digdes.com/");
+        open("http://dc-web.vdrsk.digdes.com");
     }
 
 

@@ -65,6 +65,11 @@ public class Menu {
         return  new LongModel();
         
     }
+    public OtchetRashodaGESPage  otchetRashodaGESPage(){
+        $("#menu").$(By.linkText("Отчёты")).click();
+        $("#menu").$(By.linkText("Отчёт расхода ГЭС")).click();
+        return new OtchetRashodaGESPage();
+    }
     public static void logOut(){
         $("#menu").$(By.linkText("Weber")).click();
         $("#menu").$(By.linkText("Выйти")).click();

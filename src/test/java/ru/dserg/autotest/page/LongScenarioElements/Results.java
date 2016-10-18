@@ -1,6 +1,8 @@
 package ru.dserg.autotest.page.LongScenarioElements;
 
+import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import ru.dserg.autotest.Utils.SelenideTable;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -9,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$;
  * Created by Kalinin.S on 11.08.2016.
  */
 public class Results {
-    SelenideTable table= new SelenideTable($(By.xpath("//*[@id='results-table']/div[1]/div[2]/div/div/div[1]/table")));
+    SelenideTable table= new SelenideTable($("#results-table").$(By.tagName("table")));
 
     public void play(){
         $("#calculate-button").click();
@@ -27,6 +29,19 @@ public class Results {
     public void checkLimits(){
         $("#use-limits").click();
     }
+    public void typeInTable(int str,int rows,String number){
+        table.typeInTable(str,rows,"#results-table > div.handsontableInputHolder > textarea",number);
+    }
+    public void choiceDg(int str){
+        table.choiceTr(str, 21).doubleClick();
+        table.choiceTr(str, 21).click();
+        SelenideTable tableChoice= new SelenideTable($(By.className("handsontableEditor")).$(By.tagName("table")));
+        tableChoice.choiceTr(1,0).click();
+
+
+
+    }
+
 
 
 }

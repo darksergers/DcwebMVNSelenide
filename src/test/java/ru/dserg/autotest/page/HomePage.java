@@ -19,6 +19,8 @@ public class HomePage {
     public LongModel longModel(){
         return menu.longModel();
     }
-
+public OtchetRashodaGESPage otchetRashodaGESPage(){
+    return menu.otchetRashodaGESPage();
+}
 
 }

@@ -1,5 +1,9 @@
 package ru.dserg.autotest.page.LongModelElements;
 
+import com.codeborne.selenide.WebDriverRunner;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import ru.dserg.autotest.Utils.SelenideTable;
 import ru.dserg.autotest.Utils.Util;
 import ru.dserg.autotest.page.LongScenario;
 
@@ -74,6 +78,23 @@ public class Create {
     public LongScenario create(){
         $("#edit-scenario-button").click();
         return new LongScenario();
+    }
+    public void granularity(String granularity){//// TODO доделать
+        SelenideTable table= new SelenideTable($("#granularity-table").$(By.tagName("table")));
+
+        for (int i=0;i<12;i++) {
+            table.choiceTr(i, 1).doubleClick();
+            table.choiceTr(i, 1).click();
+            JavascriptExecutor js = (JavascriptExecutor) WebDriverRunner.getWebDriver();
+            js.executeScript(
+                    "var textarea= document.querySelector('#granularity-table > div:nth-child(2) > textarea') ;" +
+                            "textarea.value='"+granularity+"';");
+            $("#granularity-table > div:nth-child(2) > textarea").click();
+            $("#scenarioName").click();
+        }
+
+
+
     }
 
 }
