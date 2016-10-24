@@ -7,6 +7,7 @@ package ru.dserg.autotest.test;
 import com.gurock.testrail.APIException;
 import com.gurock.testrail.DDtestrail;
 import org.junit.*;
+import ru.dserg.autotest.Utils.Util;
 import ru.dserg.autotest.page.*;
 
 import java.io.File;
@@ -28,7 +29,7 @@ import static  com.codeborne.selenide.Selenide.screenshot;
  */
 public class EasyTest {
     static Date d = new Date();
-    static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+    static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-hh-mm");
     private static HashMap data = new HashMap();
 
 
@@ -47,9 +48,9 @@ public class EasyTest {
     }
 
 
-    @Ignore
+
     @Test
-    public void test(){
+    public void test() throws Exception {
         data.put(0,5);
         LoginPage loginPage = new LoginPage();
         loginPage.typeUserName();
@@ -63,12 +64,15 @@ public class EasyTest {
         //shortScenario.getMain().changeTablePritok(0,1,"5");
         shortScenario.getMain().save();
         shortScenario.meteo();
+        Util.pnotifyClose();
         shortScenario.condition();
+        Util.pnotifyClose();
         shortScenario.getCondition().editTable(4,4,"ХР");
         shortScenario.result();
         shortScenario.getResults().showGA();
         shortScenario.getResults().optTime(1);
         shortScenario.getResults().play();
+        Util.pnotifyClose();
         screenshot("Ololo1");
         shortScenario.back();
         data.put(0,1);
@@ -79,9 +83,9 @@ public class EasyTest {
 
 
 
-    @Ignore
+
     @Test
-    public void test1(){
+    public void test1() throws Exception {
         data.put(2,5);
         LoginPage loginPage = new LoginPage();
         loginPage.typeUserName();
@@ -98,7 +102,7 @@ public class EasyTest {
 
 
     @Test
-    public void test3(){
+    public void test3() throws Exception {
         data.put(1,5);
         LoginPage loginPage = new LoginPage();
         loginPage.typeUserName();
@@ -112,17 +116,17 @@ public class EasyTest {
         longModel.getCreate().endDateCalculation("2015-09-25");
         LongScenario longScenario = longModel.getCreate().create();
         longScenario.characteristics();
-
+        Util.pnotifyClose();
         screenshot("Ololo3");
         data.put(1,1);
     }
-    @AfterClass
+   @AfterClass
     public static void testrail() throws IOException, APIException {//TODO перемещение фалов на сетевой диск,сохранить адреса в массив, добавить к коментам в тестрейл ссылки на файл
         close();
-        File myPath = new File("S:/Topics/ДРСК/Тестирование/DcWebScreenshot/Мониторинг"+format.format(d));
-        myPath.mkdir();
-        for (File file: new File("build/reports/tests").listFiles())
-            if (file.isFile()) copy(file, Paths.get("S:/Topics/ДРСК/Тестирование/DcWebScreenshot/Мониторинг"+format.format(d)+"/"+file.getName()));
+        //File myPath = new File("S:/Topics/ДРСК/Тестирование/DcWebScreenshot/Мониторинг"+format.format(d));
+        //myPath.mkdir();
+        //for (File file: new File("build/reports/tests").listFiles())
+         //   if (file.isFile()) copy(file, Paths.get("S:/Topics/ДРСК/Тестирование/DcWebScreenshot/Мониторинг"+format.format(d)+"/"+file.getName()));
 
         DDtestrail testrail= new DDtestrail(58,2537);
         testrail.completeTest(data,"Мониторинг"+format.format(d));

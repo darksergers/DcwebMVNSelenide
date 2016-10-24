@@ -44,7 +44,14 @@ public class Util {
 
             throw new Exception("pnotify exception:"+i.$(By.className("ui-pnotify-text")).getText());
         }
+
         }
+
+    }
+    static public void pnotifyClose(){
+
+        JavascriptExecutor js = (JavascriptExecutor) WebDriverRunner.getWebDriver();
+        js.executeScript("document.body.removeChild(document.getElementsByClassName(\"ui-pnotify\")[0]);");
 
     }
 

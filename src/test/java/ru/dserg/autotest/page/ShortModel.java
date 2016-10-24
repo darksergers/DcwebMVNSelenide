@@ -22,8 +22,9 @@ public class ShortModel {
             $("#scenarioName").setValue(text );
         }
     }
-    public ShortScenario createScenario(){
+    public ShortScenario createScenario() throws Exception {
         $("#createScenario").click();
+        Util.findError();
         return new ShortScenario();
     }
     public void  time(){

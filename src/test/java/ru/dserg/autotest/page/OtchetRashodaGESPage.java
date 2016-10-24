@@ -13,7 +13,8 @@ public class OtchetRashodaGESPage {
 
     public void listStation(int choice){
         $("#stationNameSelectedForm").click();
-        Util.selectSelelector($("#stationNameSelectedForm"),choice). doubleClick();
+        Util.selectSelelector($("#stationNameSelectedForm"),choice). click();
+
 
     }
     public void date(String date){

@@ -1,6 +1,7 @@
 package ru.dserg.autotest.page;
 
 import org.openqa.selenium.By;
+import ru.dserg.autotest.Utils.Util;
 import ru.dserg.autotest.page.ShortScenarioElements.*;
 
 
@@ -28,16 +29,18 @@ public class ShortScenario {
     }
     private Tab tab=Tab.Main;
 
-    public  void   result(){
+    public  void   result() throws Exception {
         $(By.xpath("//*[@id=\'main-content\']/div/div/div[1]/div/div/label[6]")).click();
         tab= Tab.Results;
+        Util.findError();
     }
 
     /*public  void play(){
         $("#start-calculation").click();
     }*/
-    public void back(){
+    public void back() throws Exception {
         $(By.xpath("//*[@id=\'main-content\']/div/div/div[1]/div/div/label[1]")).click();
+        Util.findError();
     }
 
     public Main getMain(){
@@ -52,21 +55,25 @@ public class ShortScenario {
         if (tab==Tab.Meteo)return meteo;
         return null;
     }
-    public Results getResults(){
+    public Results getResults() throws Exception {
         if (tab==Tab.Results)return results;
         return null;
+
     }
-    public void  main(){
+    public void  main() throws Exception {
         $(By.xpath("//*[@id=\'main-content\']/div/div/div[1]/div/div/label[2]")).click();
         tab=Tab.Main;
+        Util.findError();
     }
-    public void meteo(){
+    public void meteo() throws Exception {
      $(By.xpath("//*[@id=\'main-content\']/div/div/div[1]/div/div/label[3]")).click();
         tab=Tab.Meteo;
+        Util.findError();
     }
-    public void condition(){
+    public void condition() throws Exception {
         $(By.xpath("//*[@id=\'main-content\']/div/div/div[1]/div/div/label[4]")).click();
         tab=Tab.Condition;
+        Util.findError();
     }
 
 }

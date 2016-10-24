@@ -14,7 +14,7 @@ import static org.junit.Assert.fail;
 /**
  * Created by Kalinin.S on 27.09.2016.
  */
-
+@Ignore
 public class MediumTermTest {
 
     static Date d = new Date();
@@ -29,6 +29,7 @@ public class MediumTermTest {
         loginPage.typePassword();
         HomePage homePage = loginPage.login();
         LongModel longModel = homePage.longModel();
+        Util.findError();
         longModel.create();
         longModel.getCreate().beginDatePritok("2015-09-05");
         longModel.getCreate().beginDateCalculation("2015-09-15");
@@ -36,24 +37,28 @@ public class MediumTermTest {
         longModel.getCreate().granularity("месяц");
         longModel.getCreate().name("Granularity"+granularity+format.format(d));
         longModel.getCreate().create();
-        Thread.sleep(5000);
         Util.findError();
+        Util.pnotifyClose();
     }
 
-    @Ignore
+
+
+
     @Test
-    public void testCharacteristicsIsAvailable(){
+    public void testCharacteristicsIsAvailable() throws Exception {
         LoginPage loginPage = new LoginPage();
         loginPage.typeUserName();
         loginPage.typePassword();
         HomePage homePage = loginPage.login();
         LongModel longModel = homePage.longModel();
+        Util.findError();
         longModel.create();
         longModel.getCreate().name("CharacteristicsIsAvailable"+format.format(d));
         longModel.getCreate().beginDatePritok("2015-09-05");
         longModel.getCreate().beginDateCalculation("2015-09-15");
         longModel.getCreate().endDateCalculation("2015-09-25");
         LongScenario longScenario = longModel.getCreate().create();
+        Util.pnotifyClose();
         longScenario.characteristics();
         longScenario.getCharacteristics().vbCurves(0);
         longScenario.getCharacteristics().nbCurves();
@@ -62,28 +67,33 @@ public class MediumTermTest {
         longScenario.getCharacteristics().spillwayCapacity();
         longScenario.getCharacteristics().ownExpensesLosses();
         longScenario.getCharacteristics().expenseChars();
+        Util.findError();
     }
 
 
-    @Ignore
+
+
     @Test
     public void testGranularityMonth() throws Exception {
         granularity("Месяц");
 
     }
-    @Ignore
+
+
     @Test
     public void testGranularityPentada() throws Exception {
         granularity("Пентада");
     }
-    @Ignore
+
+
     @Test
     public void testGranularityDecada() throws Exception {
         granularity("Декада");
     }
-    @Ignore
+
+
     @Test
-    public void testHoldMode(){
+    public void testHoldMode() throws Exception {
         LoginPage loginPage = new LoginPage();
         loginPage.typeUserName();
         loginPage.typePassword();
@@ -106,9 +116,10 @@ public class MediumTermTest {
 
 
     }
-    @Ignore
+
+
     @Test
-    public void testRemont(){
+    public void testRemont() throws Exception {
         LoginPage loginPage = new LoginPage();
         loginPage.typeUserName();
         loginPage.typePassword();
@@ -133,8 +144,9 @@ public class MediumTermTest {
 
     }
 
+
     @Test
-    public void test(){
+    public void test() throws Exception {
         LoginPage loginPage = new LoginPage();
         loginPage.typeUserName();
         loginPage.typePassword();

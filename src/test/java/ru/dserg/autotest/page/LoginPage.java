@@ -1,6 +1,8 @@
 package ru.dserg.autotest.page;
 
+import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.By;
+import ru.dserg.autotest.Utils.Util;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -24,8 +26,9 @@ public class LoginPage {
         $(By.name("Password")).setValue("Weber");
     }
 
-public HomePage login(){
+public HomePage login() throws Exception {
 $(By.xpath("//*[@id=\'main\']/form/div/fieldset/p/input")).click();
+    Util.findError();
     return new HomePage();
 }
 
