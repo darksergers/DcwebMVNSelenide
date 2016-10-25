@@ -74,5 +74,9 @@ public class Menu {
         $("#menu").$(By.linkText("Weber")).click();
         $("#menu").$(By.linkText("Выйти")).click();
     }
+    public static void logOutWithExceptiom(){
+        $("#menu").$(By.linkText("Выйти")).click();
+    }
+
 
 }

@@ -44,7 +44,13 @@ public class EasyTest {
     }
     @After
     public void aftr(){
-        Menu.logOut();
+        Util.pnotifyClose();
+        try {
+            Menu.logOut();
+        }catch (Error  e){
+            Util.pnotifyClose();
+            Menu.logOutWithExceptiom();
+        }
     }
 
 
@@ -72,7 +78,6 @@ public class EasyTest {
         shortScenario.getResults().showGA();
         shortScenario.getResults().optTime(1);
         shortScenario.getResults().play();
-        Util.pnotifyClose();
         screenshot("Ololo1");
         shortScenario.back();
         data.put(0,1);
@@ -116,12 +121,11 @@ public class EasyTest {
         longModel.getCreate().endDateCalculation("2015-09-25");
         LongScenario longScenario = longModel.getCreate().create();
         longScenario.characteristics();
-        Util.pnotifyClose();
         screenshot("Ololo3");
         data.put(1,1);
     }
-   @AfterClass
-    public static void testrail() throws IOException, APIException {//TODO перемещение фалов на сетевой диск,сохранить адреса в массив, добавить к коментам в тестрейл ссылки на файл
+  /* @AfterClass
+    public static void testrail() throws IOException, APIException {
         close();
         //File myPath = new File("S:/Topics/ДРСК/Тестирование/DcWebScreenshot/Мониторинг"+format.format(d));
         //myPath.mkdir();
@@ -131,7 +135,7 @@ public class EasyTest {
         DDtestrail testrail= new DDtestrail(58,2537);
         testrail.completeTest(data,"Мониторинг"+format.format(d));
 
-    }
+    }*/
     public static void copy(File source, Path dest) throws IOException {
         Files.copy(source.toPath(), dest);
     }

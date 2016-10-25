@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class LongModelSpisok {
 
     public void  clickSpisok(){
-        $("#menu").$(By.linkText("Среднесрочная модель")).click();
+        $("#menu").$(By.partialLinkText("Среднесрочная модель")).click();
     }
     public void  angaroEnisei(){
         $("#menu").$(By.linkText("Ангаро-Енисейский каскад")).click();

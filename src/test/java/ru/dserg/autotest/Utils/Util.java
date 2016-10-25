@@ -51,7 +51,10 @@ public class Util {
     static public void pnotifyClose(){
 
         JavascriptExecutor js = (JavascriptExecutor) WebDriverRunner.getWebDriver();
-        js.executeScript("document.body.removeChild(document.getElementsByClassName(\"ui-pnotify\")[0]);");
+        js.executeScript("var a = document.getElementsByClassName(\"ui-pnotify\");" +
+                "for (var i = a.length-1 ;i >= 0; i--){" +
+                "document.body.removeChild(a[i]);" +
+                "}");
 
     }
 
