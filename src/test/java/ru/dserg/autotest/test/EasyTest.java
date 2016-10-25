@@ -124,7 +124,7 @@ public class EasyTest {
         screenshot("Ololo3");
         data.put(1,1);
     }
-  /* @AfterClass
+   @AfterClass
     public static void testrail() throws IOException, APIException {
         close();
         //File myPath = new File("S:/Topics/ДРСК/Тестирование/DcWebScreenshot/Мониторинг"+format.format(d));
@@ -135,7 +135,7 @@ public class EasyTest {
         DDtestrail testrail= new DDtestrail(58,2537);
         testrail.completeTest(data,"Мониторинг"+format.format(d));
 
-    }*/
+    }
     public static void copy(File source, Path dest) throws IOException {
         Files.copy(source.toPath(), dest);
     }
