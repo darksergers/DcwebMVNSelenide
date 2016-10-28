@@ -22,7 +22,6 @@
 
       <configuration>
         <systemPropertyVariables>
-          <webdriver.chrome.driver>C:\tools\chromedriver.exe</webdriver.chrome.driver>
           <browser>chrome</browser>
         </systemPropertyVariables>
       </configuration>
