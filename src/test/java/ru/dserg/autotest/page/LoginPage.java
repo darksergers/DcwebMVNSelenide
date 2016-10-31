@@ -11,15 +11,15 @@ import static com.codeborne.selenide.Selenide.open;
  * Created by Kalinin.S on 05.08.2016.
  */
 public class LoginPage {
-    private boolean isFirst;
+
     public void typeUserName() {
        $(By.name("UserName")).setValue("Weber");
     }
 
     public LoginPage() {
-        open("http://dc-web.vdrsk.digdes.com");
+        open(Configuration.baseUrl);
     }
-
+//-Dwebdriver.chrome.driver=C:\tools\chromedriver.exe -Dselenide.baseUrl=http://dc-web.vdrsk.digdes.com
 
 
     public void typePassword(){
