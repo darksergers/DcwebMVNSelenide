@@ -1,5 +1,7 @@
 package ru.dserg.autotest.page.ShortScenarioElements;
 
+import com.codeborne.selenide.*;
+import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 import ru.dserg.autotest.Utils.SelenideTable;
 import ru.dserg.autotest.Utils.Util;
@@ -17,10 +19,6 @@ public class Main {//описывает главную вкладку
 
     public void changeTablePritok(int str, int rows,String number) {//внести значение в ячейку пргнз притока
         tablePritok.typeInTable(str, rows,"#inflow-table > div.handsontableInputHolder > textarea",number);
-         try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {}
-
     }
 
 
@@ -41,6 +39,7 @@ public class Main {//описывает главную вкладку
         $("#backwater-refresh").click();
     }
     public void save(){//кнопка сохранить
+        $("#save-button").waitUntil(Condition.visible,30000);
         $("#save-button").click();
     }
     public void select(int select){//выбрать суточные или часовые значения

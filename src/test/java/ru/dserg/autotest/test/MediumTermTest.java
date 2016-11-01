@@ -17,7 +17,7 @@ import static org.junit.Assert.fail;
 /**
  * Created by Kalinin.S on 27.09.2016.
  */
-
+@Ignore
 public class MediumTermTest {
 
     static Date d = new Date();
