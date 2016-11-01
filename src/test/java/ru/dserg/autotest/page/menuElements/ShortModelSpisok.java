@@ -1,6 +1,7 @@
 package ru.dserg.autotest.page.menuElements;
 
 
+import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 
 
@@ -17,6 +18,7 @@ public class ShortModelSpisok  {
 
 
     public void clickSpisok(){
+        //$("#menu").$(By.partialLinkText("Краткосрочная модель")).waitUntil(Condition.visible,30000);
         $("#menu").$(By.partialLinkText("Краткосрочная модель")).click();
     }
 

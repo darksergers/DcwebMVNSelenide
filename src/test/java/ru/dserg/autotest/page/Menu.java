@@ -16,6 +16,7 @@ public class Menu {
     private LongModelSpisok longModelSpisok = new LongModelSpisok();
 
     public  ShortModel choiceShortGes(int a){//выбор гэс
+
         shortModelSpisok.clickSpisok();
         switch (a){
             case 1:  {

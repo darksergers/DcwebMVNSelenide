@@ -23,8 +23,10 @@
       <configuration>
         <systemPropertyVariables>
           <browser>chrome</browser>
+          <timeout>30000</timeout>
         </systemPropertyVariables>
       </configuration>
+
     </plugin>
 
     </plugins>
