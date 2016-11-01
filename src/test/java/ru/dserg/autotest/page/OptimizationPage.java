@@ -1,5 +1,6 @@
 package ru.dserg.autotest.page;
 
+import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 import ru.dserg.autotest.Utils.SelenideTable;
 import ru.dserg.autotest.Utils.Util;
@@ -15,6 +16,7 @@ public class OptimizationPage {
             new SelenideTable($(By.xpath("//*[@id='results-table']/div[1]/div[1]/div/div[1]/table")));
     public void show(){
         $("#show-results").click();
+        $("#results-table").waitUntil(Condition.visible,30000);
         isShow=true;
     }
     public void select(int choice){
