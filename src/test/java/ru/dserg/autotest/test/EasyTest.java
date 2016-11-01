@@ -90,7 +90,7 @@ public class EasyTest {
 
 
 
-
+    @Ignore
     @Test
     public void test1() throws Exception {
         data.put(2,5);
@@ -107,7 +107,7 @@ public class EasyTest {
 
     }
 
-    @Ignore
+
     @Test
     public void test3() throws Exception {
         data.put(1,5);

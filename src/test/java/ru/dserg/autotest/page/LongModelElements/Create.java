@@ -1,5 +1,6 @@
 package ru.dserg.autotest.page.LongModelElements;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -77,6 +78,7 @@ public class Create {
      */
     public LongScenario create(){
         $("#edit-scenario-button").click();
+        $("#results-table").waitUntil(Condition.visible,30000);
         return new LongScenario();
     }
     public void granularity(String granularity){//// TODO доделать
