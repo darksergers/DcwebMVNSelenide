@@ -55,7 +55,7 @@ public class EasyTest {
     }
 
 
-
+    @Ignore
     @Test
     public void test() throws Exception {
         data.put(0,5);
@@ -90,7 +90,7 @@ public class EasyTest {
 
 
 
-    @Ignore
+
     @Test
     public void test1() throws Exception {
         data.put(2,5);
