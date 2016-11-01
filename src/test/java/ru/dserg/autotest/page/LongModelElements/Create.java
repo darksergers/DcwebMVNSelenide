@@ -78,7 +78,7 @@ public class Create {
      */
     public LongScenario create(){
         $("#edit-scenario-button").click();
-        $("#results-table").waitUntil(Condition.visible,30000);
+        $("#results-table").waitUntil(Condition.visible,60000);
         return new LongScenario();
     }
     public void granularity(String granularity){//// TODO доделать
