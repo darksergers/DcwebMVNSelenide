@@ -28,6 +28,7 @@ import static  com.codeborne.selenide.Selenide.screenshot;
 /**
  * Created by Kalinin.S on 05.08.2016.
  */
+    @Ignore
 public class EasyTest {
     static Date d = new Date();
     static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-hh-mm");
@@ -55,7 +56,7 @@ public class EasyTest {
     }
 
 
-    @Ignore
+
     @Test
     public void test() throws Exception {
         data.put(0,5);
@@ -90,7 +91,7 @@ public class EasyTest {
 
 
 
-    @Ignore
+
     @Test
     public void test1() throws Exception {
         data.put(2,5);
