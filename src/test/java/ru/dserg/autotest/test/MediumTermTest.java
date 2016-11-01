@@ -1,5 +1,6 @@
 package ru.dserg.autotest.test;
 
+import com.codeborne.selenide.Configuration;
 import com.gurock.testrail.APIException;
 import com.gurock.testrail.DDtestrail;
 import org.junit.*;
@@ -57,6 +58,7 @@ public class MediumTermTest {
 
 
 
+    @Ignore
     @Test
     public void testCharacteristicsIsAvailable() throws Exception {
         data.put(0,5);
@@ -88,6 +90,7 @@ public class MediumTermTest {
 
 
 
+    @Ignore
     @Test
     public void testGranularityMonth() throws Exception {
         data.put(1,5);
@@ -97,6 +100,7 @@ public class MediumTermTest {
     }
 
 
+    @Ignore
     @Test
     public void testGranularityPentada() throws Exception {
         data.put(2,5);
@@ -105,6 +109,7 @@ public class MediumTermTest {
     }
 
 
+    @Ignore
     @Test
     public void testGranularityDecada() throws Exception {
         data.put(3,5);
@@ -112,7 +117,7 @@ public class MediumTermTest {
         data.put(3,1);
     }
 
-
+    
     @Test
     public void testHoldMode() throws Exception {
         data.put(4,5);
@@ -141,6 +146,7 @@ public class MediumTermTest {
     }
 
 
+    @Ignore
     @Test
     public void testRemont() throws Exception {
         data.put(5,5);
@@ -182,9 +188,10 @@ public class MediumTermTest {
         //for (File file: new File("build/reports/tests").listFiles())
         //   if (file.isFile()) copy(file, Paths.get("S:/Topics/ДРСК/Тестирование/DcWebScreenshot/Мониторинг"+format.format(d)+"/"+file.getName()));
 
-        DDtestrail testrail= new DDtestrail(58,2544);
-        testrail.completeTest(data,"Среднесрочка"+format.format(d));
-
+        if(Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com")) {
+            DDtestrail testrail = new DDtestrail(58, 2544);
+            testrail.completeTest(data, "Среднесрочка" + format.format(d));
+        }
     }
 
     /*@Test

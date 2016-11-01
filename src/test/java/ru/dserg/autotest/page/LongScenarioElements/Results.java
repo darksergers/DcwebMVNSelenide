@@ -1,5 +1,6 @@
 package ru.dserg.autotest.page.LongScenarioElements;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -35,6 +36,7 @@ public class Results {
     public void choiceDg(int str){
         table.choiceTr(str, 21).doubleClick();
         table.choiceTr(str, 21).click();
+        $(By.className("handsontableEditor")).waitUntil(Condition.visible,30000);
         SelenideTable tableChoice= new SelenideTable($(By.className("handsontableEditor")).$(By.tagName("table")));
         tableChoice.choiceTr(1,0).click();
 
