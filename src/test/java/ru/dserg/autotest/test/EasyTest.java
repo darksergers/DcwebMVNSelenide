@@ -28,7 +28,7 @@ import static  com.codeborne.selenide.Selenide.screenshot;
 /**
  * Created by Kalinin.S on 05.08.2016.
  */
-    @Ignore
+    
 public class EasyTest {
     static Date d = new Date();
     static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-hh-mm");

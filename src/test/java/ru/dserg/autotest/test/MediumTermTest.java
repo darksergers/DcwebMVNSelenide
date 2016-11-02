@@ -7,6 +7,7 @@ import org.junit.*;
 import ru.dserg.autotest.Utils.Util;
 import ru.dserg.autotest.page.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -58,7 +59,7 @@ public class MediumTermTest {
 
 
 
-    @Ignore
+
     @Test
     public void testCharacteristicsIsAvailable() throws Exception {
         data.put(0,5);
@@ -90,7 +91,7 @@ public class MediumTermTest {
 
 
 
-    @Ignore
+
     @Test
     public void testGranularityMonth() throws Exception {
         data.put(1,5);
@@ -100,7 +101,7 @@ public class MediumTermTest {
     }
 
 
-    @Ignore
+
     @Test
     public void testGranularityPentada() throws Exception {
         data.put(2,5);
@@ -109,7 +110,7 @@ public class MediumTermTest {
     }
 
 
-    @Ignore
+
     @Test
     public void testGranularityDecada() throws Exception {
         data.put(3,5);
@@ -117,7 +118,7 @@ public class MediumTermTest {
         data.put(3,1);
     }
 
-    
+
     @Test
     public void testHoldMode() throws Exception {
         data.put(4,5);
@@ -146,7 +147,7 @@ public class MediumTermTest {
     }
 
 
-    @Ignore
+
     @Test
     public void testRemont() throws Exception {
         data.put(5,5);
@@ -192,6 +193,7 @@ public class MediumTermTest {
             DDtestrail testrail = new DDtestrail(58, 2544);
             testrail.completeTest(data, "Среднесрочка" + format.format(d));
         }
+
     }
 
     /*@Test
