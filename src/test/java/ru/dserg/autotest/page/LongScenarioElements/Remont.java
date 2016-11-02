@@ -1,5 +1,6 @@
 package ru.dserg.autotest.page.LongScenarioElements;
 
+import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 import ru.dserg.autotest.Utils.SelenideTable;
 
@@ -27,6 +28,7 @@ public class Remont {
         $("#saveRepairs").click();
     }
     public void typeInTable(int str,int row,String number){//внести значение в ячейку пргнз подпора
+        $("#RepairsTable").waitUntil(Condition.visible,30000);
         table.typeInTable(str, row,"#RepairsTable > div.handsontableInputHolder > textarea",number);
     }
 
