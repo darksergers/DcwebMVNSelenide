@@ -58,7 +58,7 @@ public class EasyTest {
 
 
     @Test
-    public void test() throws Exception {
+    public void testKratkosrochka() throws Exception {
         data.put(0,5);
         LoginPage loginPage = new LoginPage();
         loginPage.typeUserName();
@@ -93,7 +93,7 @@ public class EasyTest {
 
 
     @Test
-    public void test1() throws Exception {
+    public void testOptimization() throws Exception {
         data.put(2,5);
         LoginPage loginPage = new LoginPage();
         loginPage.typeUserName();
@@ -110,7 +110,7 @@ public class EasyTest {
 
 
     @Test
-    public void test3() throws Exception {
+    public void testSrednesrochka() throws Exception {
         data.put(1,5);
         LoginPage loginPage = new LoginPage();
         loginPage.typeUserName();

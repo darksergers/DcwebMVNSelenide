@@ -1,6 +1,9 @@
 package ru.dserg.autotest.page;
 
 
+import ru.dserg.autotest.page.Manuals.DataDirectoryGES;
+import ru.dserg.autotest.page.Manuals.ExpenseCharacteristicsGA;
+import ru.dserg.autotest.page.Reports.OtchetRashodaGESPage;
 
 /**
  * Created by Kalinin.S on 05.08.2016.
@@ -19,8 +22,17 @@ public class HomePage {
     public LongModel longModel(){
         return menu.longModel();
     }
-public OtchetRashodaGESPage otchetRashodaGESPage(){
+    public OtchetRashodaGESPage otchetRashodaGESPage(){
     return menu.otchetRashodaGESPage();
 }
+    public DataDirectoryGES dataDirectoryGES(){
+        return menu.dataDirectoryGES();
+    }
+    public ExpenseCharacteristicsGA expenseCharacteristicsGA(){
+        return menu.expenseCharacteristicsGA();
+    }
 
+    public Menu getMenu() {
+        return menu;
+    }
 }

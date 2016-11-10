@@ -1,6 +1,11 @@
 package ru.dserg.autotest.page;
 
 import org.openqa.selenium.By;
+import ru.dserg.autotest.page.Manuals.DataDirectoryGES;
+import ru.dserg.autotest.page.Manuals.ExpenseCharacteristicsGA;
+import ru.dserg.autotest.page.Reports.OtchetRashodaGESPage;
+import ru.dserg.autotest.page.Reports.RepairReport;
+import ru.dserg.autotest.page.Reports.RepairTimeReport;
 import ru.dserg.autotest.page.menuElements.LongModelSpisok;
 import ru.dserg.autotest.page.menuElements.ShortModelSpisok;
 
@@ -66,11 +71,37 @@ public class Menu {
         return  new LongModel();
         
     }
-    public OtchetRashodaGESPage  otchetRashodaGESPage(){
+
+    public OtchetRashodaGESPage otchetRashodaGESPage(){
         $("#menu").$(By.linkText("Отчёты")).click();
         $("#menu").$(By.linkText("Отчёт расхода ГЭС")).click();
         return new OtchetRashodaGESPage();
     }
+    public DataDirectoryGES dataDirectoryGES(){
+        $("#menu").$(By.linkText("Справочники")).click();
+        $("#menu").$(By.linkText("Справочные данные по ГЭС")).click();
+        return new  DataDirectoryGES();
+    }
+
+    public ExpenseCharacteristicsGA expenseCharacteristicsGA(){
+        $("#menu").$(By.linkText("Справочники")).click();
+        $("#menu").$(By.linkText("Расходные характеристики ГА")).click();
+        return  new ExpenseCharacteristicsGA();
+    }
+
+    public RepairReport repairReport(){
+        $("#menu").$(By.linkText("Отчёты")).click();
+        $("#menu").$(By.linkText("Отчёт по выполнению плана ремонтов оборудования")).click();
+        return new RepairReport();
+
+    }
+    public RepairTimeReport repairTimeReport(){
+        $("#menu").$(By.linkText("Отчёты")).click();
+        $("#menu").$(By.linkText("Отчет по времени оборудования в ремонте")).click();
+        return  new RepairTimeReport();
+    }
+
+
     public static void logOut(){
         $("#menu").$(By.linkText("Weber")).click();
         $("#menu").$(By.linkText("Выйти")).click();
