@@ -3,6 +3,7 @@ package ru.dserg.autotest.page;
 import org.openqa.selenium.By;
 import ru.dserg.autotest.page.Manuals.DataDirectoryGES;
 import ru.dserg.autotest.page.Manuals.ExpenseCharacteristicsGA;
+import ru.dserg.autotest.page.Reports.AvailablePowerReport;
 import ru.dserg.autotest.page.Reports.OtchetRashodaGESPage;
 import ru.dserg.autotest.page.Reports.RepairReport;
 import ru.dserg.autotest.page.Reports.RepairTimeReport;
@@ -100,12 +101,17 @@ public class Menu {
         $("#menu").$(By.linkText("Отчет по времени оборудования в ремонте")).click();
         return  new RepairTimeReport();
     }
-
+    public AvailablePowerReport availablePowerReport(){
+        $("#menu").$(By.linkText("Отчёты")).click();
+        $("#menu").$(By.linkText("Отчёт о проверке располагаемой мощности")).click();
+        return  new AvailablePowerReport();
+    }
 
     public static void logOut(){
         $("#menu").$(By.linkText("Weber")).click();
         $("#menu").$(By.linkText("Выйти")).click();
     }
+
     public static void logOutWithExceptiom(){
         $("#menu").$(By.linkText("Выйти")).click();
     }

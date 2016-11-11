@@ -33,21 +33,21 @@ public class Create {
      *  дата начало расчета полезного притока
      */
     public void  beginDatePritok(String date){
-        Util.choiseDate("#params-begin-date",date);
+        Util.choiceDate("#params-begin-date",date);
     }
 
     /**
      * дата начало имитационого расчета
      */
     public void beginDateCalculation(String date){
-        Util.choiseDate("#params-calc-date",date);
+        Util.choiceDate("#params-calc-date",date);
 
     }
     /**
      * конечная дата расчета
      */
     public void endDateCalculation(String date){
-        Util.choiseDate("#params-end-date",date);
+        Util.choiceDate("#params-end-date",date);
     }
     /**
      * чекбокс использованть нач. уровни из сценария

@@ -27,7 +27,7 @@ public class Util {
         return element.$(By.tagName("option"),choice);
     }
 
-    static public void choiseDate(String selector,String date){
+    static public void choiceDate(String selector, String date){
         /**
          * выбор даты, формат даты yyyy-mm-dd
          */

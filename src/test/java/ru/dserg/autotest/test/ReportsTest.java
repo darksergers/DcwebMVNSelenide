@@ -3,6 +3,7 @@ package ru.dserg.autotest.test;
 import org.junit.Test;
 import ru.dserg.autotest.page.HomePage;
 import ru.dserg.autotest.page.LoginPage;
+import ru.dserg.autotest.page.Reports.AvailablePowerReport;
 import ru.dserg.autotest.page.Reports.RepairReport;
 import ru.dserg.autotest.page.Reports.RepairTimeReport;
 
@@ -36,6 +37,26 @@ public class ReportsTest {
         repairTimeReport.selectStation();
         repairTimeReport.show();
         if(!repairTimeReport.ok()) fail();
+        Thread.sleep(6000);
+
+
+    }
+
+    @Test
+    public void test2() throws Exception {
+        LoginPage loginPage = new LoginPage();
+        loginPage.typeUserName();
+        loginPage.typePassword();
+        HomePage homePage = loginPage.login();
+        AvailablePowerReport availablePowerReport = homePage.getMenu().availablePowerReport();
+        availablePowerReport.selectStation();
+        availablePowerReport.beginDate();
+        availablePowerReport.endDate();
+        availablePowerReport.selectStepSize();
+        availablePowerReport.clickApplyButton();
+        availablePowerReport.completeDH();
+        availablePowerReport.clickCountButton();
+
         Thread.sleep(6000);
 
 

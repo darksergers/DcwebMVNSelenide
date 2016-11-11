@@ -2,8 +2,6 @@ package ru.dserg.autotest.page;
 
 import org.openqa.selenium.By;
 import ru.dserg.autotest.Utils.Util;
-import ru.dserg.autotest.page.ShortScenario;
-
 
 
 import static com.codeborne.selenide.Selenide.$;
@@ -28,7 +26,7 @@ public class ShortModel {
         return new ShortScenario();
     }
     public void  time(){
-        Util.choiseDate("#beginDate","2015-09-08");
+        Util.choiceDate("#beginDate","2015-09-08");
     }
     //*[@id="inflow-table"]/div[1]/div[1]/div/div[1]/table/tbody/tr[1]/td[1]
     //*[@id="inflow-table"]/div[1]/div[1]/div/div[1]/table/tbody/tr[1]/td[2]

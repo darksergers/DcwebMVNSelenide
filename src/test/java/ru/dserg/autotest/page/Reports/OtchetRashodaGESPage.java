@@ -18,7 +18,7 @@ public class OtchetRashodaGESPage {
 
     }
     public void date(String date){
-        Util.choiseDate("#datepicker",date);
+        Util.choiceDate("#datepicker",date);
     }
 
     public void clickGetData(){
