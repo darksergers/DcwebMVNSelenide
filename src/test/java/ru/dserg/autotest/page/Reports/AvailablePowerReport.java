@@ -39,6 +39,19 @@ public class AvailablePowerReport {
         $("#count-button").click();
 
     }
+    public boolean ok(){
+
+        for (int i = 0;i<$("#ap-report-content").$(By.tagName("tbody")).$$(By.tagName("tr")).size()-1;i++){
+            for(int j = 6; j<10;j++){
+                if(Float.parseFloat(table.choiceTr(i,j).getText().replace(',','.'))<=0) return  false;
+
+            }
+        }
+        for(int i = 0; i<$("#ap-report-content").$(By.tagName("tbody")).$$(By.tagName("tr")).size()-1;i++){
+            if(Float.parseFloat(table.choiceTr(i,13).getText().replace(',','.'))>20) return  false;
+        }
+        return true;
+    }
 
 
     }

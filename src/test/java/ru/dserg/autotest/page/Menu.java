@@ -3,10 +3,7 @@ package ru.dserg.autotest.page;
 import org.openqa.selenium.By;
 import ru.dserg.autotest.page.Manuals.DataDirectoryGES;
 import ru.dserg.autotest.page.Manuals.ExpenseCharacteristicsGA;
-import ru.dserg.autotest.page.Reports.AvailablePowerReport;
-import ru.dserg.autotest.page.Reports.OtchetRashodaGESPage;
-import ru.dserg.autotest.page.Reports.RepairReport;
-import ru.dserg.autotest.page.Reports.RepairTimeReport;
+import ru.dserg.autotest.page.Reports.*;
 import ru.dserg.autotest.page.menuElements.LongModelSpisok;
 import ru.dserg.autotest.page.menuElements.ShortModelSpisok;
 
@@ -105,6 +102,11 @@ public class Menu {
         $("#menu").$(By.linkText("Отчёты")).click();
         $("#menu").$(By.linkText("Отчёт о проверке располагаемой мощности")).click();
         return  new AvailablePowerReport();
+    }
+    public ReportEquipmentOperatingRegime reportEquipmentOperatingRegime(){
+        $("#menu").$(By.linkText("Отчёты")).click();
+        $("#menu").$(By.linkText("Отчёт о режимах эксплуатации оборудования")).click();
+        return  new ReportEquipmentOperatingRegime();
     }
 
     public static void logOut(){

@@ -6,6 +6,7 @@ import ru.dserg.autotest.page.LoginPage;
 import ru.dserg.autotest.page.Reports.AvailablePowerReport;
 import ru.dserg.autotest.page.Reports.RepairReport;
 import ru.dserg.autotest.page.Reports.RepairTimeReport;
+import ru.dserg.autotest.page.Reports.ReportEquipmentOperatingRegime;
 
 import static org.junit.Assert.fail;
 
@@ -56,10 +57,31 @@ public class ReportsTest {
         availablePowerReport.clickApplyButton();
         availablePowerReport.completeDH();
         availablePowerReport.clickCountButton();
+        if(!availablePowerReport.ok()) fail();
 
         Thread.sleep(6000);
 
 
     }
+    @Test
+    public void test3() throws Exception {
+        LoginPage loginPage = new LoginPage();
+        loginPage.typeUserName();
+        loginPage.typePassword();
+        HomePage homePage = loginPage.login();
+        ReportEquipmentOperatingRegime reportEquipmentOperatingRegime =
+                homePage.getMenu().reportEquipmentOperatingRegime();
+        reportEquipmentOperatingRegime.datebegin();
+        reportEquipmentOperatingRegime.selectStation();
+        reportEquipmentOperatingRegime.ga();
+        reportEquipmentOperatingRegime.show();
+        if(!reportEquipmentOperatingRegime.ok()) fail();
+        reportEquipmentOperatingRegime.selectSource();
+        reportEquipmentOperatingRegime.show();
+        if(!reportEquipmentOperatingRegime.ok()) fail();
+        Thread.sleep(6000);
+
+    }
+
 
 }
