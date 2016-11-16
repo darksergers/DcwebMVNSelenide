@@ -17,8 +17,8 @@ public class LoginPage {
     }
 
     public LoginPage() {
-        System.setProperty("webdriver.chrome.driver","C:\\tools\\chromedriver.exe");
-        Configuration.baseUrl="http://dc-web.vdrsk.digdes.com:8099";
+        //System.setProperty("webdriver.chrome.driver","C:\\tools\\chromedriver.exe");
+        //Configuration.baseUrl="http://dc-web.vdrsk.digdes.com:8099";
         open(Configuration.baseUrl);
     }
 //-Dwebdriver.chrome.driver=C:\tools\chromedriver.exe -Dselenide.baseUrl=http://dc-web.vdrsk.digdes.com
