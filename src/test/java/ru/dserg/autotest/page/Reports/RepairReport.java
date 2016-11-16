@@ -38,9 +38,10 @@ public class RepairReport {
                    continue label;
                }
             }
-          if (!(mspOk && asuOK)) return  false;
+
           return false;
         }
+        if (!(mspOk && asuOK)) return  false;
         return true;
     }
 }

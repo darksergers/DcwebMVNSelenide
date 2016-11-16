@@ -1,5 +1,6 @@
 package ru.dserg.autotest.page.Reports;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
@@ -19,6 +20,7 @@ public class RepairTimeReport {
         $("#showreport-id").click();
     }
     public boolean ok(){
+        $("#table-id").$(By.tagName("table")).waitUntil(Condition.visible,30000);
         SelenideTable table = new SelenideTable($("#table-id").$(By.tagName("table")));
         label:for(int i = 1; i<$("#table-id").$$(By.tagName("tr")).size(); i=i+4){
             for(int j=1;i<=4;j++){
