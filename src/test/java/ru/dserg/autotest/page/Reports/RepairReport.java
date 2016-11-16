@@ -1,5 +1,6 @@
 package ru.dserg.autotest.page.Reports;
 
+import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import ru.dserg.autotest.Utils.SelenideTable;
@@ -24,6 +25,7 @@ public class RepairReport {
         $("#showreport-id").click();
     }
     public  boolean  ok(){
+        $("#table-id").$(By.tagName("table")).waitUntil(Condition.visible,30000);
         boolean mspOk= false;
         boolean asuOK= false;
         SelenideTable table = new SelenideTable($("#table-id").$(By.tagName("table")));
