@@ -1,5 +1,6 @@
 package ru.dserg.autotest.page;
 
+import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 import ru.dserg.autotest.page.Manuals.DataDirectoryGES;
 import ru.dserg.autotest.page.Manuals.ExpenseCharacteristicsGA;
@@ -69,42 +70,52 @@ public class Menu {
         return  new LongModel();
         
     }
+    private  void  otchet(){
+        $("#menu").$(By.linkText("Отчёты")).waitUntil(Condition.visible,30000);
+        $("#menu").$(By.linkText("Отчёты")).click();
+
+    }
+    private void  spavochnik(){
+
+        $("#menu").$(By.linkText("Справочники")).waitUntil(Condition.visible,30000);
+        $("#menu").$(By.linkText("Справочники")).click();
+    }
 
     public OtchetRashodaGESPage otchetRashodaGESPage(){
-        $("#menu").$(By.linkText("Отчёты")).click();
+        otchet();
         $("#menu").$(By.linkText("Отчёт расхода ГЭС")).click();
         return new OtchetRashodaGESPage();
     }
     public DataDirectoryGES dataDirectoryGES(){
-        $("#menu").$(By.linkText("Справочники")).click();
+        spavochnik();
         $("#menu").$(By.linkText("Справочные данные по ГЭС")).click();
         return new  DataDirectoryGES();
     }
 
     public ExpenseCharacteristicsGA expenseCharacteristicsGA(){
-        $("#menu").$(By.linkText("Справочники")).click();
+        spavochnik();
         $("#menu").$(By.linkText("Расходные характеристики ГА")).click();
         return  new ExpenseCharacteristicsGA();
     }
 
     public RepairReport repairReport(){
-        $("#menu").$(By.linkText("Отчёты")).click();
+        otchet();
         $("#menu").$(By.linkText("Отчёт по выполнению плана ремонтов оборудования")).click();
         return new RepairReport();
 
     }
     public RepairTimeReport repairTimeReport(){
-        $("#menu").$(By.linkText("Отчёты")).click();
+        otchet();
         $("#menu").$(By.linkText("Отчет по времени оборудования в ремонте")).click();
         return  new RepairTimeReport();
     }
     public AvailablePowerReport availablePowerReport(){
-        $("#menu").$(By.linkText("Отчёты")).click();
+        otchet();
         $("#menu").$(By.linkText("Отчёт о проверке располагаемой мощности")).click();
         return  new AvailablePowerReport();
     }
     public ReportEquipmentOperatingRegime reportEquipmentOperatingRegime(){
-        $("#menu").$(By.linkText("Отчёты")).click();
+        otchet();
         $("#menu").$(By.linkText("Отчёт о режимах эксплуатации оборудования")).click();
         return  new ReportEquipmentOperatingRegime();
     }
