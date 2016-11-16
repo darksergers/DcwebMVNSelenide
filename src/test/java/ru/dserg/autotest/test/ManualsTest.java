@@ -20,7 +20,7 @@ import static org.junit.Assert.fail;
 public class ManualsTest {
     static Date d = new Date();
     static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-hh-mm");
-    @Ignore
+    
     @Test
     public void test() throws Exception {
 
