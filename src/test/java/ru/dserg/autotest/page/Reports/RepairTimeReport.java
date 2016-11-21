@@ -23,7 +23,7 @@ public class RepairTimeReport {
     public boolean ok(){
         $("#table-id").$(By.tagName("table")).waitUntil(Condition.visible,30000);
         SelenideTable table = new SelenideTable($("#table-id").$(By.tagName("table")));
-        label:for(int i = 1; i<$("#table-id").$$(By.tagName("tr")).size()-7; i=i+4){
+        label:for(int i = 1; i<$("#table-id").$$(By.tagName("tr")).size()-9; i=i+4){
             for(int j=1;j<=4;j++){
                 System.out.println("td "+ j+" "+table.choiceTr(i,j).getText().replace(',','.'));
                 if ( Float.parseFloat( table.choiceTr(i,j).getText().replace(',','.') ) > 0){
