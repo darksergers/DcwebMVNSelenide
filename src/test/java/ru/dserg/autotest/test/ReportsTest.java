@@ -73,7 +73,7 @@ public class ReportsTest {
         Thread.sleep(6000);
 
     }
-   /* @After
+   @After
     public void aftr(){
         Util.pnotifyClose();
         try {
@@ -85,6 +85,6 @@ public class ReportsTest {
 
 
     }
-*/
+
 
 }
