@@ -1,5 +1,6 @@
 package ru.dserg.autotest.page.Reports;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -25,18 +26,21 @@ public class AvailablePowerReport {
     public void selectStepSize(){
         $("#stepSize").selectOption("60");
     }
-    public void clickApplyButton(){
+    public void clickApplyButton() throws Exception {
         $("#apply-button").click();
+        Util.findError();
     }
     public void completeDH(){
+        $("#ap-report-content").$(By.tagName("tbody")).waitUntil(Condition.visible,30000);
         for (int i = 0;i<$("#ap-report-content").$(By.tagName("tbody")).$$(By.tagName("tr")).size()-1;i++){
             table.typeInTable(i,4,"#ap-report-content > div.handsontableInputHolder > textarea","1.5");
         }
 
     }
-    public void clickCountButton(){
+    public void clickCountButton() throws Exception {
         ((JavascriptExecutor) WebDriverRunner.getWebDriver()).executeScript("window.scrollTo(0, document.head.scrollHeight)");
         $("#count-button").click();
+        Util.findError();
 
     }
     public boolean ok(){
