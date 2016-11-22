@@ -121,7 +121,7 @@ public class Menu {
     }
 
     public static void logOut(){
-        $("#menu").$(By.linkText("Weber")).click();
+        $("#menu").$(By.partialLinkText("Weber")).click();
         $("#menu").$(By.linkText("Выйти")).click();
     }
 

@@ -70,9 +70,11 @@ public class Util {
         loginPage.typePassword();
 
         } catch (Exception e) {
-            Menu.logOut();
-            loginPage.typeUserName();
-            loginPage.typePassword();
+          try {
+              Menu.logOut();
+              loginPage.typeUserName();
+              loginPage.typePassword();
+          } catch (Exception e1){}
         }
         finally {
             homePage = loginPage.login();
