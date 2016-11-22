@@ -68,17 +68,12 @@ public class Util {
 
         loginPage.typeUserName();
         loginPage.typePassword();
+        homePage = loginPage.login();
 
         } catch (Exception e) {
-          try {
-              Menu.logOut();
-              loginPage.typeUserName();
-              loginPage.typePassword();
-          } catch (Exception e1){}
+          homePage = new HomePage();
         }
-        finally {
-            homePage = loginPage.login();
-        }
+
         return homePage;
     }
 
