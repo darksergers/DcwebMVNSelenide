@@ -23,7 +23,7 @@ import static org.junit.Assert.fail;
 public class MediumTermTest {
 
     static Date d = new Date();
-    static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+    static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH.mm");
     private static HashMap data = new HashMap();
     @After
     public void aftr(){
