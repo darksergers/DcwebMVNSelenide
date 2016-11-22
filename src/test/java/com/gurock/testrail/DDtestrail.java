@@ -14,8 +14,11 @@ import java.util.Map;
  * Created by Kalinin.S on 20.09.2016.
  */
 public class DDtestrail {
-    public DDtestrail(int projectId,int testSuitId) {
+    public DDtestrail(int projectId,int testSuitId,boolean isDD) {
+        if (isDD)
         this.client = new APIClient("http://testrail.digdes.com/testrail/");
+        else
+        this.client = new APIClientRh("http://testrail.digdes.com/testrail/");
         client.setUser("Kalinin.s@digdes.com");
         client.setPassword("Qwerty1");
         this.projectId = projectId;

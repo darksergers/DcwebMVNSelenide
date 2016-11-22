@@ -25,9 +25,9 @@ import org.json.simple.JSONValue;
 
 public class APIClient
 {
-	private String m_user;
-	private String m_password;
-	private String m_url;
+	protected String m_user;
+	protected String m_password;
+	protected String m_url;
 
 	public APIClient(String base_url)
 	{
@@ -115,7 +115,7 @@ public class APIClient
 		return this.sendRequest("POST", uri, data);
 	}
 	
-	private Object sendRequest(String method, String uri, Object data)
+	protected Object sendRequest(String method, String uri, Object data)
 		throws MalformedURLException, IOException, APIException
 	{
 		URL url = new URL(this.m_url + uri);
@@ -222,7 +222,7 @@ public class APIClient
 		return result;
 	}
 	
-	private static String getAuthorization(String user, String password)
+	protected static String getAuthorization(String user, String password)
 	{
 		try 
 		{
@@ -236,7 +236,7 @@ public class APIClient
 		return "";
 	}
 	
-	private static String getBase64(byte[] buffer)
+	protected static String getBase64(byte[] buffer)
 	{
 		final char[] map = {
 			'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',

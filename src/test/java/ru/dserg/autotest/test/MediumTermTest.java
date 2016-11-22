@@ -178,10 +178,10 @@ public class MediumTermTest {
         //for (File file: new File("build/reports/tests").listFiles())
         //   if (file.isFile()) copy(file, Paths.get("S:/Topics/ДРСК/Тестирование/DcWebScreenshot/Мониторинг"+format.format(d)+"/"+file.getName()));
 
-        if(Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com")) {
-            DDtestrail testrail = new DDtestrail(58, 2544);
+        //if(Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com")) {
+            DDtestrail testrail = new DDtestrail(58, 2544,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com"));
             testrail.completeTest(data, "Среднесрочка" + format.format(d));
-        }
+        //}
 
     }
 
