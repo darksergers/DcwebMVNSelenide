@@ -1,5 +1,6 @@
 package ru.dserg.autotest.test;
 
+import org.junit.After;
 import org.junit.Ignore;
 import org.junit.Test;
 import ru.dserg.autotest.Utils.Util;
@@ -8,6 +9,7 @@ import ru.dserg.autotest.page.LoginPage;
 import ru.dserg.autotest.page.Manuals.CardGES;
 import ru.dserg.autotest.page.Manuals.DataDirectoryGES;
 import ru.dserg.autotest.page.Manuals.ExpenseCharacteristicsGA;
+import ru.dserg.autotest.page.Menu;
 import ru.dserg.autotest.page.ShortModel;
 
 import java.text.SimpleDateFormat;
@@ -31,8 +33,6 @@ public class ManualsTest {
         cardGES.rgeOk();
         cardGES.gtpOk();
         cardGES.gaOk();
-
-
     }
 
     @Test
@@ -43,7 +43,18 @@ public class ManualsTest {
         expenseCharacteristicsGA.choice();
         expenseCharacteristicsGA.clickCharacteristic();
         if (!expenseCharacteristicsGA.ok()) fail("пустая таблица");
-        Thread.sleep(6000);
+
+    }
+    @After
+    public void aftr(){
+        Util.pnotifyClose();
+        try {
+            Menu.logOut();
+        }catch (Error  e){
+            Util.pnotifyClose();
+            Menu.logOutWithExceptiom();
+        }
+
 
     }
 
