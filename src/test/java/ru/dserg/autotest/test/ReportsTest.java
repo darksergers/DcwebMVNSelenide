@@ -18,7 +18,7 @@ import static org.junit.Assert.fail;
  */
 public class ReportsTest {
     @Test
-    public void test() throws Exception {
+    public void testRepairReport() throws Exception {
         HomePage homePage= Util.entry();
         RepairReport repairReport = homePage.getMenu().repairReport();
         repairReport.selectStation(4);
@@ -29,19 +29,19 @@ public class ReportsTest {
 
     }
     @Test
-    public void test1() throws Exception {
+    public void testRepairTimeReport() throws Exception {
         HomePage homePage=Util.entry();
         RepairTimeReport repairTimeReport = homePage.getMenu().repairTimeReport();
         repairTimeReport.selectStation();
         repairTimeReport.show();
         if(!repairTimeReport.ok()) fail();
-        Thread.sleep(6000);
+
 
 
     }
 
     @Test
-    public void test2() throws Exception {
+    public void testAvailablePowerReport() throws Exception {
         HomePage homePage=Util.entry();
         AvailablePowerReport availablePowerReport = homePage.getMenu().availablePowerReport();
         availablePowerReport.selectStation();
@@ -53,12 +53,12 @@ public class ReportsTest {
         availablePowerReport.clickCountButton();
         if(!availablePowerReport.ok()) fail();
 
-        Thread.sleep(6000);
+
 
 
     }
     @Test
-    public void test3() throws Exception {
+    public void testReportEquipmentOperatingRegime() throws Exception {
         HomePage homePage=Util.entry();
         ReportEquipmentOperatingRegime reportEquipmentOperatingRegime =
                 homePage.getMenu().reportEquipmentOperatingRegime();
@@ -70,7 +70,7 @@ public class ReportsTest {
         reportEquipmentOperatingRegime.selectSource();
         reportEquipmentOperatingRegime.show();
         if(!reportEquipmentOperatingRegime.ok()) fail();
-        Thread.sleep(6000);
+
 
     }
    @After

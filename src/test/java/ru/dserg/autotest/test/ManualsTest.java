@@ -25,7 +25,7 @@ public class ManualsTest {
     static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-hh-mm");
 
     @Test
-    public void test() throws Exception {
+    public void testDataDirectoryGES() throws Exception {
 
         HomePage homePage= Util.entry();
         DataDirectoryGES dataDirectoryGES =  homePage.dataDirectoryGES();
@@ -36,7 +36,7 @@ public class ManualsTest {
     }
 
     @Test
-    public void test1() throws Exception {
+    public void testExpenseCharacteristicsGA() throws Exception {
 
         HomePage homePage=Util.entry();
         ExpenseCharacteristicsGA expenseCharacteristicsGA = homePage.expenseCharacteristicsGA();
