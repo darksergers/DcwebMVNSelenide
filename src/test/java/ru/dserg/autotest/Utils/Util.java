@@ -5,9 +5,13 @@ import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import ru.dserg.autotest.page.HomePage;
+import ru.dserg.autotest.page.LoginPage;
+import ru.dserg.autotest.page.Menu;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.open;
 
 /**
  * Created by Kalinin.S on 08.08.2016.
@@ -56,6 +60,22 @@ public class Util {
                 "document.body.removeChild(a[i]);" +
                 "}");
 
+    }
+    static public HomePage entry() throws Exception {
+        HomePage homePage;
+        try {
+        LoginPage loginPage = new LoginPage();
+        loginPage.typeUserName();
+        loginPage.typePassword();
+        homePage=loginPage.login();
+        } catch (Exception e) {
+            Menu.logOut();
+            LoginPage loginPage = new LoginPage();
+            loginPage.typeUserName();
+            loginPage.typePassword();
+            homePage=loginPage.login();
+        }
+        return homePage;
     }
 
 }

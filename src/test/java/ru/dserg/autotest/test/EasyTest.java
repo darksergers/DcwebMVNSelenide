@@ -60,10 +60,8 @@ public class EasyTest {
     @Test
     public void testKratkosrochka() throws Exception {
         data.put(0,5);
-        LoginPage loginPage = new LoginPage();
-        loginPage.typeUserName();
-        loginPage.typePassword();
-        HomePage homePage=loginPage.login();
+
+        HomePage homePage=Util.entry();
         ShortModel shortModel=homePage.openKratkosrochSpisok(1);
         shortModel.create();
         shortModel.typeNameScenario("Мониторинг_"+format.format(d));
@@ -95,10 +93,7 @@ public class EasyTest {
     @Test
     public void testOptimization() throws Exception {
         data.put(2,5);
-        LoginPage loginPage = new LoginPage();
-        loginPage.typeUserName();
-        loginPage.typePassword();
-        HomePage homePage=loginPage.login();
+        HomePage homePage=Util.entry();
         OptimizationPage optimizationPage = homePage.openOptimization();
         optimizationPage.select(14);
         optimizationPage.show();
@@ -112,10 +107,7 @@ public class EasyTest {
     @Test
     public void testSrednesrochka() throws Exception {
         data.put(1,5);
-        LoginPage loginPage = new LoginPage();
-        loginPage.typeUserName();
-        loginPage.typePassword();
-        HomePage homePage = loginPage.login();
+        HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();
         longModel.create();
         longModel.getCreate().name("test"+format.format(d));
