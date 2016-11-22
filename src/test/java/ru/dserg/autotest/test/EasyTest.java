@@ -31,7 +31,7 @@ import static  com.codeborne.selenide.Selenide.screenshot;
 
 public class EasyTest {
     static Date d = new Date();
-    static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-hh-mm");
+    static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH.mm");
     private static HashMap data = new HashMap();
 
 
