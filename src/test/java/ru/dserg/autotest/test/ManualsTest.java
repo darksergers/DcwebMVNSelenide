@@ -2,6 +2,7 @@ package ru.dserg.autotest.test;
 
 import org.junit.Ignore;
 import org.junit.Test;
+import ru.dserg.autotest.Utils.Util;
 import ru.dserg.autotest.page.HomePage;
 import ru.dserg.autotest.page.LoginPage;
 import ru.dserg.autotest.page.Manuals.CardGES;
@@ -24,10 +25,7 @@ public class ManualsTest {
     @Test
     public void test() throws Exception {
 
-        LoginPage loginPage = new LoginPage();
-        loginPage.typeUserName();
-        loginPage.typePassword();
-        HomePage homePage = loginPage.login();
+        HomePage homePage= Util.entry();
         DataDirectoryGES dataDirectoryGES =  homePage.dataDirectoryGES();
         CardGES cardGES=dataDirectoryGES.volges();
         cardGES.rgeOk();
@@ -40,10 +38,7 @@ public class ManualsTest {
     @Test
     public void test1() throws Exception {
 
-        LoginPage loginPage = new LoginPage();
-        loginPage.typeUserName();
-        loginPage.typePassword();
-        HomePage homePage = loginPage.login();
+        HomePage homePage=Util.entry();
         ExpenseCharacteristicsGA expenseCharacteristicsGA = homePage.expenseCharacteristicsGA();
         expenseCharacteristicsGA.choice();
         expenseCharacteristicsGA.clickCharacteristic();

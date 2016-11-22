@@ -1,6 +1,7 @@
 package ru.dserg.autotest.test;
 
 import org.junit.Test;
+import ru.dserg.autotest.Utils.Util;
 import ru.dserg.autotest.page.HomePage;
 import ru.dserg.autotest.page.LoginPage;
 import ru.dserg.autotest.page.Reports.AvailablePowerReport;
@@ -16,10 +17,7 @@ import static org.junit.Assert.fail;
 public class ReportsTest {
     @Test
     public void test() throws Exception {
-        LoginPage loginPage = new LoginPage();
-        loginPage.typeUserName();
-        loginPage.typePassword();
-        HomePage homePage = loginPage.login();
+        HomePage homePage= Util.entry();
         RepairReport repairReport = homePage.getMenu().repairReport();
         repairReport.selectStation(4);
         repairReport.datebegin();
@@ -30,10 +28,7 @@ public class ReportsTest {
     }
     @Test
     public void test1() throws Exception {
-        LoginPage loginPage = new LoginPage();
-        loginPage.typeUserName();
-        loginPage.typePassword();
-        HomePage homePage = loginPage.login();
+        HomePage homePage=Util.entry();
         RepairTimeReport repairTimeReport = homePage.getMenu().repairTimeReport();
         repairTimeReport.selectStation();
         repairTimeReport.show();
@@ -45,10 +40,7 @@ public class ReportsTest {
 
     @Test
     public void test2() throws Exception {
-        LoginPage loginPage = new LoginPage();
-        loginPage.typeUserName();
-        loginPage.typePassword();
-        HomePage homePage = loginPage.login();
+        HomePage homePage=Util.entry();
         AvailablePowerReport availablePowerReport = homePage.getMenu().availablePowerReport();
         availablePowerReport.selectStation();
         availablePowerReport.beginDate();
@@ -65,10 +57,7 @@ public class ReportsTest {
     }
     @Test
     public void test3() throws Exception {
-        LoginPage loginPage = new LoginPage();
-        loginPage.typeUserName();
-        loginPage.typePassword();
-        HomePage homePage = loginPage.login();
+        HomePage homePage=Util.entry();
         ReportEquipmentOperatingRegime reportEquipmentOperatingRegime =
                 homePage.getMenu().reportEquipmentOperatingRegime();
         reportEquipmentOperatingRegime.datebegin();

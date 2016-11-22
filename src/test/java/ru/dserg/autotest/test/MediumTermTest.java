@@ -40,10 +40,7 @@ public class MediumTermTest {
 
     public void granularity(String granularity ) throws Exception {
 
-        LoginPage loginPage = new LoginPage();
-        loginPage.typeUserName();
-        loginPage.typePassword();
-        HomePage homePage = loginPage.login();
+        HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();
         Util.findError();
         longModel.create();
@@ -63,10 +60,7 @@ public class MediumTermTest {
     @Test
     public void testCharacteristicsIsAvailable() throws Exception {
         data.put(0,5);
-        LoginPage loginPage = new LoginPage();
-        loginPage.typeUserName();
-        loginPage.typePassword();
-        HomePage homePage = loginPage.login();
+        HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();
         Util.findError();
         longModel.create();
@@ -119,13 +113,11 @@ public class MediumTermTest {
     }
 
 
+    @Ignore
     @Test
     public void testHoldMode() throws Exception {
         data.put(4,5);
-        LoginPage loginPage = new LoginPage();
-        loginPage.typeUserName();
-        loginPage.typePassword();
-        HomePage homePage = loginPage.login();
+        HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();
         longModel.create();
         longModel.getCreate().name("test"+format.format(d));
@@ -151,10 +143,7 @@ public class MediumTermTest {
     @Test
     public void testRemont() throws Exception {
         data.put(5,5);
-        LoginPage loginPage = new LoginPage();
-        loginPage.typeUserName();
-        loginPage.typePassword();
-        HomePage homePage = loginPage.login();
+        HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();
         longModel.create();
         longModel.getCreate().name("test"+format.format(d));
