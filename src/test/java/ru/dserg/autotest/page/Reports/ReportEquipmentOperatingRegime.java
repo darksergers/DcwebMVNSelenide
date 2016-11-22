@@ -1,8 +1,10 @@
 package ru.dserg.autotest.page.Reports;
 
+import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import ru.dserg.autotest.Utils.SelenideTable;
+import ru.dserg.autotest.Utils.Util;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -21,11 +23,14 @@ public class ReportEquipmentOperatingRegime {
         $("#filter-form").$(By.tagName("button")).click();
         $("#filter-form").$(By.tagName("ul")).$(By.tagName("label")).click();
     }
-    public void show(){
+    public void show() throws Exception {
        $("#show").click();
+        Util.findError();
     }
     public boolean ok(){
         SelenideTable table = new SelenideTable($("#report-table"));
+        $("#report-table").$(By.tagName("tbody")).waitUntil(Condition.visible,30000);
+
         label:for (int i = 3;i<=$("#report-table").$(By.tagName("tbody")).$$(By.tagName("tr")).size()-2;i++){
             if(Float.parseFloat(table.choiceTr(i,1).getText().replace(',','.'))>0){
             for(int j = 3; j<6;j++){
