@@ -65,15 +65,15 @@ public class Util {
     static public HomePage entry() throws Exception {
         HomePage homePage;
         LoginPage loginPage = new LoginPage();
-        try {
-        loginPage.typeUserName();
-        loginPage.typePassword();
-        homePage = loginPage.login();
-        } catch (NoSuchElementException e) {
-          homePage =  new HomePage();
+        if($("#UserName").exists()) {
+            loginPage.typeUserName();
+            loginPage.typePassword();
+            homePage = loginPage.login();
+        }else{
+            homePage = new HomePage();
         }
 
-          return  homePage;
+        return  homePage;
 
     }
 
