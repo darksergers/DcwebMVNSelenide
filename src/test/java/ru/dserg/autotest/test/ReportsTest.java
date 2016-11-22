@@ -1,9 +1,11 @@
 package ru.dserg.autotest.test;
 
+import org.junit.After;
 import org.junit.Test;
 import ru.dserg.autotest.Utils.Util;
 import ru.dserg.autotest.page.HomePage;
 import ru.dserg.autotest.page.LoginPage;
+import ru.dserg.autotest.page.Menu;
 import ru.dserg.autotest.page.Reports.AvailablePowerReport;
 import ru.dserg.autotest.page.Reports.RepairReport;
 import ru.dserg.autotest.page.Reports.RepairTimeReport;
@@ -71,6 +73,18 @@ public class ReportsTest {
         Thread.sleep(6000);
 
     }
+   /* @After
+    public void aftr(){
+        Util.pnotifyClose();
+        try {
+            Menu.logOut();
+        }catch (Error  e){
+            Util.pnotifyClose();
+            Menu.logOutWithExceptiom();
+        }
 
+
+    }
+*/
 
 }

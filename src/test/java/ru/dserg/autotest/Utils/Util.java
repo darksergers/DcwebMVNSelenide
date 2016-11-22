@@ -63,17 +63,19 @@ public class Util {
     }
     static public HomePage entry() throws Exception {
         HomePage homePage;
-        try {
         LoginPage loginPage = new LoginPage();
+        try {
+
         loginPage.typeUserName();
         loginPage.typePassword();
-        homePage=loginPage.login();
+
         } catch (Exception e) {
             Menu.logOut();
-            LoginPage loginPage = new LoginPage();
             loginPage.typeUserName();
             loginPage.typePassword();
-            homePage=loginPage.login();
+        }
+        finally {
+            homePage = loginPage.login();
         }
         return homePage;
     }
