@@ -69,12 +69,13 @@ public class Util {
         loginPage.typeUserName();
         loginPage.typePassword();
         homePage = loginPage.login();
+        return homePage;
 
         } catch (Exception e) {
-          homePage = new HomePage();
+          return new HomePage();
         }
 
-        return homePage;
+
     }
 
 }
