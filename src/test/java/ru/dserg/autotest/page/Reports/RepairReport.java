@@ -29,8 +29,8 @@ public class RepairReport {
         boolean mspOk= false;
         boolean asuOK= false;
         SelenideTable table = new SelenideTable($("#table-id").$(By.tagName("table")));
-      label:  for(int i=1;i<=$("#table-id").$$(By.tagName("tr")).size();i++){
-            for(int j=1;i<8;j++){
+      label:  for(int i=1;i<=$("#table-id").$(By.tagName("table")).$$(By.tagName("tr")).size();i++){
+            for(int j=1;j<8;j++){
                if(j== 4) continue;
                if (table.choiceTr(i,j).getText().length()>0){
                    if(j<4) mspOk= true;
