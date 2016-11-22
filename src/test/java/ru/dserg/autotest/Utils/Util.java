@@ -5,6 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import ru.dserg.autotest.page.HomePage;
 import ru.dserg.autotest.page.LoginPage;
 import ru.dserg.autotest.page.Menu;
@@ -65,16 +66,14 @@ public class Util {
         HomePage homePage;
         LoginPage loginPage = new LoginPage();
         try {
-
         loginPage.typeUserName();
         loginPage.typePassword();
         homePage = loginPage.login();
-        return homePage;
-
-        } catch (Exception e) {
-          return new HomePage();
+        } catch (NoSuchElementException e) {
+          homePage =  new HomePage();
         }
 
+          return  homePage;
 
     }
 
