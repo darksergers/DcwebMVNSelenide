@@ -61,7 +61,7 @@ public class ManualsTest {
         expenseCharacteristicsGA.choice();
         expenseCharacteristicsGA.clickCharacteristic();
         if (!expenseCharacteristicsGA.ok()) fail("пустая таблица");
-        data.put(1,5);
+        data.put(1,1);
 
     }
     @After
@@ -81,7 +81,7 @@ public class ManualsTest {
 
 
         DDtestrail testrail = new DDtestrail(58, 2559, Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
-        testrail.completeTest(data, "Справочники" + format.format(d));
+        testrail.completeTest(data, "Справочники "+Configuration.baseUrl + format.format(d));
 
     }
 

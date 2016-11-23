@@ -146,7 +146,7 @@ public class MediumTermTest {
         HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();
         longModel.create();
-        longModel.getCreate().name("test"+format.format(d));
+        longModel.getCreate().name("testRemont"+format.format(d));
         longModel.getCreate().beginDatePritok("2015-09-05");
         longModel.getCreate().beginDateCalculation("2015-09-05");
         longModel.getCreate().endDateCalculation("2015-09-15");
@@ -180,7 +180,7 @@ public class MediumTermTest {
 
         //if(Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com")) {
             DDtestrail testrail = new DDtestrail(58, 2544,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
-            testrail.completeTest(data, "Среднесрочка" + format.format(d));
+            testrail.completeTest(data, "Среднесрочка "+Configuration.baseUrl + format.format(d));
         //}
 
     }

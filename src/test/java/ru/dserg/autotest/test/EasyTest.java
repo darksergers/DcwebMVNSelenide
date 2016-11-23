@@ -110,7 +110,7 @@ public class EasyTest {
         HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();
         longModel.create();
-        longModel.getCreate().name("test"+format.format(d));
+        longModel.getCreate().name("Monitoring"+format.format(d));
         longModel.getCreate().beginDatePritok("2015-09-05");
         longModel.getCreate().beginDateCalculation("2015-09-15");
         longModel.getCreate().endDateCalculation("2015-09-25");
@@ -129,7 +129,7 @@ public class EasyTest {
 
        //if(Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com")) {
            DDtestrail testrail = new DDtestrail(58, 2537,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
-           testrail.completeTest(data, "Мониторинг" + format.format(d));
+           testrail.completeTest(data, "Мониторинг "+Configuration.baseUrl + format.format(d));
        //}
     }
     public static void copy(File source, Path dest) throws IOException {
