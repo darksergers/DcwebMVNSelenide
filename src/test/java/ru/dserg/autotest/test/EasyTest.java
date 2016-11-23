@@ -128,7 +128,7 @@ public class EasyTest {
          //   if (file.isFile()) copy(file, Paths.get("S:/Topics/ДРСК/Тестирование/DcWebScreenshot/Мониторинг"+format.format(d)+"/"+file.getName()));
 
        //if(Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com")) {
-           DDtestrail testrail = new DDtestrail(58, 2537,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com"));
+           DDtestrail testrail = new DDtestrail(58, 2537,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
            testrail.completeTest(data, "Мониторинг" + format.format(d));
        //}
     }
