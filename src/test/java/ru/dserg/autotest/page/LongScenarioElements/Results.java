@@ -5,6 +5,7 @@ import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import ru.dserg.autotest.Utils.SelenideTable;
+import ru.dserg.autotest.Utils.Util;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -14,8 +15,9 @@ import static com.codeborne.selenide.Selenide.$;
 public class Results {
     SelenideTable table= new SelenideTable($("#results-table").$(By.tagName("table")));
 
-    public void play(){
+    public void play() throws Exception {
         $("#calculate-button").click();
+        Util.findError();
     }
     public void refresh(){
        $("#refresh-button") .click();
