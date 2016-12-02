@@ -11,6 +11,7 @@ import ru.dserg.autotest.page.Manuals.CardGES;
 import ru.dserg.autotest.page.Manuals.DataDirectoryGES;
 import ru.dserg.autotest.page.Manuals.ExpenseCharacteristicsGA;
 import ru.dserg.autotest.page.Menu;
+import ru.dserg.autotest.page.Reports.OtchetRashodaGESPage;
 import ru.dserg.autotest.page.ShortModel;
 
 import java.io.File;
@@ -64,6 +65,7 @@ public class ManualsTest {
         data.put(1,1);
 
     }
+
     @After
     public void aftr(){
         Util.pnotifyClose();
@@ -80,8 +82,8 @@ public class ManualsTest {
     public static void testrail() throws IOException, APIException {
 
 
-        DDtestrail testrail = new DDtestrail(58, 2559, Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
-        testrail.completeTest(data, "Справочники "+Configuration.baseUrl + format.format(d));
+       DDtestrail testrail = new DDtestrail(58, 2559, Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
+        testrail.completeTest(data, "Справочники "+Configuration.baseUrl+" "+ format.format(d));
 
     }
 

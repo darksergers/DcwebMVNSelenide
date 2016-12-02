@@ -76,9 +76,17 @@ public class Create {
     /**
      * кнопка создать
      */
-    public LongScenario create(){
+    public LongScenario create() throws Exception {
         $("#edit-scenario-button").click();
-        $("#results-table").waitUntil(Condition.visible,60000);
+
+        try {
+            $("#results-table").waitUntil(Condition.visible,60000);
+        }catch (Throwable e){
+            e.printStackTrace();
+            Util.findError();
+
+        }
+
         return new LongScenario();
     }
     public void granularity(String granularity){//// TODO доделать

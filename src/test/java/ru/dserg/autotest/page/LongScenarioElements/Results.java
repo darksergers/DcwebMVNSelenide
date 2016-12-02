@@ -8,6 +8,7 @@ import ru.dserg.autotest.Utils.SelenideTable;
 import ru.dserg.autotest.Utils.Util;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 /**
  * Created by Kalinin.S on 11.08.2016.
@@ -32,12 +33,16 @@ public class Results {
     public void checkLimits(){
         $("#use-limits").click();
     }
-    public void typeInTable(int str,int rows,String number){
-        table.typeInTable(str,rows,"#results-table > div.handsontableInputHolder > textarea",number);
+    public void typeInTable(int str,String nameColumn,int numberChar,String number){
+        table.typeInTable(str,choiceColumn(nameColumn,numberChar),"#results-table > div.handsontableInputHolder > textarea",number);
+
+        //table.choiceTr(str,choiceColumn(nameColumn,numberChar)).click();
+
+
     }
     public void choiceDg(int str){
-        table.choiceTr(str, 21).doubleClick();
-        table.choiceTr(str, 21).click();
+        //table.choiceTr(str, choiceColumn("Параметр",8)).doubleClick();
+        table.choiceTr(str, choiceColumn("Параметр",8)).$(By.tagName("div")).click();
         $(By.className("handsontableEditor")).waitUntil(Condition.visible,30000);
         SelenideTable tableChoice= new SelenideTable($(By.className("handsontableEditor")).$(By.tagName("table")));
         tableChoice.choiceTr(1,0).click();
@@ -45,6 +50,19 @@ public class Results {
 
 
     }
+    //"ZВБкон"
+    public int choiceColumn(String str,int numberChar){
+        StringBuilder builder = new StringBuilder("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+
+        for(int i=0;i<$("#results-table").$(By.tagName("table")).$$(By.tagName("th")).size();i++){
+            builder.replace(0,table.choiceTh(i).getText().length(),table.choiceTh(i).getText());
+            if(builder.substring(0,numberChar).equals(str))
+            return i;
+        }
+        return -1;
+    }
+
+
 
 
 

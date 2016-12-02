@@ -55,4 +55,5 @@ public class ShortModelSpisok  {
 
         $("#menu").$(By.linkText("Оптимизация состава ГА")).click();
     }
+
 }

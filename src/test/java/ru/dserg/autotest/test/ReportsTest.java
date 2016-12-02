@@ -11,10 +11,7 @@ import ru.dserg.autotest.Utils.Util;
 import ru.dserg.autotest.page.HomePage;
 import ru.dserg.autotest.page.LoginPage;
 import ru.dserg.autotest.page.Menu;
-import ru.dserg.autotest.page.Reports.AvailablePowerReport;
-import ru.dserg.autotest.page.Reports.RepairReport;
-import ru.dserg.autotest.page.Reports.RepairTimeReport;
-import ru.dserg.autotest.page.Reports.ReportEquipmentOperatingRegime;
+import ru.dserg.autotest.page.Reports.*;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -36,7 +33,7 @@ public class ReportsTest {
     @BeforeClass
     public static  void bfr() {
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++) {
             data.put(i, 4);
         }
     }
@@ -105,6 +102,17 @@ public class ReportsTest {
 
 
     }
+    @Test
+    public void testOtchetRashodaGESPage() throws Exception {
+        data.put(4,5);
+        HomePage homePage = Util.entry();
+        OtchetRashodaGESPage otchetRashodaGESPage = homePage.otchetRashodaGESPage();
+        otchetRashodaGESPage.listStation(1);
+        otchetRashodaGESPage.date("2015-09-09");
+        otchetRashodaGESPage.clickGetData();
+        if (otchetRashodaGESPage.isPositive()) fail();
+        data.put(4,1);
+    }
    @After
     public void aftr(){
         Util.pnotifyClose();
@@ -122,7 +130,7 @@ public class ReportsTest {
 
 
         DDtestrail testrail = new DDtestrail(58, 2560, Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
-        testrail.completeTest(data, "Отчеты " +Configuration.baseUrl+ format.format(d));
+        testrail.completeTest(data, "Отчеты " +Configuration.baseUrl+" "+ format.format(d));
 
     }
 

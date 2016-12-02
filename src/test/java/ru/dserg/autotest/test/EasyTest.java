@@ -110,7 +110,7 @@ public class EasyTest {
         HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();
         longModel.create();
-        longModel.getCreate().name("Monitoring"+format.format(d));
+        longModel.getCreate().name("testMonitoring"+format.format(d));
         longModel.getCreate().beginDatePritok("2015-09-05");
         longModel.getCreate().beginDateCalculation("2015-09-15");
         longModel.getCreate().endDateCalculation("2015-09-25");
@@ -120,7 +120,11 @@ public class EasyTest {
         data.put(1,1);
     }
    @AfterClass
-    public static void testrail() throws IOException, APIException {
+    public static void testrail() throws Exception {
+
+       HomePage homePage=Util.entry();
+       ShortModel shortModel = homePage.openKratkosrochSpisok(1);
+       shortModel.delete();
 
         //File myPath = new File("S:/Topics/ДРСК/Тестирование/DcWebScreenshot/Мониторинг"+format.format(d));
         //myPath.mkdir();
@@ -129,7 +133,7 @@ public class EasyTest {
 
        //if(Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com")) {
            DDtestrail testrail = new DDtestrail(58, 2537,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
-           testrail.completeTest(data, "Мониторинг "+Configuration.baseUrl + format.format(d));
+           testrail.completeTest(data, "Мониторинг "+Configuration.baseUrl +" "+ format.format(d));
        //}
     }
     public static void copy(File source, Path dest) throws IOException {

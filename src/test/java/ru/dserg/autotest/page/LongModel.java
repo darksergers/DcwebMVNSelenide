@@ -1,10 +1,13 @@
 package ru.dserg.autotest.page;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import ru.dserg.autotest.page.LongModelElements.*;
 import ru.dserg.autotest.page.LongScenarioElements.Characteristics;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 /**
  * Created by Kalinin.S on 11.08.2016.
@@ -74,5 +77,16 @@ public class LongModel {
     public Settings getSettings() {
         if (tab ==Tab.Create)  return settings;
         return null;
+    }
+    public void deleteScenario(String str){
+        $("#scenariosTable").waitUntil(Condition.visible,30000);
+        for (SelenideElement element:$$(By.partialLinkText(str) ) ) {
+            element.parent().parent().$(By.tagName("input")).click();
+        }
+
+        $(By.className("delete-button")).click();
+        $("#delete-button").waitUntil(Condition.visible,30000);
+        $("#delete-button").click();
+
     }
 }

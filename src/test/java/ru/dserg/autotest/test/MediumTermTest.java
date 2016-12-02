@@ -47,8 +47,8 @@ public class MediumTermTest {
         longModel.getCreate().beginDatePritok("2015-09-05");
         longModel.getCreate().beginDateCalculation("2015-09-15");
         longModel.getCreate().endDateCalculation("2015-09-25");
-        longModel.getCreate().granularity("месяц");
-        longModel.getCreate().name("Granularity"+granularity+format.format(d));
+        longModel.getCreate().granularity(granularity);
+        longModel.getCreate().name("testGranularity "+granularity+format.format(d));
         longModel.getCreate().create();
         Util.findError();
     }
@@ -67,7 +67,7 @@ public class MediumTermTest {
         longModel.getCreate().name("CharacteristicsIsAvailable"+format.format(d));
         longModel.getCreate().beginDatePritok("2015-09-05");
         longModel.getCreate().beginDateCalculation("2015-09-15");
-        longModel.getCreate().endDateCalculation("2015-09-25");
+        longModel.getCreate().endDateCalculation("2015-10-25");
         LongScenario longScenario = longModel.getCreate().create();
         Util.pnotifyClose();
         longScenario.characteristics();
@@ -113,26 +113,29 @@ public class MediumTermTest {
     }
 
 
-    @Ignore
+    //@Ignore
     @Test
     public void testHoldMode() throws Exception {
         data.put(4,5);
         HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();
         longModel.create();
-        longModel.getCreate().name("test"+format.format(d));
+        longModel.getCreate().name("testHold"+format.format(d));
         longModel.getCreate().beginDatePritok("2015-09-05");
         longModel.getCreate().beginDateCalculation("2015-09-05");
         longModel.getCreate().endDateCalculation("2015-09-15");
         LongScenario longScenario = longModel.getCreate().create();
         longScenario.pnotifyClose();
         longScenario.choiceGes(3);
-        longScenario.getResults().typeInTable(0,2,"120");
-        longScenario.getResults().typeInTable(1,12,"100");
-        longScenario.getResults().typeInTable(2,20,"0.55");
-        longScenario.getResults().typeInTable(3,19,"10");
+        longScenario.getResults().typeInTable(0,"ZВБкон",6,"120");
+
+        longScenario.getResults().typeInTable(1,"QНБ",3,"100");
+
+        longScenario.getResults().typeInTable(2,"NГЭС",4,"0.55");
+        longScenario.getResults().typeInTable(3,"ЭГЭС",4,"10");
         longScenario.getResults().choiceDg(4);
-        longScenario.getResults().play();
+       longScenario.getResults().play();
+
         data.put(4,1);
 
 
@@ -171,16 +174,24 @@ public class MediumTermTest {
         }
     }
     @AfterClass
-    public static void testrail() throws IOException, APIException {
-        close();
+    public static void testrail() throws Exception {
+        HomePage homePage=Util.entry();
+        LongModel longModel = homePage.longModel();
+        longModel.deleteScenario("testGranularity");
+        longModel.deleteScenario("testRemont");
+        longModel.deleteScenario("testHold");
+        longModel.deleteScenario("CharacteristicsIsAvailable");
+
+
+
         //File myPath = new File("S:/Topics/ДРСК/Тестирование/DcWebScreenshot/Мониторинг"+format.format(d));
         //myPath.mkdir();
         //for (File file: new File("build/reports/tests").listFiles())
         //   if (file.isFile()) copy(file, Paths.get("S:/Topics/ДРСК/Тестирование/DcWebScreenshot/Мониторинг"+format.format(d)+"/"+file.getName()));
 
         //if(Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com")) {
-            DDtestrail testrail = new DDtestrail(58, 2544,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
-            testrail.completeTest(data, "Среднесрочка "+Configuration.baseUrl + format.format(d));
+           DDtestrail testrail = new DDtestrail(58, 2544,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
+           testrail.completeTest(data, "Среднесрочка "+Configuration.baseUrl+" "+ format.format(d));
         //}
 
     }
