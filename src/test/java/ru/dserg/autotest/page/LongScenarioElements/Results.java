@@ -42,9 +42,9 @@ public class Results {
     }
     public void choiceDg(int str){
         //table.choiceTr(str, choiceColumn("Параметр",8)).doubleClick();
-        table.choiceTr(str, choiceColumn("Параметр",8)).$(By.tagName("div")).click();
-        $(By.className("handsontableEditor")).waitUntil(Condition.visible,30000);
-        SelenideTable tableChoice= new SelenideTable($(By.className("handsontableEditor")).$(By.tagName("table")));
+        table.choiceTr(str, choiceColumn("Параметр",8)).$(By.className("htAutocompleteArrow")).click();
+        $(By.className("handsontableInputHolder")).waitUntil(Condition.visible,30000);
+        SelenideTable tableChoice= new SelenideTable($(By.className("handsontableInputHolder")).$(By.tagName("table")));
         tableChoice.choiceTr(1,0).click();
 
 
