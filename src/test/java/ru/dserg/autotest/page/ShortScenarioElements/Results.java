@@ -15,23 +15,23 @@ public class Results {
     SelenideTable table =
             new SelenideTable($(By.xpath("//*[@id=\'results-table\']/div[1]/div[2]/div/div/div[1]/table")));
 
-    private void  editCell(int str,int rows,String text){//внутреняя функция
+    private void  editCell(int str,int rows,String text) throws Exception {//внутреняя функция
         table.typeInTable(str, rows,"#results-table > div.handsontableInputHolder > textarea",text);
     }
     // заполняют столбики в результируещей таблице
-    public void editHpot(int str,String text){
+    public void editHpot(int str,String text) throws Exception {
         editCell(str, 5,text);
     }
-    public void editQturb(int str,String text){
+    public void editQturb(int str,String text) throws Exception {
         editCell(str,7,text);
     }
-    public void editP1(int str,String text){
+    public void editP1(int str,String text) throws Exception {
         editCell(str,9,text);
     }
-    public void editP2(int str,String text){
+    public void editP2(int str,String text) throws Exception {
         editCell(str, 10,text);
     }
-    public void editCost(int str,String text){
+    public void editCost(int str,String text) throws Exception {
         editCell(str, 15,text);
     }
 

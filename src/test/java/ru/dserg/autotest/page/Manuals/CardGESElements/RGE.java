@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$;
  */
 public class RGE {
     SelenideTable table = new SelenideTable($("#tab-rge-tab").$(By.tagName("table")));
-    public void rowsExist(){
+    public void rowsExist() throws Exception {
      table.choiceTr(0,0).shouldBe(Condition.visible);
     }
 }

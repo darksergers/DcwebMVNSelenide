@@ -32,7 +32,7 @@ public class OptimizationPage {
     public void refresh(){
         $("#refresh").click();
     }
-    public void changeTable(int str, int rows,String number){
+    public void changeTable(int str, int rows,String number) throws Exception {
         table.typeInTable(str,rows,"#results-table > div:nth-child(3) > textarea",number);
     }
 

@@ -33,14 +33,14 @@ public class Results {
     public void checkLimits(){
         $("#use-limits").click();
     }
-    public void typeInTable(int str,String nameColumn,int numberChar,String number){
+    public void typeInTable(int str,String nameColumn,int numberChar,String number) throws Exception {
         table.typeInTable(str,choiceColumn(nameColumn,numberChar),"#results-table > div.handsontableInputHolder > textarea",number);
 
         //table.choiceTr(str,choiceColumn(nameColumn,numberChar)).click();
 
 
     }
-    public void choiceDg(int str){
+    public void choiceDg(int str) throws Exception {
         //table.choiceTr(str, choiceColumn("Параметр",8)).doubleClick();
         table.choiceTr(str, choiceColumn("Параметр",8)).$(By.className("htAutocompleteArrow")).click();
         $(By.className("handsontableInputHolder")).waitUntil(Condition.visible,30000);

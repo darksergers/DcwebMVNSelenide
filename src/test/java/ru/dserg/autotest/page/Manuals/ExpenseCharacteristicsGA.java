@@ -18,7 +18,7 @@ public class ExpenseCharacteristicsGA {
     public void clickCharacteristic(){
        $("#list-table-body").$(By.tagName("a")).click();
     }
-    public boolean ok(){
+    public boolean ok() throws Exception {
         SelenideTable table = new SelenideTable($("#char-table").$(By.tagName("table")));
         if (Integer.valueOf(table.choiceTr(-1,1).getText().substring(0,2))<= 0) return false;
         if (Integer.valueOf(table.choiceTr(0,0).getText().substring(0,2))<=0) return  false;

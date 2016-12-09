@@ -82,8 +82,8 @@ public class ManualsTest {
     public static void testrail() throws IOException, APIException {
 
 
-       DDtestrail testrail = new DDtestrail(58, 2559, Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
-        testrail.completeTest(data, "Справочники "+Configuration.baseUrl+" "+ format.format(d));
+       //DDtestrail testrail = new DDtestrail(58, 2559, Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
+       //testrail.completeTest(data, "Справочники "+Configuration.baseUrl+" "+ format.format(d));
 
     }
 

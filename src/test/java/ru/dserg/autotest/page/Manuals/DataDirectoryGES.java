@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class DataDirectoryGES {
     SelenideTable table = new SelenideTable($(By.className("table")));
 
-    public CardGES volges(){
+    public CardGES volges() throws Exception {
         table.choiceTr(11,0).$(By.tagName("a")).click();
         return new CardGES();
     }

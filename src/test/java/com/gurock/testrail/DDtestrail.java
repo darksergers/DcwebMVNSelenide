@@ -30,7 +30,7 @@ public class DDtestrail {
     private int testSuitId;
 
 
-    public void  completeTest(HashMap dadaTest,String name) throws IOException, APIException {
+    public void  completeTest(HashMap dadaTest,HashMap dataError,String name) throws IOException, APIException {
        //(new SSLTool()).disableCertificateValidation();
 
 
@@ -67,6 +67,7 @@ public class DDtestrail {
             Map testcase = new HashMap();
             testcase.put("test_id",((JSONObject) o).get("id"));
             testcase.put("status_id",dadaTest.get(i));
+            testcase.put("comment",dataError.get(i));
             //testcase.put("comment":);
             arr.add(testcase);
             i++;

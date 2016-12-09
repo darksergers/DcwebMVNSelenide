@@ -14,16 +14,16 @@ public class CardGES {
     RGE rge = new RGE();
     GTP gtp = new GTP();
     GA ga = new GA();
-    public void rgeOk(){
+    public void rgeOk() throws Exception {
         $("#rge-tab").parent().click();
         rge.rowsExist();
     }
-    public  void  gtpOk(){
+    public  void  gtpOk() throws Exception {
 
         $("#gtp-tab").parent().click();
         gtp.rowsExist();
     }
-    public void gaOk(){
+    public void gaOk() throws Exception {
 
         $("#ga-tab").parent().click();
         ga.rowsExist();

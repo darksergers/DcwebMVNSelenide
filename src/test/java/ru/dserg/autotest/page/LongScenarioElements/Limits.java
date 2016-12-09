@@ -12,7 +12,7 @@ public class Limits {
     private SelenideTable table =
             new SelenideTable($(By.xpath("//*[@id=\"limit-table\"]/div[1]/div[2]/div/div/div[1]/table")));
 
-    public void changeTable(int str,int row,String number){
+    public void changeTable(int str,int row,String number) throws Exception {
         table.typeInTable(str, row,"#limit-table > div:nth-child(2) > textarea",number);
     }
 

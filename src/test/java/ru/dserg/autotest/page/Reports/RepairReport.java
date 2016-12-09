@@ -24,7 +24,7 @@ public class RepairReport {
     public void show(){
         $("#showreport-id").click();
     }
-    public  boolean  ok(){
+    public  boolean  ok() throws Exception {
         $("#table-id").$(By.tagName("table")).waitUntil(Condition.visible,30000);
         boolean mspOk= false;
         boolean asuOK= false;

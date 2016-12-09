@@ -129,8 +129,8 @@ public class ReportsTest {
     public static void testrail() throws IOException, APIException {
 
 
-        DDtestrail testrail = new DDtestrail(58, 2560, Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
-        testrail.completeTest(data, "Отчеты " +Configuration.baseUrl+" "+ format.format(d));
+       // DDtestrail testrail = new DDtestrail(58, 2560, Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
+       // testrail.completeTest(data, "Отчеты " +Configuration.baseUrl+" "+ format.format(d));
 
     }
 

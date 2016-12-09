@@ -26,7 +26,7 @@ public class OtchetRashodaGESPage {
 
     }
 
-    public boolean isPositive(){
+    public boolean isPositive() throws Exception {
         SelenideTable table = new SelenideTable($("#outcomeTable").$(By.tagName("table")));
         for (int i=0;i<24;i++) {
             for (int j = 1; j < 25; j++) {

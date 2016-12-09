@@ -89,7 +89,7 @@ public class Create {
 
         return new LongScenario();
     }
-    public void granularity(String granularity){//// TODO доделать
+    public void granularity(String granularity) throws Exception {//// TODO доделать
         SelenideTable table= new SelenideTable($("#granularity-table").$(By.tagName("table")));
 
         for (int i=0;i<12;i++) {

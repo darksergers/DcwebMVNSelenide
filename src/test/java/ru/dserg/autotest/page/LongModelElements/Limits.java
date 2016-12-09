@@ -30,7 +30,7 @@ public class Limits {
     /**
      * Внести данные в таблицу
      */
-    public void editTable(int str, int rows,String text){
+    public void editTable(int str, int rows,String text) throws Exception {
         table.typeInTable(str,rows,"#limit-table > div.handsontableInputHolder > textarea",text);
     }
 

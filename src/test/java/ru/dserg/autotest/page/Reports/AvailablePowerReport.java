@@ -30,7 +30,7 @@ public class AvailablePowerReport {
         $("#apply-button").click();
         Util.findError();
     }
-    public void completeDH(){
+    public void completeDH() throws Exception {
         $("#ap-report-content").$(By.tagName("tbody")).waitUntil(Condition.visible,30000);
         for (int i = 0;i<$("#ap-report-content").$(By.tagName("tbody")).$$(By.tagName("tr")).size()-1;i++){
             table.typeInTable(i,4,"#ap-report-content > div.handsontableInputHolder > textarea","1.5");
@@ -43,7 +43,7 @@ public class AvailablePowerReport {
         Util.findError();
 
     }
-    public boolean ok(){
+    public boolean ok() throws Exception {
 
         for (int i = 0;i<$("#ap-report-content").$(By.tagName("tbody")).$$(By.tagName("tr")).size()-1;i++){
             for(int j = 6; j<10;j++){

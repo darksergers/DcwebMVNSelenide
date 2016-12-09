@@ -17,6 +17,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -31,6 +32,7 @@ import static  com.codeborne.selenide.Selenide.screenshot;
 
 public class EasyTest {
     static Date d = new Date();
+    static HashMap dateError = new HashMap();
     static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH.mm");
     private static HashMap data = new HashMap();
 
@@ -42,6 +44,7 @@ public class EasyTest {
             if (file.isFile()) file.delete();
         for (int i=0;i<3;i++){
             data.put(i,4);
+            dateError.put(i,"Все ок");
         }
     }
     @After
@@ -60,27 +63,32 @@ public class EasyTest {
     @Test
     public void testKratkosrochka() throws Exception {
         data.put(0,5);
+        try {
 
-        HomePage homePage=Util.entry();
-        ShortModel shortModel=homePage.openKratkosrochSpisok(1);
-        shortModel.create();
-        shortModel.typeNameScenario("Мониторинг_"+format.format(d));
-        shortModel.time();
-        ShortScenario shortScenario = shortModel.createScenario();
-        //shortScenario.getMain().changeTablePritok(0,1,"5");
-        shortScenario.getMain().save();
-        shortScenario.meteo();
-        Util.pnotifyClose();
-        shortScenario.condition();
-        Util.pnotifyClose();
-        shortScenario.getCondition().editTable(4,4,"ХР");
-        shortScenario.result();
-        shortScenario.getResults().showGA();
-        shortScenario.getResults().optTime(1);
-        shortScenario.getResults().play();
-        screenshot("Ololo1");
-        shortScenario.back();
-        data.put(0,1);
+
+            HomePage homePage = Util.entry();
+            ShortModel shortModel = homePage.openKratkosrochSpisok(1);
+            shortModel.create();
+            shortModel.typeNameScenario("Мониторинг_" + format.format(d));
+            shortModel.time();
+            ShortScenario shortScenario = shortModel.createScenario();
+            shortScenario.getMain().save();
+            shortScenario.meteo();
+            Util.pnotifyClose();
+            shortScenario.condition();
+            Util.pnotifyClose();
+            shortScenario.getCondition().editTable(4, 4, "ХР");
+            shortScenario.result();
+            shortScenario.getResults().showGA();
+            shortScenario.getResults().optTime(1);
+            shortScenario.getResults().play();
+            screenshot("Ololo1");
+            shortScenario.back();
+            data.put(0, 1);
+        } catch (Throwable e){
+            dateError.put(0,e.getMessage());
+            throw e;
+        }
 
 
     }
@@ -122,6 +130,8 @@ public class EasyTest {
    @AfterClass
     public static void testrail() throws Exception {
 
+       //DDtestrail testrail = new DDtestrail(58, 2537,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
+       //testrail.completeTest(data,dateError, "Мониторинг "+Configuration.baseUrl +" "+ format.format(d));
        HomePage homePage=Util.entry();
        ShortModel shortModel = homePage.openKratkosrochSpisok(1);
        shortModel.delete();
@@ -132,8 +142,7 @@ public class EasyTest {
          //   if (file.isFile()) copy(file, Paths.get("S:/Topics/ДРСК/Тестирование/DcWebScreenshot/Мониторинг"+format.format(d)+"/"+file.getName()));
 
        //if(Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com")) {
-           DDtestrail testrail = new DDtestrail(58, 2537,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
-           testrail.completeTest(data, "Мониторинг "+Configuration.baseUrl +" "+ format.format(d));
+
        //}
     }
     public static void copy(File source, Path dest) throws IOException {

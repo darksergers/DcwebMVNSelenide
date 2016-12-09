@@ -27,7 +27,7 @@ public class Remont {
     public void save(){
         $("#saveRepairs").click();
     }
-    public void typeInTable(int str,int row,String number){//внести значение в ячейку пргнз подпора
+    public void typeInTable(int str,int row,String number) throws Exception {//внести значение в ячейку пргнз подпора
         $("#RepairsTable").waitUntil(Condition.visible,30000);
         table.typeInTable(str, row,"#RepairsTable > div.handsontableInputHolder > textarea",number);
     }

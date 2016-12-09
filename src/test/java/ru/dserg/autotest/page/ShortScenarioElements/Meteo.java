@@ -20,14 +20,14 @@ public class Meteo {
 
 
 
-    public void changeTableWind(int str,String number){//внести значение в ячейку таблицы ветровой нагон
+    public void changeTableWind(int str,String number) throws Exception {//внести значение в ячейку таблицы ветровой нагон
 
         tableWind.typeInTable(str,1,"#windsurge-table > div.handsontableInputHolder > textarea",number);
     }
-    public void changeTablePressure(int str, int rows,String number){//внести значение в ячейку среднее атмосферное...
+    public void changeTablePressure(int str, int rows,String number) throws Exception {//внести значение в ячейку среднее атмосферное...
         tablePressure.typeInTable(str,rows,"#avgatm-table > div.handsontableInputHolder > textarea",number);
     }
-    public void changeTableTemperature(int str,String number){//внести значение в ячейку средняя тепература
+    public void changeTableTemperature(int str,String number) throws Exception {//внести значение в ячейку средняя тепература
 
         tableTemperature.typeInTable(str,1,"#avgtemperature-table > div.handsontableInputHolder > textarea",number);
     }

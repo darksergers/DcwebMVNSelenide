@@ -20,7 +20,7 @@ public class RepairTimeReport {
     public void show(){
         $("#showreport-id").click();
     }
-    public boolean ok(){
+    public boolean ok() throws Exception {
         $("#table-id").$(By.tagName("table")).waitUntil(Condition.visible,30000);
         SelenideTable table = new SelenideTable($("#table-id").$(By.tagName("table")));
         label:for(int i = 1; i< $("#table-id").$(By.tagName("table")).$$(By.tagName("tr")).size()-4; i=i+4){

@@ -5,6 +5,40 @@
   <groupId>ru.dserg.autotest</groupId>
   <artifactId>dcSelenide</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <aspectj.version>1.8.9</aspectj.version>
+    <allure.version>1.4.23</allure.version>
+  </properties>
+
+  <dependencies>
+      <dependency>
+        <groupId>com.codeborne</groupId>
+        <artifactId>selenide</artifactId>
+        <version>4.0</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>com.googlecode.json-simple</groupId>
+        <artifactId>json-simple</artifactId>
+        <version>1.1.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>ru.yandex.qatools.allure</groupId>
+        <artifactId>allure-junit-adaptor</artifactId>
+        <version>${allure.version}</version>
+      </dependency>
+
+  </dependencies>
+
   <build>
     <plugins>
       <plugin>
@@ -16,16 +50,31 @@
         </configuration>
       </plugin>
 
+
       <plugin>
       <groupId>org.apache.maven.plugins</groupId>
       <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.19.1</version>
 
-      <configuration>
-        <systemPropertyVariables>
-          <browser>chrome</browser>
-          <timeout>30000</timeout>
-        </systemPropertyVariables>
-      </configuration>
+
+        <configuration>
+          <argLine>
+            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+          </argLine>
+          <properties>
+            <property>
+              <name>listener</name>
+              <value>ru.yandex.qatools.allure.junit.AllureRunListener</value>
+            </property>
+          </properties>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+          </dependency>
+        </dependencies>
 
     </plugin>
 
@@ -36,28 +85,9 @@
   <name>dcSelenide</name>
   <url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-  </properties>
 
-  <dependencies>
-    <dependency>
-      <groupId>com.codeborne</groupId>
-      <artifactId>selenide</artifactId>
-      <version>4.0</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.googlecode.json-simple</groupId>
-      <artifactId>json-simple</artifactId>
-      <version>1.1.1</version>
-    </dependency>
-  </dependencies>
+
+
+
 </project>

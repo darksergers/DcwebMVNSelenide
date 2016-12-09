@@ -190,8 +190,8 @@ public class MediumTermTest {
         //   if (file.isFile()) copy(file, Paths.get("S:/Topics/ДРСК/Тестирование/DcWebScreenshot/Мониторинг"+format.format(d)+"/"+file.getName()));
 
         //if(Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com")) {
-           DDtestrail testrail = new DDtestrail(58, 2544,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
-           testrail.completeTest(data, "Среднесрочка "+Configuration.baseUrl+" "+ format.format(d));
+          // DDtestrail testrail = new DDtestrail(58, 2544,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
+           //testrail.completeTest(data, "Среднесрочка "+Configuration.baseUrl+" "+ format.format(d));
         //}
 
     }

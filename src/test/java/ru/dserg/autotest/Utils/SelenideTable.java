@@ -18,14 +18,17 @@ public class SelenideTable {
     public SelenideTable(SelenideElement element) {
         this.element = element;
     }//передается таблица!! не тело таблицы
-    public SelenideElement choiceTr(int str,int rows){
-        return element.$(By.tagName("tr"),str+1).$(By.tagName("td"),rows);//функция возвращающая элемент
+    public SelenideElement choiceTr(int str,int rows) throws Exception {
+
+            return element.$(By.tagName("tr"), str + 1).$(By.tagName("td"), rows);//функция возвращающая элемент
+
     }
+
     public SelenideElement choiceTh(int rows){
         return element.$(By.tagName("tr")).$(By.tagName("th"),rows);//функция возвращающая элемент
     }
 
-    public void typeInTable(int str, int rows, String query, String number){//функция для заполнения тамблицы
+    public void typeInTable(int str, int rows, String query, String number) throws Exception {//функция для заполнения тамблицы
         choiceTr(str, rows).doubleClick();
         choiceTr(str, rows).click();
         JavascriptExecutor js = (JavascriptExecutor) WebDriverRunner.getWebDriver();

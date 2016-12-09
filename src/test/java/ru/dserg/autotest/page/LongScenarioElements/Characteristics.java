@@ -74,7 +74,7 @@ public class Characteristics {
      * @param number
      */
 
-    public void vbCurves(int choiceTable,int str,int rows,String number){
+    public void vbCurves(int choiceTable,int str,int rows,String number) throws Exception {
         vbCurves(choiceTable).typeInTable(str,rows,(choiceTable==0)?"#vb-curve-table":"#surface-curve-table"+
                 " > div.handsontableInputHolder > textarea",number);
     }
@@ -94,7 +94,7 @@ public class Characteristics {
     }
 
 
-    public void nbCurves(int str,int rows,String number){
+    public void nbCurves(int str,int rows,String number) throws Exception {
         nbCurves().typeInTable(str,rows,"#nb-curve-table > div.handsontableInputHolder > textarea",number);
     }
     public SelenideTable nbCurves() {
@@ -102,7 +102,7 @@ public class Characteristics {
         tab = Tab.KrivieNB;
         return getTable();
     }
-    public void nbWinter(int str,int rows,String number){
+    public void nbWinter(int str,int rows,String number) throws Exception {
         nbWinter().typeInTable(str,rows,"#nb-winter-table > div.handsontableInputHolder > textarea",number);
 
     }
@@ -111,7 +111,7 @@ public class Characteristics {
         tab = Tab.NbWinter;
         return getTable();
     }
-    public void poteriNapora(int str,int rows,String number){
+    public void poteriNapora(int str,int rows,String number) throws Exception {
         poteriNapora().typeInTable(str,rows,"#h-losses-table > div.handsontableInputHolder > textarea",number);
     }
     public SelenideTable poteriNapora(){
@@ -120,7 +120,7 @@ public class Characteristics {
         return getTable();
     }
 
-    public void hidroVB(int str,int rows,String number){
+    public void hidroVB(int str,int rows,String number) throws Exception {
         hidroVB().typeInTable(str,rows,"#vb-curve-table > div.handsontableInputHolder > textarea",number);
     }
     public SelenideTable hidroVB(){
@@ -128,7 +128,7 @@ public class Characteristics {
         tab = Tab.HidroVB;
         return getTable();
     }
-    public void spillwayCapacity(int str,int rows,String number){
+    public void spillwayCapacity(int str,int rows,String number) throws Exception {
         spillwayCapacity().typeInTable(str,rows,"#spillways-table > div.handsontableInputHolder > textarea",number);
     }
     public SelenideTable spillwayCapacity(){
@@ -136,7 +136,7 @@ public class Characteristics {
         tab = Tab.PropuskVodosbrosa;
         return getTable();
     }
-    public void expenseChars(int str,int rows,String number){
+    public void expenseChars(int str,int rows,String number) throws Exception {
         expenseChars().typeInTable(str,rows,"#outflow-chars-table > div.handsontableInputHolder > textarea", number);
     }
     public SelenideTable expenseChars(){
@@ -144,7 +144,7 @@ public class Characteristics {
         tab = Tab.RashodCharacteristics;
         return getTable();
     }
-    public void ownExpensesLosses(int str,int rows,String number){
+    public void ownExpensesLosses(int str,int rows,String number) throws Exception {
         ownExpensesLosses().typeInTable(str,rows,"#ownExpensesLosses > div.handsontableInputHolder > textarea",number);
     }
     public SelenideTable ownExpensesLosses(){

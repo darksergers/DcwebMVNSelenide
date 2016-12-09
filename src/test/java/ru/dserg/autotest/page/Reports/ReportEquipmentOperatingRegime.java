@@ -27,7 +27,7 @@ public class ReportEquipmentOperatingRegime {
        $("#show").click();
         Util.findError();
     }
-    public boolean ok(){
+    public boolean ok() throws Exception {
         SelenideTable table = new SelenideTable($("#report-table"));
         $("#report-table").$(By.tagName("tbody")).waitUntil(Condition.visible,30000);
 

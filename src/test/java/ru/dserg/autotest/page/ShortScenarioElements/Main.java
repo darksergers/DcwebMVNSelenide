@@ -17,14 +17,14 @@ public class Main {//описывает главную вкладку
     private SelenideTable tablePodpor =
             new SelenideTable($(By.xpath("//*[@id='backwater-table']/div[1]/div[1]/div/div[1]/table")));
 
-    public void changeTablePritok(int str, int rows,String number) {//внести значение в ячейку пргнз притока
+    public void changeTablePritok(int str, int rows,String number) throws Exception {//внести значение в ячейку пргнз притока
         tablePritok.typeInTable(str, rows,"#inflow-table > div.handsontableInputHolder > textarea",number);
     }
 
 
 
 
-    public void changeTablePodpor(int str,String number){//внести значение в ячейку пргнз подпора
+    public void changeTablePodpor(int str,String number) throws Exception {//внести значение в ячейку пргнз подпора
         tablePodpor.typeInTable(str, 1,"#backwater-table > div.handsontableInputHolder > textarea",number);
     }
     public void typeName(String str) {//внести  название сценария

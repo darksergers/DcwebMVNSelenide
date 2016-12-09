@@ -19,7 +19,7 @@ public class DG {
     public void save(){
         $("#save-dispgraph-button").click();
     }
-    public void changeTable(int str,int row,String number){
+    public void changeTable(int str,int row,String number) throws Exception {
         table.typeInTable(str, row,"#dg-table > div:nth-child(3) > textarea",number);
     }
 

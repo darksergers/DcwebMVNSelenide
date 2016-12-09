@@ -13,7 +13,7 @@ public class Condition {
     private SelenideTable table=
             new SelenideTable($(By.xpath("//*[@id=\'ga-condition-table\']/div[1]/div[1]/div/div[1]/table")));
 
-    public void  editTable(int str,int rows,String condition){
+    public void  editTable(int str,int rows,String condition) throws Exception {
 
         table.choiceTr(str, rows).doubleClick();
         table.choiceTr(str, rows).click();

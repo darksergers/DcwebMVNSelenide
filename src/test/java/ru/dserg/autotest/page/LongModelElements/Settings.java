@@ -17,7 +17,7 @@ public class Settings {
         $("#back-button").click();
         model.setTab();
     }
-    public void setTable(int str,int rows,String s){
+    public void setTable(int str,int rows,String s) throws Exception {
         table.choiceTr(str,rows).setValue(s);
     }
     public void save(){
