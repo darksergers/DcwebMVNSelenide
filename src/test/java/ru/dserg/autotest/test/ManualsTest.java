@@ -28,8 +28,8 @@ import static org.junit.Assert.fail;
 public class ManualsTest {
     static Date d = new Date();
     static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH.mm");
+    private static HashMap dataError = new HashMap();
     private static HashMap data = new HashMap();
-
 
 
     @BeforeClass
@@ -37,6 +37,7 @@ public class ManualsTest {
 
         for (int i=0;i<2;i++){
             data.put(i,4);
+            dataError.put(i,"Все ок");
         }
     }
 
@@ -44,6 +45,7 @@ public class ManualsTest {
     public void testDataDirectoryGES() throws Exception {
 
         data.put(0,5);
+        try{
         HomePage homePage= Util.entry();
         DataDirectoryGES dataDirectoryGES =  homePage.dataDirectoryGES();
         CardGES cardGES=dataDirectoryGES.volges();
@@ -51,18 +53,28 @@ public class ManualsTest {
         cardGES.gtpOk();
         cardGES.gaOk();
         data.put(0,1);
+        } catch (Throwable e){
+            dataError.put(0,e.getMessage());
+            throw e;
+        }
+
     }
 
     @Test
     public void testExpenseCharacteristicsGA() throws Exception {
 
         data.put(1,5);
-        HomePage homePage=Util.entry();
-        ExpenseCharacteristicsGA expenseCharacteristicsGA = homePage.expenseCharacteristicsGA();
-        expenseCharacteristicsGA.choice();
-        expenseCharacteristicsGA.clickCharacteristic();
-        if (!expenseCharacteristicsGA.ok()) fail("пустая таблица");
-        data.put(1,1);
+        try {
+            HomePage homePage = Util.entry();
+            ExpenseCharacteristicsGA expenseCharacteristicsGA = homePage.expenseCharacteristicsGA();
+            expenseCharacteristicsGA.choice();
+            expenseCharacteristicsGA.clickCharacteristic();
+            if (!expenseCharacteristicsGA.ok()) fail("пустая таблица");
+            data.put(1, 1);
+        } catch (Throwable e){
+            dataError.put(1,e.getMessage());
+            throw e;
+        }
 
     }
 
@@ -82,8 +94,8 @@ public class ManualsTest {
     public static void testrail() throws IOException, APIException {
 
 
-       //DDtestrail testrail = new DDtestrail(58, 2559, Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
-       //testrail.completeTest(data, "Справочники "+Configuration.baseUrl+" "+ format.format(d));
+       DDtestrail testrail = new DDtestrail(58, 2559, Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
+       testrail.completeTest(data,dataError, "Справочники "+Configuration.baseUrl+" "+ format.format(d));
 
     }
 

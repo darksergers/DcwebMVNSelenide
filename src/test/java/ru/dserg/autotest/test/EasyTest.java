@@ -32,7 +32,7 @@ import static  com.codeborne.selenide.Selenide.screenshot;
 
 public class EasyTest {
     static Date d = new Date();
-    static HashMap dateError = new HashMap();
+    static HashMap dataError = new HashMap();
     static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH.mm");
     private static HashMap data = new HashMap();
 
@@ -44,7 +44,7 @@ public class EasyTest {
             if (file.isFile()) file.delete();
         for (int i=0;i<3;i++){
             data.put(i,4);
-            dateError.put(i,"Все ок");
+            dataError.put(i,"Все ок");
         }
     }
     @After
@@ -86,7 +86,7 @@ public class EasyTest {
             shortScenario.back();
             data.put(0, 1);
         } catch (Throwable e){
-            dateError.put(0,e.getMessage());
+            dataError.put(0,e.getMessage());
             throw e;
         }
 
@@ -101,12 +101,17 @@ public class EasyTest {
     @Test
     public void testOptimization() throws Exception {
         data.put(2,5);
-        HomePage homePage=Util.entry();
-        OptimizationPage optimizationPage = homePage.openOptimization();
-        optimizationPage.select(14);
-        optimizationPage.show();
-        screenshot("Ololo2");
-        data.put(2,1);
+        try {
+            HomePage homePage = Util.entry();
+            OptimizationPage optimizationPage = homePage.openOptimization();
+            optimizationPage.select(14);
+            optimizationPage.show();
+            screenshot("Ololo2");
+            data.put(2, 1);
+        } catch (Throwable e){
+            dataError.put(2,e.getMessage());
+            throw e;
+        }
 
 
     }
@@ -114,7 +119,9 @@ public class EasyTest {
 
     @Test
     public void testSrednesrochka() throws Exception {
+
         data.put(1,5);
+        try {
         HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();
         longModel.create();
@@ -126,12 +133,16 @@ public class EasyTest {
         longScenario.characteristics();
         screenshot("Ololo3");
         data.put(1,1);
+    } catch (Throwable e){
+        dataError.put(1,e.getMessage());
+        throw e;
+    }
     }
    @AfterClass
     public static void testrail() throws Exception {
 
-       //DDtestrail testrail = new DDtestrail(58, 2537,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
-       //testrail.completeTest(data,dateError, "Мониторинг "+Configuration.baseUrl +" "+ format.format(d));
+       DDtestrail testrail = new DDtestrail(58, 2537,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
+       testrail.completeTest(data,dataError, "Мониторинг "+Configuration.baseUrl +" "+ format.format(d));
        HomePage homePage=Util.entry();
        ShortModel shortModel = homePage.openKratkosrochSpisok(1);
        shortModel.delete();

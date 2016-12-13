@@ -27,6 +27,7 @@ public class ReportsTest {
     static Date d = new Date();
     static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH.mm");
     private static HashMap data = new HashMap();
+    private static HashMap dataError = new HashMap();
 
 
 
@@ -40,6 +41,7 @@ public class ReportsTest {
     @Test
     public void testRepairReport() throws Exception {
         data.put(0,5);
+        try{
         HomePage homePage= Util.entry();
         RepairReport repairReport = homePage.getMenu().repairReport();
         repairReport.selectStation(4);
@@ -47,18 +49,27 @@ public class ReportsTest {
         repairReport.show();
         if(!repairReport.ok()) fail();
         data.put(0,1);
+        } catch (Throwable e){
+            dataError.put(0,e.getMessage());
+            throw e;
+        }
 
 
     }
     @Test
     public void testRepairTimeReport() throws Exception {
         data.put(1,5);
+        try{
         HomePage homePage=Util.entry();
         RepairTimeReport repairTimeReport = homePage.getMenu().repairTimeReport();
         repairTimeReport.selectStation();
         repairTimeReport.show();
         if(!repairTimeReport.ok()) fail();
         data.put(1,1);
+        } catch (Throwable e){
+            dataError.put(1,e.getMessage());
+            throw e;
+        }
 
 
 
@@ -67,6 +78,7 @@ public class ReportsTest {
     @Test
     public void testAvailablePowerReport() throws Exception {
         data.put(2,5);
+        try {
         HomePage homePage=Util.entry();
         AvailablePowerReport availablePowerReport = homePage.getMenu().availablePowerReport();
         availablePowerReport.selectStation();
@@ -78,6 +90,10 @@ public class ReportsTest {
         availablePowerReport.clickCountButton();
         if(!availablePowerReport.ok()) fail();
         data.put(2,1);
+        } catch (Throwable e){
+            dataError.put(2,e.getMessage());
+            throw e;
+        }
 
 
 
@@ -87,6 +103,7 @@ public class ReportsTest {
     @Test
     public void testReportEquipmentOperatingRegime() throws Exception {
         data.put(3,5);
+        try{
         HomePage homePage=Util.entry();
         ReportEquipmentOperatingRegime reportEquipmentOperatingRegime =
                 homePage.getMenu().reportEquipmentOperatingRegime();
@@ -99,19 +116,28 @@ public class ReportsTest {
         reportEquipmentOperatingRegime.show();
         if(!reportEquipmentOperatingRegime.ok()) fail();
         data.put(3,1);
+        } catch (Throwable e){
+            dataError.put(3,e.getMessage());
+            throw e;
+        }
 
 
     }
     @Test
     public void testOtchetRashodaGESPage() throws Exception {
         data.put(4,5);
-        HomePage homePage = Util.entry();
-        OtchetRashodaGESPage otchetRashodaGESPage = homePage.otchetRashodaGESPage();
-        otchetRashodaGESPage.listStation(1);
-        otchetRashodaGESPage.date("2015-09-09");
-        otchetRashodaGESPage.clickGetData();
-        if (otchetRashodaGESPage.isPositive()) fail();
-        data.put(4,1);
+        try {
+            HomePage homePage = Util.entry();
+            OtchetRashodaGESPage otchetRashodaGESPage = homePage.otchetRashodaGESPage();
+            otchetRashodaGESPage.listStation(1);
+            otchetRashodaGESPage.date("2015-09-09");
+            otchetRashodaGESPage.clickGetData();
+            if (otchetRashodaGESPage.isPositive()) fail();
+            data.put(4, 1);
+        } catch (Throwable e){
+            dataError.put(4,e.getMessage());
+            throw e;
+        }
     }
    @After
     public void aftr(){
@@ -129,8 +155,8 @@ public class ReportsTest {
     public static void testrail() throws IOException, APIException {
 
 
-       // DDtestrail testrail = new DDtestrail(58, 2560, Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
-       // testrail.completeTest(data, "Отчеты " +Configuration.baseUrl+" "+ format.format(d));
+        DDtestrail testrail = new DDtestrail(58, 2560, Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
+        testrail.completeTest(data,dataError, "Отчеты " +Configuration.baseUrl+" "+ format.format(d));
 
     }
 

@@ -25,6 +25,7 @@ public class MediumTermTest {
     static Date d = new Date();
     static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH.mm");
     private static HashMap data = new HashMap();
+    private static HashMap dataError = new HashMap();
     @After
     public void aftr(){
         Util.pnotifyClose();
@@ -60,6 +61,7 @@ public class MediumTermTest {
     @Test
     public void testCharacteristicsIsAvailable() throws Exception {
         data.put(0,5);
+        try{
         HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();
         Util.findError();
@@ -80,6 +82,10 @@ public class MediumTermTest {
         longScenario.getCharacteristics().expenseChars();
         Util.findError();
         data.put(0,1);
+        } catch (Throwable e){
+            dataError.put(0,e.getMessage());
+            throw e;
+        }
     }
 
 
@@ -89,8 +95,13 @@ public class MediumTermTest {
     @Test
     public void testGranularityMonth() throws Exception {
         data.put(1,5);
+        try {
         granularity("Месяц");
         data.put(1,1);
+        } catch (Throwable e){
+            dataError.put(1,e.getMessage());
+            throw e;
+        }
 
     }
 
@@ -99,8 +110,13 @@ public class MediumTermTest {
     @Test
     public void testGranularityPentada() throws Exception {
         data.put(2,5);
+        try {
         granularity("Пентада");
         data.put(2,1);
+        } catch (Throwable e){
+            dataError.put(2,e.getMessage());
+            throw e;
+        }
     }
 
 
@@ -108,8 +124,13 @@ public class MediumTermTest {
     @Test
     public void testGranularityDecada() throws Exception {
         data.put(3,5);
+        try {
         granularity("Декада");
         data.put(3,1);
+        } catch (Throwable e){
+            dataError.put(3,e.getMessage());
+            throw e;
+        }
     }
 
 
@@ -117,6 +138,7 @@ public class MediumTermTest {
     @Test
     public void testHoldMode() throws Exception {
         data.put(4,5);
+        try {
         HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();
         longModel.create();
@@ -137,6 +159,10 @@ public class MediumTermTest {
        longScenario.getResults().play();
 
         data.put(4,1);
+        } catch (Throwable e){
+            dataError.put(4,e.getMessage());
+            throw e;
+        }
 
 
     }
@@ -146,6 +172,7 @@ public class MediumTermTest {
     @Test
     public void testRemont() throws Exception {
         data.put(5,5);
+        try {
         HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();
         longModel.create();
@@ -164,6 +191,10 @@ public class MediumTermTest {
         longScenario.results();
         longScenario.getResults().play();
         data.put(5,1);
+        } catch (Throwable e){
+            dataError.put(5,e.getMessage());
+            throw e;
+        }
 
 
     }
@@ -171,10 +202,14 @@ public class MediumTermTest {
     public static  void bfr(){
         for (int i=0;i<6;i++){
             data.put(i,4);
+            dataError.put(i,"Все ок");
         }
     }
     @AfterClass
     public static void testrail() throws Exception {
+        DDtestrail testrail = new DDtestrail(58, 2544,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
+        testrail.completeTest(data,dataError, "Среднесрочка "+Configuration.baseUrl+" "+ format.format(d));
+
         HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();
         longModel.deleteScenario("testGranularity");
