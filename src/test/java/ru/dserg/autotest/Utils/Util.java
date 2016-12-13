@@ -9,6 +9,7 @@ import org.openqa.selenium.NoSuchElementException;
 import ru.dserg.autotest.page.HomePage;
 import ru.dserg.autotest.page.LoginPage;
 import ru.dserg.autotest.page.Menu;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -62,6 +63,7 @@ public class Util {
                 "}");
 
     }
+    @Step("Вход в ситему")
     static public HomePage entry() throws Exception {
         HomePage homePage;
         LoginPage loginPage = new LoginPage();

@@ -7,6 +7,7 @@ import ru.dserg.autotest.page.LongModelElements.SpisoGES;
 import ru.dserg.autotest.page.LongScenarioElements.Characteristics;
 import ru.dserg.autotest.page.LongScenarioElements.Remont;
 import ru.dserg.autotest.page.LongScenarioElements.Results;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -37,7 +38,7 @@ public class LongScenario {
     public Characteristics getCharacteristics() {
         return(tab==Tab.Characteristics)? characteristics:null;
     }
-
+    @Step("Выбор гес номер {0}")
     public void choiceGes(int choice){
         spisoGES.choice(choice);
     }
@@ -45,6 +46,7 @@ public class LongScenario {
     public Results getResults() {
         return (tab==Tab.Results)? results: null;
     }
+    @Step("Закрытие pnotify уведомления")
     public void pnotifyClose(){
         try {
             Thread.sleep(2000);

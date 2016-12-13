@@ -5,6 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import ru.dserg.autotest.page.LongModelElements.*;
 import ru.dserg.autotest.page.LongScenarioElements.Characteristics;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -23,6 +24,7 @@ public class LongModel {
     private Limits limits = new Limits();
     private Settings settings = new Settings();
 
+    @Step("открытие формы для создания среднесрочного сценария")
     public void create(){//кликнуть по кнопки создать
         $(By.xpath("//*[@id=\'main-content\']/div/div[1]/div[2]/div[1]/div[1]/button[1]")).click();
         tab=Tab.Create;

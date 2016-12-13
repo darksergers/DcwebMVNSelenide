@@ -7,6 +7,7 @@ import ru.dserg.autotest.page.Manuals.ExpenseCharacteristicsGA;
 import ru.dserg.autotest.page.Reports.*;
 import ru.dserg.autotest.page.menuElements.LongModelSpisok;
 import ru.dserg.autotest.page.menuElements.ShortModelSpisok;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -64,6 +65,7 @@ public class Menu {
 
     }
 
+    @Step("Открытие списока Среднесрочная модел и выбор волжкокамкий каскад")
     public LongModel longModel(){//// TODO: 15.09.2016 свитч кейс по всем станциям 
         longModelSpisok.clickSpisok();
         longModelSpisok.volzhskoKamskii();

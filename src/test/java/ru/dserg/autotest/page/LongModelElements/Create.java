@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import ru.dserg.autotest.Utils.SelenideTable;
 import ru.dserg.autotest.Utils.Util;
 import ru.dserg.autotest.page.LongScenario;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -23,6 +24,7 @@ public class Create {
     /**
      * вводит  названия нового сценария
      */
+    @Step("Ввод названия  сценария")
     public void name(String s){
         Util.typeText($("#scenarioName"),s);
 
@@ -32,6 +34,7 @@ public class Create {
     /**
      *  дата начало расчета полезного притока
      */
+    @Step("Ввод даты начала расчета полезного притока")
     public void  beginDatePritok(String date){
         Util.choiceDate("#params-begin-date",date);
     }
@@ -39,6 +42,7 @@ public class Create {
     /**
      * дата начало имитационого расчета
      */
+    @Step("Ввод даты начала имитационого расчета")
     public void beginDateCalculation(String date){
         Util.choiceDate("#params-calc-date",date);
 
@@ -46,6 +50,7 @@ public class Create {
     /**
      * конечная дата расчета
      */
+    @Step("Ввод конечной даты расчета")
     public void endDateCalculation(String date){
         Util.choiceDate("#params-end-date",date);
     }
@@ -76,6 +81,7 @@ public class Create {
     /**
      * кнопка создать
      */
+    @Step("Нажатие кнопки создать")
     public LongScenario create() throws Exception {
         $("#edit-scenario-button").click();
 

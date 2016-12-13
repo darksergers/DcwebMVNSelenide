@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import ru.dserg.autotest.Utils.SelenideTable;
 import ru.dserg.autotest.Utils.Util;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -15,7 +16,7 @@ import static com.codeborne.selenide.Selenide.$$;
  */
 public class Results {
     SelenideTable table= new SelenideTable($("#results-table").$(By.tagName("table")));
-
+    @Step("Нажимаем кнопку play")
     public void play() throws Exception {
         $("#calculate-button").click();
         Util.findError();
@@ -33,6 +34,7 @@ public class Results {
     public void checkLimits(){
         $("#use-limits").click();
     }
+    @Step("Ввод числа {3} в таблицу в ячейку строку {0} в столбец с названием {1} ")
     public void typeInTable(int str,String nameColumn,int numberChar,String number) throws Exception {
         table.typeInTable(str,choiceColumn(nameColumn,numberChar),"#results-table > div.handsontableInputHolder > textarea",number);
 
@@ -40,6 +42,7 @@ public class Results {
 
 
     }
+    @Step("Выбираем параметр По дг")
     public void choiceDg(int str) throws Exception {
         //table.choiceTr(str, choiceColumn("Параметр",8)).doubleClick();
         table.choiceTr(str, choiceColumn("Параметр",8)).$(By.className("htAutocompleteArrow")).click();
