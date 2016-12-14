@@ -1,6 +1,7 @@
 package ru.dserg.autotest.page;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import ru.dserg.autotest.page.LongModelElements.*;
@@ -82,13 +83,16 @@ public class LongModel {
     }
     public void deleteScenario(String str){
         $("#scenariosTable").waitUntil(Condition.visible,30000);
-        for (SelenideElement element:$$(By.partialLinkText(str) ) ) {
+        ElementsCollection arr= $$(By.partialLinkText(str);
+        for (SelenideElement element:arr  ) {
             element.parent().parent().$(By.tagName("input")).click();
         }
 
-        $(By.className("delete-button")).click();
-        $("#delete-button").waitUntil(Condition.visible,30000);
-        $("#delete-button").click();
+        if(arr.size()>0) {
+            $(By.className("delete-button")).click();
+            $("#delete-button").waitUntil(Condition.visible, 30000);
+            $("#delete-button").click();
+        }
 
     }
 }
