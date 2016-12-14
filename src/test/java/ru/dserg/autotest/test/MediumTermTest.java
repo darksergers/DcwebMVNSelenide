@@ -10,7 +10,9 @@ import ru.dserg.autotest.page.*;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 
 import static com.codeborne.selenide.Selenide.close;
@@ -24,8 +26,13 @@ public class MediumTermTest {
 
     static Date d = new Date();
     static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH.mm");
+    static SimpleDateFormat currentF = new SimpleDateFormat("yyyy-MM-dd");
     private static HashMap data = new HashMap();
     private static HashMap dataError = new HashMap();
+    private static GregorianCalendar g;
+    private static  String today;
+    private static  String tenDaysLater;
+    private static  String  twentyDaysLater;
     @After
     public void aftr(){
         Util.pnotifyClose();
@@ -153,8 +160,8 @@ public class MediumTermTest {
 
         longScenario.getResults().typeInTable(1,"QНБ",3,"100");
 
-        longScenario.getResults().typeInTable(2,"NГЭС",4,"0.55");
-        longScenario.getResults().typeInTable(3,"ЭГЭС",4,"10");
+        longScenario.getResults().typeInTable(2,"NГЭС",4,"10");
+        longScenario.getResults().typeInTable(3,"ЭГЭС",4,"0.2");
         longScenario.getResults().choiceDg(4);
        longScenario.getResults().play();
 
@@ -200,6 +207,18 @@ public class MediumTermTest {
     }
     @BeforeClass
     public static  void bfr(){
+        if (Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099")){
+            g=new GregorianCalendar(2015,9,5);
+            today = currentF.format(g.getTime());
+        }else{
+            g=new GregorianCalendar();
+            today=currentF.format(d);
+
+        }
+        g.add(Calendar.DAY_OF_YEAR,10);
+        tenDaysLater = currentF.format(g.getTime());
+        g.add(Calendar.DAY_OF_YEAR,10);
+        twentyDaysLater=currentF.format(g.getTime());
         for (int i=0;i<6;i++){
             data.put(i,4);
             dataError.put(i,"Все ок");
