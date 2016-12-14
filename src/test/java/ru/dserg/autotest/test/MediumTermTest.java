@@ -207,7 +207,7 @@ public class MediumTermTest {
     @BeforeClass
     public static  void bfr(){
         if (Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099")){
-            g=new GregorianCalendar(2015,9,5);
+            g=new GregorianCalendar(2015,8,5);
             today = currentF.format(g.getTime());
 
         }else{
