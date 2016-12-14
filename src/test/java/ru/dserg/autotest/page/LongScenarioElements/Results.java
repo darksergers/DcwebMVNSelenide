@@ -47,8 +47,8 @@ public class Results {
         //table.choiceTr(str, choiceColumn("Параметр",8)).doubleClick();
         table.choiceTr(str, choiceColumn("Параметр",8)).$(By.tagName("div")).doubleClick();
         table.choiceTr(str, choiceColumn("Параметр",8)).$(By.tagName("div")).click();
-        $(By.className("handsontableInputHolder")).waitUntil(Condition.visible,30000);
-        SelenideTable tableChoice= new SelenideTable($(By.className("handsontableInputHolder")).$(By.tagName("table")));
+        $(By.className("handsontableEditor")).waitUntil(Condition.visible,30000);
+        SelenideTable tableChoice= new SelenideTable($(By.className("handsontableEditor")).$(By.tagName("table")));
         tableChoice.choiceTr(1,0).click();
 
 
