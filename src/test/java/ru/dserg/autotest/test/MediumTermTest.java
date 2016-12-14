@@ -209,14 +209,17 @@ public class MediumTermTest {
         if (Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099")){
             g=new GregorianCalendar(2015,9,5);
             today = currentF.format(g.getTime());
+
         }else{
             g=new GregorianCalendar();
             today=currentF.format(d);
 
         }
+        System.out.println(today);
+
         g.add(Calendar.DAY_OF_MONTH,10);
         tenDaysLater = currentF.format(g.getTime());
-
+        System.out.println(tenDaysLater);
         for (int i=0;i<6;i++){
             data.put(i,4);
             dataError.put(i,"Все ок");
