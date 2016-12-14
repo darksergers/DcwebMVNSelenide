@@ -217,7 +217,7 @@ public class MediumTermTest {
         }
         System.out.println(today);
 
-        g.add(Calendar.DAY_OF_MONTH,10);
+        g.add(Calendar.DAY_OF_MONTH,28);
         tenDaysLater = currentF.format(g.getTime());
         System.out.println(tenDaysLater);
         for (int i=0;i<6;i++){
