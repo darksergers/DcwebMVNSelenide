@@ -12,9 +12,9 @@ import static com.codeborne.selenide.Selenide.$;
  * Created by Kalinin.S on 14.11.2016.
  */
 public class ReportEquipmentOperatingRegime {
-    public void datebegin(){
+    public void datebegin(String date){
 
-        $("#filter-form").$(By.tagName("input")).sendKeys(Keys.chord(Keys.SHIFT,Keys.HOME,Keys.DELETE)+"01.11.2016");
+        $("#filter-form").$(By.tagName("input")).sendKeys(Keys.chord(Keys.SHIFT,Keys.HOME,Keys.DELETE)+date);
     }
     public void selectStation(){
         $("#filter-form").$(By.tagName("select")).selectOption("Новосибирская ГЭС");

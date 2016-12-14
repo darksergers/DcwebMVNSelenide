@@ -214,7 +214,7 @@ public class MediumTermTest {
             today=currentF.format(d);
 
         }
-        g.add(Calendar.DAY_OF_YEAR,10);
+        g.add(Calendar.DAY_OF_MONTH,10);
         tenDaysLater = currentF.format(g.getTime());
 
         for (int i=0;i<6;i++){

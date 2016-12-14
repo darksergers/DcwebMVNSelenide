@@ -16,6 +16,7 @@ import ru.dserg.autotest.page.Reports.*;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 
 import static org.junit.Assert.fail;
@@ -26,14 +27,15 @@ import static org.junit.Assert.fail;
 public class ReportsTest {
     static Date d = new Date();
     static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH.mm");
+    private static SimpleDateFormat currenF=new SimpleDateFormat("yyyy-MM-dd");
     private static HashMap data = new HashMap();
     private static HashMap dataError = new HashMap();
+    private static GregorianCalendar g= new GregorianCalendar();
 
 
 
     @BeforeClass
     public static  void bfr() {
-
         for (int i = 0; i < 5; i++) {
             data.put(i, 4);
         }
@@ -107,7 +109,7 @@ public class ReportsTest {
         HomePage homePage=Util.entry();
         ReportEquipmentOperatingRegime reportEquipmentOperatingRegime =
                 homePage.getMenu().reportEquipmentOperatingRegime();
-        reportEquipmentOperatingRegime.datebegin();
+        reportEquipmentOperatingRegime.datebegin("2016-12-05");
         reportEquipmentOperatingRegime.selectStation();
         reportEquipmentOperatingRegime.ga();
         reportEquipmentOperatingRegime.show();
