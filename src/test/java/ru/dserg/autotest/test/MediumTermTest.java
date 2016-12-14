@@ -207,8 +207,8 @@ public class MediumTermTest {
     }
     @AfterClass
     public static void testrail() throws Exception {
-        DDtestrail testrail = new DDtestrail(58, 2544,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
-        testrail.completeTest(data,dataError, "Среднесрочка "+Configuration.baseUrl+" "+ format.format(d));
+       // DDtestrail testrail = new DDtestrail(58, 2544,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
+        //testrail.completeTest(data,dataError, "Среднесрочка "+Configuration.baseUrl+" "+ format.format(d));
 
         HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();
