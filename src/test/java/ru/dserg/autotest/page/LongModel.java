@@ -83,7 +83,7 @@ public class LongModel {
     }
     public void deleteScenario(String str){
         $("#scenariosTable").waitUntil(Condition.visible,30000);
-        ElementsCollection arr= $$(By.partialLinkText(str);
+        ElementsCollection arr= $$(By.partialLinkText(str));
         for (SelenideElement element:arr  ) {
             element.parent().parent().$(By.tagName("input")).click();
         }
