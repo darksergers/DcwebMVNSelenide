@@ -32,7 +32,6 @@ public class MediumTermTest {
     private static GregorianCalendar g;
     private static  String today;
     private static  String tenDaysLater;
-    private static  String  twentyDaysLater;
     @After
     public void aftr(){
         Util.pnotifyClose();
@@ -52,9 +51,9 @@ public class MediumTermTest {
         LongModel longModel = homePage.longModel();
         Util.findError();
         longModel.create();
-        longModel.getCreate().beginDatePritok("2015-09-05");
-        longModel.getCreate().beginDateCalculation("2015-09-15");
-        longModel.getCreate().endDateCalculation("2015-09-25");
+        longModel.getCreate().beginDatePritok(today);
+        longModel.getCreate().beginDateCalculation(today);
+        longModel.getCreate().endDateCalculation(tenDaysLater);
         longModel.getCreate().granularity(granularity);
         longModel.getCreate().name("testGranularity "+granularity+format.format(d));
         longModel.getCreate().create();
@@ -74,9 +73,9 @@ public class MediumTermTest {
         Util.findError();
         longModel.create();
         longModel.getCreate().name("CharacteristicsIsAvailable"+format.format(d));
-        longModel.getCreate().beginDatePritok("2015-09-05");
-        longModel.getCreate().beginDateCalculation("2015-09-15");
-        longModel.getCreate().endDateCalculation("2015-10-25");
+            longModel.getCreate().beginDatePritok(today);
+            longModel.getCreate().beginDateCalculation(today);
+            longModel.getCreate().endDateCalculation(tenDaysLater);
         LongScenario longScenario = longModel.getCreate().create();
         Util.pnotifyClose();
         longScenario.characteristics();
@@ -150,9 +149,9 @@ public class MediumTermTest {
         LongModel longModel = homePage.longModel();
         longModel.create();
         longModel.getCreate().name("testHold"+format.format(d));
-        longModel.getCreate().beginDatePritok("2015-09-05");
-        longModel.getCreate().beginDateCalculation("2015-09-05");
-        longModel.getCreate().endDateCalculation("2015-09-15");
+        longModel.getCreate().beginDatePritok(today);
+        longModel.getCreate().beginDateCalculation(today);
+        longModel.getCreate().endDateCalculation(tenDaysLater);
         LongScenario longScenario = longModel.getCreate().create();
         longScenario.pnotifyClose();
         longScenario.choiceGes(3);
@@ -184,9 +183,9 @@ public class MediumTermTest {
         LongModel longModel = homePage.longModel();
         longModel.create();
         longModel.getCreate().name("testRemont"+format.format(d));
-        longModel.getCreate().beginDatePritok("2015-09-05");
-        longModel.getCreate().beginDateCalculation("2015-09-05");
-        longModel.getCreate().endDateCalculation("2015-09-15");
+        longModel.getCreate().beginDatePritok(today);
+        longModel.getCreate().beginDateCalculation(today);
+        longModel.getCreate().endDateCalculation(tenDaysLater);
         LongScenario longScenario = longModel.getCreate().create();
         longScenario.pnotifyClose();
         longScenario.choiceGes(3);
@@ -217,8 +216,7 @@ public class MediumTermTest {
         }
         g.add(Calendar.DAY_OF_YEAR,10);
         tenDaysLater = currentF.format(g.getTime());
-        g.add(Calendar.DAY_OF_YEAR,10);
-        twentyDaysLater=currentF.format(g.getTime());
+
         for (int i=0;i<6;i++){
             data.put(i,4);
             dataError.put(i,"Все ок");
