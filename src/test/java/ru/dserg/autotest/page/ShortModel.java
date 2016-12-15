@@ -33,13 +33,15 @@ public class ShortModel {
     }
     public  void delete(){
         $("#scenario-list-header").parent().waitUntil(Condition.visible,30000);
-        for (SelenideElement element:$$(By.partialLinkText("Мониторинг") ) ) {
+        for (SelenideElement element:$$(By.partialLinkText("Autotest") ) ) {
             element.parent().parent().$(By.tagName("input")).click();
         }
+        if($$(By.partialLinkText("Autotest")).size()>0){
         $(By.className("delete-button")).click();
         $("#deleteButton").waitUntil(Condition.visible,30000);
         $("#deleteButton").click();
 
+    }
     }
     //*[@id="inflow-table"]/div[1]/div[1]/div/div[1]/table/tbody/tr[1]/td[1]
     //*[@id="inflow-table"]/div[1]/div[1]/div/div[1]/table/tbody/tr[1]/td[2]

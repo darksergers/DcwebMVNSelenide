@@ -233,7 +233,7 @@ public class MediumTermTest {
         HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();
         longModel.deleteScenario("Autotest");
-        
+
 
 
 
