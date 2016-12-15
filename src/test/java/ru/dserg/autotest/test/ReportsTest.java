@@ -12,6 +12,8 @@ import ru.dserg.autotest.page.HomePage;
 import ru.dserg.autotest.page.LoginPage;
 import ru.dserg.autotest.page.Menu;
 import ru.dserg.autotest.page.Reports.*;
+import ru.yandex.qatools.allure.annotations.Features;
+import ru.yandex.qatools.allure.annotations.Stories;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -25,6 +27,7 @@ import static org.junit.Assert.fail;
 /**
  * Created by Kalinin.S on 09.11.2016.
  */
+@Features("Отчеты")
 public class ReportsTest {
     static Date d = new Date();
     static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH.mm");
@@ -45,6 +48,7 @@ public class ReportsTest {
             data.put(i, 4);
         }
     }
+    @Stories("Отчёт по выполнению плана ремонтов оборудования")
     @Test
     public void testRepairReport() throws Exception {
         data.put(0,5);
@@ -63,6 +67,7 @@ public class ReportsTest {
 
 
     }
+    @Stories("Отчёт по времени оборудования в ремонте")
     @Test
     public void testRepairTimeReport() throws Exception {
         data.put(1,5);
@@ -81,7 +86,7 @@ public class ReportsTest {
 
 
     }
-
+    @Stories("Отчёт о проверке располагаемой мощности")
     @Test
     public void testAvailablePowerReport() throws Exception {
         data.put(2,5);
@@ -107,6 +112,7 @@ public class ReportsTest {
 
 
     }
+    @Stories("Отчёт о режимах эксплуатации оборудования")
     @Test
     public void testReportEquipmentOperatingRegime() throws Exception {
         data.put(3,5);
@@ -130,6 +136,7 @@ public class ReportsTest {
 
 
     }
+    @Stories("Отчёт расхода ГЭС")
     @Test
     public void testOtchetRashodaGESPage() throws Exception {
         data.put(4,5);

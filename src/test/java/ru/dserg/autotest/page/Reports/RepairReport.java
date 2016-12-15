@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import ru.dserg.autotest.Utils.SelenideTable;
 import ru.dserg.autotest.Utils.Util;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -13,17 +14,20 @@ import static com.codeborne.selenide.Selenide.$$;
  * Created by Kalinin.S on 09.11.2016.
  */
 public class RepairReport {
-
+    @Step("Выбор  станции {0}")
     public void selectStation(int choice){
         Util.selectSelelector($("#station-id"),choice).click();
     }
+    @Step("Ввод даты 09.09.2016")
     public void datebegin(){
         //$("#datebegin-id").$(By.tagName("input")).c
         $("#datebegin-id").$(By.tagName("input")).sendKeys(Keys.chord(Keys.SHIFT,Keys.HOME,Keys.DELETE)+"09.09.2016");
     }
+    @Step("Нажать на кнопку показать")
     public void show(){
         $("#showreport-id").click();
     }
+    @Step("Провеверка таблицы")
     public  boolean  ok() throws Exception {
         $("#table-id").$(By.tagName("table")).waitUntil(Condition.visible,30000);
         boolean mspOk= false;

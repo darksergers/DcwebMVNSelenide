@@ -6,6 +6,9 @@ import com.gurock.testrail.DDtestrail;
 import org.junit.*;
 import ru.dserg.autotest.Utils.Util;
 import ru.dserg.autotest.page.*;
+import ru.yandex.qatools.allure.annotations.Features;
+import ru.yandex.qatools.allure.annotations.Step;
+import ru.yandex.qatools.allure.annotations.Stories;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,7 +24,7 @@ import static org.junit.Assert.fail;
 /**
  * Created by Kalinin.S on 27.09.2016.
  */
-
+@Features("Среднесрочная модель")
 public class MediumTermTest {
 
     static Date d = new Date();
@@ -63,7 +66,7 @@ public class MediumTermTest {
 
 
 
-
+    @Stories("Работоспособность характеристик (открываются)")
     @Test
     public void testCharacteristicsIsAvailable() throws Exception {
         data.put(0,5);
@@ -97,7 +100,7 @@ public class MediumTermTest {
 
 
 
-
+    @Stories("Гранулярность")
     @Test
     public void testGranularityMonth() throws Exception {
         data.put(1,5);
@@ -112,7 +115,7 @@ public class MediumTermTest {
     }
 
 
-
+    @Stories("Гранулярность")
     @Test
     public void testGranularityPentada() throws Exception {
         data.put(2,5);
@@ -126,7 +129,7 @@ public class MediumTermTest {
     }
 
 
-
+    @Stories("Гранулярность")
     @Test
     public void testGranularityDecada() throws Exception {
         data.put(3,5);
@@ -140,7 +143,7 @@ public class MediumTermTest {
     }
 
 
-    //@Ignore
+    @Stories("Выдерживание режима")
     @Test
     public void testHoldMode() throws Exception {
         data.put(4,5);
@@ -174,7 +177,7 @@ public class MediumTermTest {
     }
 
 
-
+    @Stories("Учёт ремонтов")
     @Test
     public void testRemont() throws Exception {
         data.put(5,5);

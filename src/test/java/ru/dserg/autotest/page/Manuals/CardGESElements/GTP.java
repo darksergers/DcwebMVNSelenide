@@ -3,6 +3,7 @@ package ru.dserg.autotest.page.Manuals.CardGESElements;
 import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 import ru.dserg.autotest.Utils.SelenideTable;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -11,6 +12,7 @@ import static com.codeborne.selenide.Selenide.$;
  */
 public class GTP {
     SelenideTable table = new SelenideTable($("#tab-gtp-tab").$(By.tagName("table")));
+    @Step("Проверяем есть ли в таблице данные")
     public void rowsExist() throws Exception {
         table.choiceTr(0,0).shouldBe(Condition.visible);
     }

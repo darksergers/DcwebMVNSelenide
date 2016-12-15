@@ -25,7 +25,7 @@ public class LongScenario {
     private Results results = new Results();
 
 
-
+    @Step("Выбор вкладки результаты")
     public void results(){
         $("#results").parent().click();
         tab= Tab.Results;
@@ -58,6 +58,7 @@ public class LongScenario {
         js.executeScript("document.body.removeChild(document.body.children[4]);");
 
     }
+    @Step("Выбор вкладки ремонты")
     public void remont(){
         $("#repairs").parent().click();
         tab = Tab.Remont;
