@@ -13,6 +13,8 @@ import ru.dserg.autotest.page.Manuals.ExpenseCharacteristicsGA;
 import ru.dserg.autotest.page.Menu;
 import ru.dserg.autotest.page.Reports.OtchetRashodaGESPage;
 import ru.dserg.autotest.page.ShortModel;
+import ru.yandex.qatools.allure.annotations.Features;
+import ru.yandex.qatools.allure.annotations.Stories;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,6 +28,7 @@ import static org.junit.Assert.fail;
 /**
  * Created by Kalinin.S on 02.11.2016.
  */
+@Features("Спровочники")
 public class ManualsTest {
     static Date d = new Date();
     static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH.mm");
@@ -41,7 +44,7 @@ public class ManualsTest {
             dataError.put(i,"Все ок");
         }
     }
-
+    @Stories("Справочные данные по ГЭС")
     @Test
     public void testDataDirectoryGES() throws Exception {
 
@@ -60,7 +63,7 @@ public class ManualsTest {
         }
 
     }
-
+    @Stories("Расходные характеристики ГА")
     @Test
     public void testExpenseCharacteristicsGA() throws Exception {
 

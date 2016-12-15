@@ -19,7 +19,7 @@ public class Menu {
 
     private ShortModelSpisok shortModelSpisok= new ShortModelSpisok();
     private LongModelSpisok longModelSpisok = new LongModelSpisok();
-
+    @Step("Открытие списка ксраткасрочная модель и выбор станции №{0}")
     public  ShortModel choiceShortGes(int a){//выбор гэс
 
         shortModelSpisok.clickSpisok();
@@ -57,7 +57,7 @@ public class Menu {
             }
         }
     }
-
+    @Step("Открытие списка кракострочная и переход на страницу Оптимизация состава ГА")
     public OptimizationPage optimization(){
         shortModelSpisok.clickSpisok();
         shortModelSpisok.optimization();
@@ -72,50 +72,56 @@ public class Menu {
         return  new LongModel();
         
     }
+    @Step("Открытие списока Отчеты")
     private  void  otchet(){
         $("#menu").$(By.linkText("Отчёты")).waitUntil(Condition.visible,30000);
         $("#menu").$(By.linkText("Отчёты")).click();
 
     }
+    @Step("Открытие списка Справочники")
     private void  spavochnik(){
 
         $("#menu").$(By.linkText("Справочники")).waitUntil(Condition.visible,30000);
         $("#menu").$(By.linkText("Справочники")).click();
     }
-
+    @Step("Выбор Отчёт расхода ГЭС")
     public OtchetRashodaGESPage otchetRashodaGESPage(){
         otchet();
         $("#menu").$(By.linkText("Отчёт расхода ГЭС")).click();
         return new OtchetRashodaGESPage();
     }
+    @Step("Выбор Справочные данные по ГЭС")
     public DataDirectoryGES dataDirectoryGES(){
         spavochnik();
         $("#menu").$(By.linkText("Справочные данные по ГЭС")).click();
         return new  DataDirectoryGES();
     }
-
+    @Step("Выбор Расходные характеристики ГА")
     public ExpenseCharacteristicsGA expenseCharacteristicsGA(){
         spavochnik();
         $("#menu").$(By.linkText("Расходные характеристики ГА")).click();
         return  new ExpenseCharacteristicsGA();
     }
-
+    @Step("Выбор Отчёт по выполнению плана ремонтов оборудования")
     public RepairReport repairReport(){
         otchet();
         $("#menu").$(By.linkText("Отчёт по выполнению плана ремонтов оборудования")).click();
         return new RepairReport();
 
     }
+    @Step("Выбор Отчет по времени оборудования в ремонте")
     public RepairTimeReport repairTimeReport(){
         otchet();
         $("#menu").$(By.linkText("Отчет по времени оборудования в ремонте")).click();
         return  new RepairTimeReport();
     }
+    @Step("Выбор Отчёт о проверке располагаемой мощности")
     public AvailablePowerReport availablePowerReport(){
         otchet();
         $("#menu").$(By.linkText("Отчёт о проверке располагаемой мощности")).click();
         return  new AvailablePowerReport();
     }
+    @Step("Выбор Отчёт о режимах эксплуатации оборудования")
     public ReportEquipmentOperatingRegime reportEquipmentOperatingRegime(){
         otchet();
         $("#menu").$(By.linkText("Отчёт о режимах эксплуатации оборудования")).click();

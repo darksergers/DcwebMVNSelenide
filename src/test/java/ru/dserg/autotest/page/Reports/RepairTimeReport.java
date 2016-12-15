@@ -6,6 +6,7 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import ru.dserg.autotest.Utils.SelenideTable;
 import ru.dserg.autotest.Utils.Util;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -14,12 +15,15 @@ import static com.codeborne.selenide.Selenide.$;
  */
 public class RepairTimeReport {
     private int bad;
+    @Step("Выбор станции Зейская")
     public void selectStation(){
         $("#station-id").selectOptionByValue("11907059");
     }
+    @Step("Нажатие кнопки показать")
     public void show(){
         $("#showreport-id").click();
     }
+    @Step("Проверка таблицы")
     public boolean ok() throws Exception {
         $("#table-id").$(By.tagName("table")).waitUntil(Condition.visible,30000);
         SelenideTable table = new SelenideTable($("#table-id").$(By.tagName("table")));

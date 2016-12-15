@@ -25,11 +25,12 @@ public class LongScenario {
     private Results results = new Results();
 
 
-
+    @Step("Выбор вкладки результаты")
     public void results(){
         $("#results").parent().click();
         tab= Tab.Results;
     }
+    @Step("Переход на вкладку характеристики")
     public void characteristics(){
         $(By.xpath("//*[@id=\"main-content\"]/div/div[1]/div[1]/div[1]/div/label[2]")).click();
         tab = Tab.Characteristics;
@@ -57,6 +58,7 @@ public class LongScenario {
         js.executeScript("document.body.removeChild(document.body.children[4]);");
 
     }
+    @Step("Выбор вкладки ремонты")
     public void remont(){
         $("#repairs").parent().click();
         tab = Tab.Remont;

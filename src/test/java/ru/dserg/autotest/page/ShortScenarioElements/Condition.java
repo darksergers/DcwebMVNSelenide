@@ -3,6 +3,7 @@ package ru.dserg.autotest.page.ShortScenarioElements;
 import org.openqa.selenium.By;
 import ru.dserg.autotest.Utils.SelenideTable;
 import ru.dserg.autotest.Utils.Util;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -12,7 +13,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class Condition {
     private SelenideTable table=
             new SelenideTable($(By.xpath("//*[@id=\'ga-condition-table\']/div[1]/div[1]/div/div[1]/table")));
-
+    @Step("Изменение в таблице сотояния ГА  в строке {0} в столбце {1} на {2}")
     public void  editTable(int str,int rows,String condition) throws Exception {
 
         table.choiceTr(str, rows).doubleClick();

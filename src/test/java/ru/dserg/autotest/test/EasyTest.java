@@ -10,6 +10,8 @@ import com.gurock.testrail.DDtestrail;
 import org.junit.*;
 import ru.dserg.autotest.Utils.Util;
 import ru.dserg.autotest.page.*;
+import ru.yandex.qatools.allure.annotations.Features;
+import ru.yandex.qatools.allure.annotations.Stories;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,6 +21,7 @@ import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 
 import static com.codeborne.selenide.Selenide.close;
@@ -29,17 +32,30 @@ import static  com.codeborne.selenide.Selenide.screenshot;
 /**
  * Created by Kalinin.S on 05.08.2016.
  */
-
+@Features("Мониторинг")
 public class EasyTest {
     static Date d = new Date();
     static HashMap dataError = new HashMap();
     static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH.mm");
     private static HashMap data = new HashMap();
+    static SimpleDateFormat currentF = new SimpleDateFormat("yyyy-MM-dd");
+    private static GregorianCalendar g;
+    private static  String today;
+    private static  String tenDaysLater;
 
 
 
     @BeforeClass
     public static  void bfr(){
+        if (Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099")){
+            g=new GregorianCalendar(2015,8,5);
+            today = currentF.format(g.getTime());
+
+        }else{
+            g=new GregorianCalendar();
+            today=currentF.format(d);
+
+        }
         for (File file: new File("build/reports/tests").listFiles())
             if (file.isFile()) file.delete();
         for (int i=0;i<3;i++){
@@ -60,6 +76,8 @@ public class EasyTest {
 
 
 
+
+    @Stories("Мониторинг краткосрочки")
     @Test
     public void testKratkosrochka() throws Exception {
         data.put(0,5);
@@ -69,7 +87,7 @@ public class EasyTest {
             HomePage homePage = Util.entry();
             ShortModel shortModel = homePage.openKratkosrochSpisok(1);
             shortModel.create();
-            shortModel.typeNameScenario("Мониторинг_" + format.format(d));
+            shortModel.typeNameScenario("Autotest Мониторинг_" + format.format(d));
             shortModel.time();
             ShortScenario shortScenario = shortModel.createScenario();
             shortScenario.getMain().save();
@@ -98,6 +116,7 @@ public class EasyTest {
 
 
 
+    @Stories("Мониторинг оптимизации")
     @Test
     public void testOptimization() throws Exception {
         data.put(2,5);
@@ -117,6 +136,7 @@ public class EasyTest {
     }
 
 
+    @Stories("Мониторинг среднесрочки")
     @Test
     public void testSrednesrochka() throws Exception {
 
@@ -125,7 +145,7 @@ public class EasyTest {
         HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();
         longModel.create();
-        longModel.getCreate().name("testMonitoring"+format.format(d));
+        longModel.getCreate().name("AutotestMonitoring"+format.format(d));
         longModel.getCreate().beginDatePritok("2015-09-05");
         longModel.getCreate().beginDateCalculation("2015-09-15");
         longModel.getCreate().endDateCalculation("2015-09-25");

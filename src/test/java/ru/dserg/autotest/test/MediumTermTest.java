@@ -6,6 +6,9 @@ import com.gurock.testrail.DDtestrail;
 import org.junit.*;
 import ru.dserg.autotest.Utils.Util;
 import ru.dserg.autotest.page.*;
+import ru.yandex.qatools.allure.annotations.Features;
+import ru.yandex.qatools.allure.annotations.Step;
+import ru.yandex.qatools.allure.annotations.Stories;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,7 +24,7 @@ import static org.junit.Assert.fail;
 /**
  * Created by Kalinin.S on 27.09.2016.
  */
-
+@Features("Среднесрочная модель")
 public class MediumTermTest {
 
     static Date d = new Date();
@@ -55,7 +58,7 @@ public class MediumTermTest {
         longModel.getCreate().beginDateCalculation(today);
         longModel.getCreate().endDateCalculation(tenDaysLater);
         longModel.getCreate().granularity(granularity);
-        longModel.getCreate().name("testGranularity "+granularity+format.format(d));
+        longModel.getCreate().name("AutotestGranularity "+granularity+format.format(d));
         longModel.getCreate().create();
         Util.findError();
     }
@@ -63,7 +66,7 @@ public class MediumTermTest {
 
 
 
-
+    @Stories("Работоспособность характеристик (открываются)")
     @Test
     public void testCharacteristicsIsAvailable() throws Exception {
         data.put(0,5);
@@ -72,7 +75,7 @@ public class MediumTermTest {
         LongModel longModel = homePage.longModel();
         Util.findError();
         longModel.create();
-        longModel.getCreate().name("CharacteristicsIsAvailable"+format.format(d));
+        longModel.getCreate().name("AutotestCharacteristicsIsAvailable"+format.format(d));
             longModel.getCreate().beginDatePritok(today);
             longModel.getCreate().beginDateCalculation(today);
             longModel.getCreate().endDateCalculation(tenDaysLater);
@@ -97,7 +100,7 @@ public class MediumTermTest {
 
 
 
-
+    @Stories("Гранулярность")
     @Test
     public void testGranularityMonth() throws Exception {
         data.put(1,5);
@@ -112,7 +115,7 @@ public class MediumTermTest {
     }
 
 
-
+    @Stories("Гранулярность")
     @Test
     public void testGranularityPentada() throws Exception {
         data.put(2,5);
@@ -126,7 +129,7 @@ public class MediumTermTest {
     }
 
 
-
+    @Stories("Гранулярность")
     @Test
     public void testGranularityDecada() throws Exception {
         data.put(3,5);
@@ -140,7 +143,7 @@ public class MediumTermTest {
     }
 
 
-    //@Ignore
+    @Stories("Выдерживание режима")
     @Test
     public void testHoldMode() throws Exception {
         data.put(4,5);
@@ -148,7 +151,7 @@ public class MediumTermTest {
         HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();
         longModel.create();
-        longModel.getCreate().name("testHold"+format.format(d));
+        longModel.getCreate().name("AutotestHold"+format.format(d));
         longModel.getCreate().beginDatePritok(today);
         longModel.getCreate().beginDateCalculation(today);
         longModel.getCreate().endDateCalculation(tenDaysLater);
@@ -174,7 +177,7 @@ public class MediumTermTest {
     }
 
 
-
+    @Stories("Учёт ремонтов")
     @Test
     public void testRemont() throws Exception {
         data.put(5,5);
@@ -182,7 +185,7 @@ public class MediumTermTest {
         HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();
         longModel.create();
-        longModel.getCreate().name("testRemont"+format.format(d));
+        longModel.getCreate().name("AutotestRemont"+format.format(d));
         longModel.getCreate().beginDatePritok(today);
         longModel.getCreate().beginDateCalculation(today);
         longModel.getCreate().endDateCalculation(tenDaysLater);
@@ -207,13 +210,16 @@ public class MediumTermTest {
     @BeforeClass
     public static  void bfr(){
         if (Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099")){
-            g=new GregorianCalendar(2015,9,5);
+            g=new GregorianCalendar(2015,8,5);
             today = currentF.format(g.getTime());
+
         }else{
             g=new GregorianCalendar();
             today=currentF.format(d);
 
         }
+
+
         g.add(Calendar.DAY_OF_MONTH,10);
         tenDaysLater = currentF.format(g.getTime());
 
@@ -224,15 +230,13 @@ public class MediumTermTest {
     }
     @AfterClass
     public static void testrail() throws Exception {
-       // DDtestrail testrail = new DDtestrail(58, 2544,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
-        //testrail.completeTest(data,dataError, "Среднесрочка "+Configuration.baseUrl+" "+ format.format(d));
+       DDtestrail testrail = new DDtestrail(58, 2544,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
+       testrail.completeTest(data,dataError, "Среднесрочка "+Configuration.baseUrl+" "+ format.format(d));
 
         HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();
-        longModel.deleteScenario("testGranularity");
-        longModel.deleteScenario("testRemont");
-        longModel.deleteScenario("testHold");
-        longModel.deleteScenario("CharacteristicsIsAvailable");
+        longModel.deleteScenario("Autotest");
+
 
 
 

@@ -3,6 +3,7 @@ package ru.dserg.autotest.page.LongScenarioElements;
 import org.openqa.selenium.By;
 import ru.dserg.autotest.Utils.SelenideTable;
 import ru.dserg.autotest.page.LongModel;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -84,6 +85,7 @@ public class Characteristics {
      * @param choiceTable
      * @return
      */
+    @Step("Выбор вкладки кривые Вб ")
     public SelenideTable vbCurves(int choiceTable){
         $("#vbCurves").click();
         tab = Tab.KrivieVB;
@@ -97,6 +99,7 @@ public class Characteristics {
     public void nbCurves(int str,int rows,String number) throws Exception {
         nbCurves().typeInTable(str,rows,"#nb-curve-table > div.handsontableInputHolder > textarea",number);
     }
+    @Step("Выбор вкладки кривые НБ ")
     public SelenideTable nbCurves() {
         $("#hydroNbCurve").click();
         tab = Tab.KrivieNB;
@@ -106,6 +109,7 @@ public class Characteristics {
         nbWinter().typeInTable(str,rows,"#nb-winter-table > div.handsontableInputHolder > textarea",number);
 
     }
+    @Step("Выбор вкладки зимние коффициенты НБ ")
     public SelenideTable nbWinter(){
         $("#nbWinter").click();
         tab = Tab.NbWinter;
@@ -114,6 +118,7 @@ public class Characteristics {
     public void poteriNapora(int str,int rows,String number) throws Exception {
         poteriNapora().typeInTable(str,rows,"#h-losses-table > div.handsontableInputHolder > textarea",number);
     }
+    @Step("Выбор вкладки потери напора ")
     public SelenideTable poteriNapora(){
         $("#dhCurves").click();
         tab = Tab.PoteriNapora;
@@ -123,14 +128,17 @@ public class Characteristics {
     public void hidroVB(int str,int rows,String number) throws Exception {
         hidroVB().typeInTable(str,rows,"#vb-curve-table > div.handsontableInputHolder > textarea",number);
     }
+    @Step("Выбор вкладки гидровлическая кривая ВБ")
     public SelenideTable hidroVB(){
         $("#hydroVbCurve").click();
         tab = Tab.HidroVB;
         return getTable();
     }
+
     public void spillwayCapacity(int str,int rows,String number) throws Exception {
         spillwayCapacity().typeInTable(str,rows,"#spillways-table > div.handsontableInputHolder > textarea",number);
     }
+    @Step("Выбор вкладки пропускная способность водосбросов")
     public SelenideTable spillwayCapacity(){
         $("#spillwayCapacity").click();
         tab = Tab.PropuskVodosbrosa;
@@ -139,6 +147,7 @@ public class Characteristics {
     public void expenseChars(int str,int rows,String number) throws Exception {
         expenseChars().typeInTable(str,rows,"#outflow-chars-table > div.handsontableInputHolder > textarea", number);
     }
+    @Step("Выбор вкладки расходные характеристики")
     public SelenideTable expenseChars(){
         $("#outflowChars").click();
         tab = Tab.RashodCharacteristics;
@@ -147,6 +156,7 @@ public class Characteristics {
     public void ownExpensesLosses(int str,int rows,String number) throws Exception {
         ownExpensesLosses().typeInTable(str,rows,"#ownExpensesLosses > div.handsontableInputHolder > textarea",number);
     }
+    @Step("Выбор вкладки расходы на собственные нужды")
     public SelenideTable ownExpensesLosses(){
         $("#ownExpensesLosses").click();
         tab = Tab.RashodSelfNeed;

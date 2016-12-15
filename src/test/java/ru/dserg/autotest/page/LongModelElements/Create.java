@@ -95,6 +95,7 @@ public class Create {
 
         return new LongScenario();
     }
+    @Step("Выбор гранулярности {0}")
     public void granularity(String granularity) throws Exception {//// TODO доделать
         SelenideTable table= new SelenideTable($("#granularity-table").$(By.tagName("table")));
 

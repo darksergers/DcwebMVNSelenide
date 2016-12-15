@@ -5,6 +5,7 @@ import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 import ru.dserg.autotest.Utils.SelenideTable;
 import ru.dserg.autotest.Utils.Util;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -38,6 +39,7 @@ public class Main {//описывает главную вкладку
     public void refreshPodpor(){//обновить прогноз подпора
         $("#backwater-refresh").click();
     }
+    @Step("Нажатие кнопки сохранить")
     public void save(){//кнопка сохранить
         $("#save-button").waitUntil(Condition.visible,30000);
         $("#save-button").click();

@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import ru.dserg.autotest.Utils.SelenideTable;
 import ru.dserg.autotest.Utils.Util;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -14,22 +15,28 @@ import static com.codeborne.selenide.Selenide.$;
  */
 public class AvailablePowerReport {
     SelenideTable table= new SelenideTable($("#ap-report-content").$(By.tagName("table")));
+    @Step("Выбор станции Волжская ГЭС")
     public void selectStation(){
         $("#station").selectOption("Волжская ГЭС");
     }
+    @Step("Ввыбор даты начала 2016-11-09")
     public void beginDate(){
         Util.choiceDate("#beginDate","2016-11-09");
     }
+    @Step("Ввыбор даты конца 2016-11-09")
     public void endDate(){
         Util.choiceDate("#endDate","2016-11-10");
     }
+    @Step("Ввыбор дискретности 60")
     public void selectStepSize(){
         $("#stepSize").selectOption("60");
     }
+    @Step("Нажатие кнопки применить")
     public void clickApplyButton() throws Exception {
         $("#apply-button").click();
         Util.findError();
     }
+    @Step("Заполнение колонки dh  числом 1.5")
     public void completeDH() throws Exception {
         $("#ap-report-content").$(By.tagName("tbody")).waitUntil(Condition.visible,30000);
         for (int i = 0;i<$("#ap-report-content").$(By.tagName("tbody")).$$(By.tagName("tr")).size()-1;i++){
@@ -37,12 +44,14 @@ public class AvailablePowerReport {
         }
 
     }
+    @Step("Нажатие кнопки посчитать")
     public void clickCountButton() throws Exception {
         ((JavascriptExecutor) WebDriverRunner.getWebDriver()).executeScript("window.scrollTo(0, document.head.scrollHeight)");
         $("#count-button").click();
         Util.findError();
 
     }
+    @Step("проверить таблицу")
     public boolean ok() throws Exception {
 
         for (int i = 0;i<$("#ap-report-content").$(By.tagName("tbody")).$$(By.tagName("tr")).size()-1;i++){
