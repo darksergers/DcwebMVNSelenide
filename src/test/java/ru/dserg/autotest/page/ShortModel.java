@@ -4,6 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import ru.dserg.autotest.Utils.Util;
+import ru.yandex.qatools.allure.annotations.Step;
 
 
 import static com.codeborne.selenide.Selenide.$;
@@ -14,20 +15,24 @@ import static com.codeborne.selenide.Selenide.$$;
  */
 public class ShortModel {
     private boolean diologIsOpen;
+    @Step("Открытие формы создания краткосрочного сценария")
     public void create() {
         $(By.xpath("//*[@id=\'main-content\']/div/div[1]/div/div[1]/div[1]/button[1]")).click();
         diologIsOpen=!diologIsOpen;
     }
+    @Step("Ввод имени краткосрочного сценария")
     public void  typeNameScenario(String text){
         if (diologIsOpen==true){
             $("#scenarioName").setValue(text );
         }
     }
+    @Step("Нажатие кнопки создать на форме создания краткосрочного сценария")
     public ShortScenario createScenario() throws Exception {
         $("#createScenario").click();
         Util.findError();
         return new ShortScenario();
     }
+    @Step("Ввод датыкраткосрочного сценария")
     public void  time(){
         Util.choiceDate("#beginDate","2015-09-08");
     }

@@ -3,6 +3,7 @@ package ru.dserg.autotest.page;
 import org.openqa.selenium.By;
 import ru.dserg.autotest.Utils.Util;
 import ru.dserg.autotest.page.ShortScenarioElements.*;
+import ru.yandex.qatools.allure.annotations.Step;
 
 
 import static com.codeborne.selenide.Selenide.$;
@@ -28,7 +29,7 @@ public class ShortScenario {
         Main,Condition,Meteo,Results
     }
     private Tab tab=Tab.Main;
-
+    @Step("Переход на вкладку результаты")
     public  void   result() throws Exception {
         $(By.xpath("//*[@id=\'main-content\']/div/div/div[1]/div/div/label[6]")).click();
         tab= Tab.Results;
@@ -38,6 +39,7 @@ public class ShortScenario {
     /*public  void play(){
         $("#start-calculation").click();
     }*/
+    @Step("Возврат к списку сценариев")
     public void back() throws Exception {
         $(By.xpath("//*[@id=\'main-content\']/div/div/div[1]/div/div/label[1]")).click();
         Util.findError();
@@ -65,11 +67,13 @@ public class ShortScenario {
         tab=Tab.Main;
         Util.findError();
     }
+    @Step("Переход на вкладку прогноз погоды")
     public void meteo() throws Exception {
      $(By.xpath("//*[@id=\'main-content\']/div/div/div[1]/div/div/label[3]")).click();
         tab=Tab.Meteo;
         Util.findError();
     }
+    @Step("Переход на вкладку состояние ГА")
     public void condition() throws Exception {
         $(By.xpath("//*[@id=\'main-content\']/div/div/div[1]/div/div/label[4]")).click();
         tab=Tab.Condition;

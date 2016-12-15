@@ -19,7 +19,7 @@ public class Menu {
 
     private ShortModelSpisok shortModelSpisok= new ShortModelSpisok();
     private LongModelSpisok longModelSpisok = new LongModelSpisok();
-
+    @Step("Открытие списка ксраткасрочная модель и выбор станции №{0}")
     public  ShortModel choiceShortGes(int a){//выбор гэс
 
         shortModelSpisok.clickSpisok();
@@ -57,7 +57,7 @@ public class Menu {
             }
         }
     }
-
+    @Step("Открытие списка кракострочная и переход на страницу Оптимизация состава ГА")
     public OptimizationPage optimization(){
         shortModelSpisok.clickSpisok();
         shortModelSpisok.optimization();

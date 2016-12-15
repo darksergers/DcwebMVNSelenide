@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import ru.dserg.autotest.Utils.SelenideTable;
 import ru.dserg.autotest.Utils.Util;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -56,6 +57,7 @@ public class Results {
     public  void showLimits(){
         $("#showRestrictionsTable").click();
     }
+    @Step("Нажатие на чекбокс Показать: ГА")
     public  void showGA(){
         $("#showGaPower").click();
     }
@@ -69,18 +71,21 @@ public class Results {
     public void clickThga(){
         $(By.name("efficiency")).click();
     }
+    @Step("Нажатие кнопки play")
     public  void play(){
         $("#start-calculation").click();
     }
     public void refresh(){
         $("#refresh").click();
     }
+    @Step("Нажатие кнопки сохранить")
     public void save(){
         $("#save-results").click();
     }
     public void export(){
         $("#export").click();
     }
+    @Step("Выбор оптимизации {0}")
     public void optTime(int choice){
         Util.selectSelelector($("#opt-type"),choice).click();
         ((JavascriptExecutor) WebDriverRunner.getWebDriver()).executeScript("window.scrollTo(0, document.head.scrollHeight)");

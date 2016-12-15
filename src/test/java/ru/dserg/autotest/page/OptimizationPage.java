@@ -4,6 +4,7 @@ import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 import ru.dserg.autotest.Utils.SelenideTable;
 import ru.dserg.autotest.Utils.Util;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -14,11 +15,13 @@ public class OptimizationPage {
     private boolean isShow=false;
     private SelenideTable table=
             new SelenideTable($(By.xpath("//*[@id='results-table']/div[1]/div[1]/div/div[1]/table")));
+    @Step("Нажатие кнопки показать")
     public void show(){
         $("#show-results").click();
         $("#results-table").waitUntil(Condition.visible,30000);
         isShow=true;
     }
+    @Step("Выбор станции {0}")
     public void select(int choice){
         Util.selectSelelector($("#target-station"),choice).click();
 

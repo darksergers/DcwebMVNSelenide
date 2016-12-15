@@ -30,6 +30,7 @@ public class LongScenario {
         $("#results").parent().click();
         tab= Tab.Results;
     }
+    @Step("Переход на вкладку характеристики")
     public void characteristics(){
         $(By.xpath("//*[@id=\"main-content\"]/div/div[1]/div[1]/div[1]/div/label[2]")).click();
         tab = Tab.Characteristics;
