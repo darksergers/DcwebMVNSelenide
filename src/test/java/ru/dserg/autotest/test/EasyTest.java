@@ -69,7 +69,7 @@ public class EasyTest {
             HomePage homePage = Util.entry();
             ShortModel shortModel = homePage.openKratkosrochSpisok(1);
             shortModel.create();
-            shortModel.typeNameScenario("Мониторинг_" + format.format(d));
+            shortModel.typeNameScenario("Autotest Мониторинг_" + format.format(d));
             shortModel.time();
             ShortScenario shortScenario = shortModel.createScenario();
             shortScenario.getMain().save();
@@ -125,7 +125,7 @@ public class EasyTest {
         HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();
         longModel.create();
-        longModel.getCreate().name("testMonitoring"+format.format(d));
+        longModel.getCreate().name("AutotestMonitoring"+format.format(d));
         longModel.getCreate().beginDatePritok("2015-09-05");
         longModel.getCreate().beginDateCalculation("2015-09-15");
         longModel.getCreate().endDateCalculation("2015-09-25");

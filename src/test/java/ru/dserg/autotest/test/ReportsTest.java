@@ -15,6 +15,7 @@ import ru.dserg.autotest.page.Reports.*;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
@@ -31,11 +32,15 @@ public class ReportsTest {
     private static HashMap data = new HashMap();
     private static HashMap dataError = new HashMap();
     private static GregorianCalendar g= new GregorianCalendar();
+    private static String beforeTwoDays;
 
 
 
     @BeforeClass
     public static  void bfr() {
+        GregorianCalendar g = new GregorianCalendar();
+        g.add(Calendar.DAY_OF_MONTH,-2);
+        beforeTwoDays= currenF.format(g.getTime());
         for (int i = 0; i < 5; i++) {
             data.put(i, 4);
         }

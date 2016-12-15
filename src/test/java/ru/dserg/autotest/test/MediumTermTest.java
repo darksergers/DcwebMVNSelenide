@@ -55,7 +55,7 @@ public class MediumTermTest {
         longModel.getCreate().beginDateCalculation(today);
         longModel.getCreate().endDateCalculation(tenDaysLater);
         longModel.getCreate().granularity(granularity);
-        longModel.getCreate().name("testGranularity "+granularity+format.format(d));
+        longModel.getCreate().name("AutotestGranularity "+granularity+format.format(d));
         longModel.getCreate().create();
         Util.findError();
     }
@@ -72,7 +72,7 @@ public class MediumTermTest {
         LongModel longModel = homePage.longModel();
         Util.findError();
         longModel.create();
-        longModel.getCreate().name("CharacteristicsIsAvailable"+format.format(d));
+        longModel.getCreate().name("AutotestCharacteristicsIsAvailable"+format.format(d));
             longModel.getCreate().beginDatePritok(today);
             longModel.getCreate().beginDateCalculation(today);
             longModel.getCreate().endDateCalculation(tenDaysLater);
@@ -148,7 +148,7 @@ public class MediumTermTest {
         HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();
         longModel.create();
-        longModel.getCreate().name("testHold"+format.format(d));
+        longModel.getCreate().name("AutotestHold"+format.format(d));
         longModel.getCreate().beginDatePritok(today);
         longModel.getCreate().beginDateCalculation(today);
         longModel.getCreate().endDateCalculation(tenDaysLater);
@@ -182,7 +182,7 @@ public class MediumTermTest {
         HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();
         longModel.create();
-        longModel.getCreate().name("testRemont"+format.format(d));
+        longModel.getCreate().name("AutotestRemont"+format.format(d));
         longModel.getCreate().beginDatePritok(today);
         longModel.getCreate().beginDateCalculation(today);
         longModel.getCreate().endDateCalculation(tenDaysLater);
@@ -215,11 +215,11 @@ public class MediumTermTest {
             today=currentF.format(d);
 
         }
-        System.out.println(today);
 
-        g.add(Calendar.DAY_OF_MONTH,28);
+
+        g.add(Calendar.DAY_OF_MONTH,10);
         tenDaysLater = currentF.format(g.getTime());
-        System.out.println(tenDaysLater);
+
         for (int i=0;i<6;i++){
             data.put(i,4);
             dataError.put(i,"Все ок");
@@ -232,10 +232,8 @@ public class MediumTermTest {
 
         HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();
-        longModel.deleteScenario("testGranularity");
-        longModel.deleteScenario("testRemont");
-        longModel.deleteScenario("testHold");
-        longModel.deleteScenario("CharacteristicsIsAvailable");
+        longModel.deleteScenario("Autotest");
+        
 
 
 
