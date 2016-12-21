@@ -35,7 +35,12 @@ public class ReportEquipmentOperatingRegime {
     @Step("Проверка таблицы")
     public boolean ok() throws Exception {
         SelenideTable table = new SelenideTable($("#report-table"));
-        $("#report-table").$(By.tagName("tbody")).waitUntil(Condition.visible,30000);
+        try {
+            $("#report-table").$(By.tagName("tbody")).waitUntil(Condition.visible, 30000);
+        }catch (Throwable e){
+            Util.findError();
+            throw e;
+        }
 
         label:for (int i = 3;i<=$("#report-table").$(By.tagName("tbody")).$$(By.tagName("tr")).size()-2;i++){
             if(Float.parseFloat(table.choiceTr(i,1).getText().replace(',','.'))>0){
