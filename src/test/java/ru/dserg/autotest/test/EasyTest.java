@@ -19,10 +19,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
+import java.util.*;
 
 import static com.codeborne.selenide.Selenide.close;
 import static  com.codeborne.selenide.Selenide.screenshot;
@@ -56,6 +53,8 @@ public class EasyTest {
             today=currentF.format(d);
 
         }
+        g.add(Calendar.DAY_OF_MONTH,10);
+        tenDaysLater = currentF.format(g.getTime());
         for (File file: new File("build/reports/tests").listFiles())
             if (file.isFile()) file.delete();
         for (int i=0;i<3;i++){
@@ -88,7 +87,7 @@ public class EasyTest {
             ShortModel shortModel = homePage.openKratkosrochSpisok(1);
             shortModel.create();
             shortModel.typeNameScenario("Autotest Мониторинг_" + format.format(d));
-            shortModel.time();
+            shortModel.time(today);
             ShortScenario shortScenario = shortModel.createScenario();
             shortScenario.getMain().save();
             shortScenario.meteo();
@@ -146,9 +145,9 @@ public class EasyTest {
         LongModel longModel = homePage.longModel();
         longModel.create();
         longModel.getCreate().name("AutotestMonitoring"+format.format(d));
-        longModel.getCreate().beginDatePritok("2015-09-05");
-        longModel.getCreate().beginDateCalculation("2015-09-15");
-        longModel.getCreate().endDateCalculation("2015-09-25");
+        longModel.getCreate().beginDatePritok(today);
+        longModel.getCreate().beginDateCalculation(tenDaysLater);
+        longModel.getCreate().endDateCalculation(tenDaysLater);
         LongScenario longScenario = longModel.getCreate().create();
         longScenario.characteristics();
         screenshot("Ololo3");

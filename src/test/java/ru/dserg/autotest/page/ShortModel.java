@@ -33,8 +33,8 @@ public class ShortModel {
         return new ShortScenario();
     }
     @Step("Ввод датыкраткосрочного сценария")
-    public void  time(){
-        Util.choiceDate("#beginDate","2015-09-08");
+    public void  time(String date){
+        Util.choiceDate("#beginDate",date);
     }
     public  void delete(){
         $("#scenario-list-header").parent().waitUntil(Condition.visible,30000);
