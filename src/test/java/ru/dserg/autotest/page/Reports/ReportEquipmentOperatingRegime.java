@@ -22,12 +22,12 @@ public class ReportEquipmentOperatingRegime {
     public void selectStation(){
         $("#filter-form").$(By.tagName("select")).selectOption("Новосибирская ГЭС");
     }
-    @Step("Выбо всех Га")
+    @Step("Выбор всех ГА")
     public void ga(){
         $("#filter-form").$(By.tagName("button")).click();
         $("#filter-form").$(By.tagName("ul")).$(By.tagName("label")).click();
     }
-    @Step("Применить")
+    @Step("Нажатие кнопки Применить")
     public void show() throws Exception {
        $("#show").click();
         Util.findError();

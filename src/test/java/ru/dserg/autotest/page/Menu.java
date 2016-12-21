@@ -57,7 +57,7 @@ public class Menu {
             }
         }
     }
-    @Step("Открытие списка кракострочная и переход на страницу Оптимизация состава ГА")
+    @Step("Открытие списка кракосрочная модель и переход на страницу Оптимизация состава ГА")
     public OptimizationPage optimization(){
         shortModelSpisok.clickSpisok();
         shortModelSpisok.optimization();
@@ -65,14 +65,14 @@ public class Menu {
 
     }
 
-    @Step("Открытие списока Среднесрочная модел и выбор волжкокамкий каскад")
+    @Step("Открытие списка Среднесрочная модель и выбор Волжко-Камкий каскад")
     public LongModel longModel(){//// TODO: 15.09.2016 свитч кейс по всем станциям 
         longModelSpisok.clickSpisok();
         longModelSpisok.volzhskoKamskii();
         return  new LongModel();
         
     }
-    @Step("Открытие списока Отчеты")
+    @Step("Открытие списка Отчеты")
     private  void  otchet(){
         $("#menu").$(By.linkText("Отчёты")).waitUntil(Condition.visible,30000);
         $("#menu").$(By.linkText("Отчёты")).click();

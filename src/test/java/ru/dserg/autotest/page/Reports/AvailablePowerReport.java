@@ -19,13 +19,13 @@ public class AvailablePowerReport {
     public void selectStation(){
         $("#station").selectOption("Волжская ГЭС");
     }
-    @Step("Ввыбор даты начала 2016-11-09")
-    public void beginDate(){
-        Util.choiceDate("#beginDate","2016-11-09");
+    @Step("Ввыбор даты начала {0}")
+    public void beginDate(String date){
+        Util.choiceDate("#beginDate",date);
     }
-    @Step("Ввыбор даты конца 2016-11-09")
-    public void endDate(){
-        Util.choiceDate("#endDate","2016-11-10");
+    @Step("Ввыбор даты конца {0}")
+    public void endDate(String date){
+        Util.choiceDate("#endDate",date);
     }
     @Step("Ввыбор дискретности 60")
     public void selectStepSize(){

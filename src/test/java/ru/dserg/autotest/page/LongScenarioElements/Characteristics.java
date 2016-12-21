@@ -85,7 +85,7 @@ public class Characteristics {
      * @param choiceTable
      * @return
      */
-    @Step("Выбор вкладки кривые Вб ")
+    @Step("Выбор вкладки кривые ВБ ")
     public SelenideTable vbCurves(int choiceTable){
         $("#vbCurves").click();
         tab = Tab.KrivieVB;

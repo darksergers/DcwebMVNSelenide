@@ -28,7 +28,7 @@ import static org.junit.Assert.fail;
 /**
  * Created by Kalinin.S on 02.11.2016.
  */
-@Features("Спровочники")
+@Features("Справочники")
 public class ManualsTest {
     static Date d = new Date();
     static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH.mm");

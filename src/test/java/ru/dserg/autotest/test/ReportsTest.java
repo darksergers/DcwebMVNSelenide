@@ -9,7 +9,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import ru.dserg.autotest.Utils.Util;
 import ru.dserg.autotest.page.HomePage;
-import ru.dserg.autotest.page.LoginPage;
 import ru.dserg.autotest.page.Menu;
 import ru.dserg.autotest.page.Reports.*;
 import ru.yandex.qatools.allure.annotations.Features;
@@ -31,19 +30,31 @@ import static org.junit.Assert.fail;
 public class ReportsTest {
     static Date d = new Date();
     static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH.mm");
-    private static SimpleDateFormat currenF=new SimpleDateFormat("yyyy-MM-dd");
+    private static SimpleDateFormat currentF =new SimpleDateFormat("yyyy-MM-dd");
+    private static SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");//формат для input text
     private static HashMap data = new HashMap();
     private static HashMap dataError = new HashMap();
     private static GregorianCalendar g= new GregorianCalendar();
     private static String beforeTwoDays;
+    private static String yesterday;
+    private static String firstDayOfMonth;
+    private static String  beforeTwoMonth;
 
 
 
     @BeforeClass
     public static  void bfr() {
         GregorianCalendar g = new GregorianCalendar();
-        g.add(Calendar.DAY_OF_MONTH,-2);
-        beforeTwoDays= currenF.format(g.getTime());
+
+        g.add(Calendar.DAY_OF_MONTH,-1);
+        yesterday= currentF.format(g.getTime());
+        g.add(Calendar.DAY_OF_MONTH,-1);
+        beforeTwoDays= currentF.format(g.getTime());
+        g.set(Calendar.DAY_OF_MONTH,1);
+        firstDayOfMonth = dateFormat.format(g.getTime());
+        g.add(Calendar.MONTH,-2);
+        beforeTwoDays = dateFormat.format(g.getTime());
+
         for (int i = 0; i < 5; i++) {
             data.put(i, 4);
         }
@@ -56,7 +67,7 @@ public class ReportsTest {
         HomePage homePage= Util.entry();
         RepairReport repairReport = homePage.getMenu().repairReport();
         repairReport.selectStation(4);
-        repairReport.datebegin();
+        repairReport.datebegin(beforeTwoDays);
         repairReport.show();
         if(!repairReport.ok()) fail();
         data.put(0,1);
@@ -94,8 +105,8 @@ public class ReportsTest {
         HomePage homePage=Util.entry();
         AvailablePowerReport availablePowerReport = homePage.getMenu().availablePowerReport();
         availablePowerReport.selectStation();
-        availablePowerReport.beginDate();
-        availablePowerReport.endDate();
+        availablePowerReport.beginDate(beforeTwoDays);
+        availablePowerReport.endDate(yesterday);
         availablePowerReport.selectStepSize();
         availablePowerReport.clickApplyButton();
         availablePowerReport.completeDH();
@@ -120,7 +131,7 @@ public class ReportsTest {
         HomePage homePage=Util.entry();
         ReportEquipmentOperatingRegime reportEquipmentOperatingRegime =
                 homePage.getMenu().reportEquipmentOperatingRegime();
-        reportEquipmentOperatingRegime.datebegin("2016-12-05");
+        reportEquipmentOperatingRegime.datebegin(firstDayOfMonth);
         reportEquipmentOperatingRegime.selectStation();
         reportEquipmentOperatingRegime.ga();
         reportEquipmentOperatingRegime.show();
@@ -144,7 +155,7 @@ public class ReportsTest {
             HomePage homePage = Util.entry();
             OtchetRashodaGESPage otchetRashodaGESPage = homePage.otchetRashodaGESPage();
             otchetRashodaGESPage.listStation(1);
-            otchetRashodaGESPage.date("2015-09-09");
+            otchetRashodaGESPage.date(yesterday);
             otchetRashodaGESPage.clickGetData();
             if (otchetRashodaGESPage.isPositive()) fail();
             data.put(4, 1);

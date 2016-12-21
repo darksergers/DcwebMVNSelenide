@@ -18,10 +18,10 @@ public class RepairReport {
     public void selectStation(int choice){
         Util.selectSelelector($("#station-id"),choice).click();
     }
-    @Step("Ввод даты 09.09.2016")
-    public void datebegin(){
+    @Step("Ввод даты {0}")
+    public void datebegin(String date){
         //$("#datebegin-id").$(By.tagName("input")).c
-        $("#datebegin-id").$(By.tagName("input")).sendKeys(Keys.chord(Keys.SHIFT,Keys.HOME,Keys.DELETE)+"09.09.2016");
+        $("#datebegin-id").$(By.tagName("input")).sendKeys(Keys.chord(Keys.SHIFT,Keys.HOME,Keys.DELETE)+date);
     }
     @Step("Нажать на кнопку показать")
     public void show(){
