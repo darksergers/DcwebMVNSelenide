@@ -15,7 +15,7 @@ public class ExpenseCharacteristicsGA {
     @Step("Выбор станции жигулевская")
     public  void choice(){
         $("#current-item-name").parent().click();
-        $("#select-station").$(By.tagName("ul")).$(By.tagName("a"),14).click();
+        $("#select-station").$(By.partialLinkText("Жигулевская ГЭС")).click();
     }
     @Step("Выбор первой характеристики")
     public void clickCharacteristic(){

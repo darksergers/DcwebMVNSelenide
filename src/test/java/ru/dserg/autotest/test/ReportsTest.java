@@ -164,6 +164,11 @@ public class ReportsTest {
             throw e;
         }
     }
+    @Stories("Контроль выполнения режимов в среднесрочной модели")
+    @Test
+    public void testMediumTermRegimeControl(){
+        
+    }
    @After
     public void aftr(){
         Util.pnotifyClose();
@@ -180,8 +185,8 @@ public class ReportsTest {
     public static void testrail() throws IOException, APIException {
 
 
-        DDtestrail testrail = new DDtestrail(58, 2560, Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
-        testrail.completeTest(data,dataError, "Отчеты " +Configuration.baseUrl+" "+ format.format(d));
+       // DDtestrail testrail = new DDtestrail(58, 2560, Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
+       // testrail.completeTest(data,dataError, "Отчеты " +Configuration.baseUrl+" "+ format.format(d));
 
     }
 

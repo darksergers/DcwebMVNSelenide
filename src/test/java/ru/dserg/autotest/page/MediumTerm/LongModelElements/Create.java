@@ -1,4 +1,4 @@
-package ru.dserg.autotest.page.LongModelElements;
+package ru.dserg.autotest.page.MediumTerm.LongModelElements;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.WebDriverRunner;
@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import ru.dserg.autotest.Utils.SelenideTable;
 import ru.dserg.autotest.Utils.Util;
-import ru.dserg.autotest.page.LongScenario;
+import ru.dserg.autotest.page.MediumTerm.LongScenario;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -87,8 +87,7 @@ public class Create {
 
         try {
             $("#results-table").waitUntil(Condition.visible,60000);
-        }catch (Throwable e){
-            e.printStackTrace();
+        }finally {
             Util.findError();
 
         }

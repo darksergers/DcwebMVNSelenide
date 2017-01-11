@@ -1,4 +1,4 @@
-package ru.dserg.autotest.page.LongScenarioElements;
+package ru.dserg.autotest.page.MediumTerm.LongScenarioElements;
 
 import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;

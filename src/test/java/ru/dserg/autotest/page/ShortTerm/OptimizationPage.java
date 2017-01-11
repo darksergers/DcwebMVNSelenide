@@ -1,4 +1,4 @@
-package ru.dserg.autotest.page;
+package ru.dserg.autotest.page.ShortTerm;
 
 import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
@@ -18,7 +18,12 @@ public class OptimizationPage {
     @Step("Нажатие кнопки показать")
     public void show(){
         $("#show-results").click();
-        $("#results-table").waitUntil(Condition.visible,30000);
+        try {
+            $("#results-table").waitUntil(Condition.visible,30000);
+        } finally {
+            Util.findError();
+        }
+
         isShow=true;
     }
     @Step("Выбор станции {0}")

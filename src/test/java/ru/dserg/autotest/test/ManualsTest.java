@@ -6,21 +6,16 @@ import com.gurock.testrail.DDtestrail;
 import org.junit.*;
 import ru.dserg.autotest.Utils.Util;
 import ru.dserg.autotest.page.HomePage;
-import ru.dserg.autotest.page.LoginPage;
 import ru.dserg.autotest.page.Manuals.CardGES;
 import ru.dserg.autotest.page.Manuals.DataDirectoryGES;
 import ru.dserg.autotest.page.Manuals.ExpenseCharacteristicsGA;
 import ru.dserg.autotest.page.Menu;
-import ru.dserg.autotest.page.Reports.OtchetRashodaGESPage;
-import ru.dserg.autotest.page.ShortModel;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 
-import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.HashMap;
 
 import static org.junit.Assert.fail;
@@ -72,6 +67,7 @@ public class ManualsTest {
             HomePage homePage = Util.entry();
             ExpenseCharacteristicsGA expenseCharacteristicsGA = homePage.expenseCharacteristicsGA();
             expenseCharacteristicsGA.choice();
+            Thread.sleep(9000);
             expenseCharacteristicsGA.clickCharacteristic();
             if (!expenseCharacteristicsGA.ok()) fail("пустая таблица");
             data.put(1, 1);
@@ -98,8 +94,8 @@ public class ManualsTest {
     public static void testrail() throws IOException, APIException {
 
 
-       DDtestrail testrail = new DDtestrail(58, 2559, Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
-       testrail.completeTest(data,dataError, "Справочники "+Configuration.baseUrl+" "+ format.format(d));
+      // DDtestrail testrail = new DDtestrail(58, 2559, Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
+      // testrail.completeTest(data,dataError, "Справочники "+Configuration.baseUrl+" "+ format.format(d));
 
     }
 

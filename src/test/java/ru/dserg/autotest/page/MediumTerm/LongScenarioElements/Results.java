@@ -1,9 +1,7 @@
-package ru.dserg.autotest.page.LongScenarioElements;
+package ru.dserg.autotest.page.MediumTerm.LongScenarioElements;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import ru.dserg.autotest.Utils.SelenideTable;
 import ru.dserg.autotest.Utils.Util;
 import ru.yandex.qatools.allure.annotations.Step;

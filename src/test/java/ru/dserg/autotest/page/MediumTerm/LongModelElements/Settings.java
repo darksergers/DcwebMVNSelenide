@@ -1,8 +1,8 @@
-package ru.dserg.autotest.page.LongModelElements;
+package ru.dserg.autotest.page.MediumTerm.LongModelElements;
 
 import org.openqa.selenium.By;
 import ru.dserg.autotest.Utils.SelenideTable;
-import ru.dserg.autotest.page.LongModel;
+import ru.dserg.autotest.page.MediumTerm.LongModel;
 
 import static com.codeborne.selenide.Selenide.$;
 

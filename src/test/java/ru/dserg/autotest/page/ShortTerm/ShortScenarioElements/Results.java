@@ -1,4 +1,4 @@
-package ru.dserg.autotest.page.ShortScenarioElements;
+package ru.dserg.autotest.page.ShortTerm.ShortScenarioElements;
 
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.By;

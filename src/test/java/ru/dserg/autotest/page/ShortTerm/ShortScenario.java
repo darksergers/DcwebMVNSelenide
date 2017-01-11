@@ -1,8 +1,8 @@
-package ru.dserg.autotest.page;
+package ru.dserg.autotest.page.ShortTerm;
 
 import org.openqa.selenium.By;
 import ru.dserg.autotest.Utils.Util;
-import ru.dserg.autotest.page.ShortScenarioElements.*;
+import ru.dserg.autotest.page.ShortTerm.ShortScenarioElements.*;
 import ru.yandex.qatools.allure.annotations.Step;
 
 

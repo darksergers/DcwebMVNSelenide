@@ -1,4 +1,4 @@
-package ru.dserg.autotest.page.LongScenarioElements;
+package ru.dserg.autotest.page.MediumTerm.LongScenarioElements;
 
 /**
  * Created by Kalinin.S on 11.08.2016.
