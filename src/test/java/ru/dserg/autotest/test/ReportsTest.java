@@ -3,10 +3,7 @@ package ru.dserg.autotest.test;
 import com.codeborne.selenide.Configuration;
 import com.gurock.testrail.APIException;
 import com.gurock.testrail.DDtestrail;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import ru.dserg.autotest.Utils.Util;
 import ru.dserg.autotest.page.HomePage;
 import ru.dserg.autotest.page.Menu;
@@ -36,6 +33,7 @@ public class ReportsTest {
     private static HashMap dataError = new HashMap();
     private static GregorianCalendar g= new GregorianCalendar();
     private static String beforeTwoDays;
+    private static String beforeTwoDaysFormat;
     private static String yesterday;
     private static String firstDayOfMonth;
     private static String  beforeTwoMonth;
@@ -50,10 +48,11 @@ public class ReportsTest {
         yesterday= currentF.format(g.getTime());
         g.add(Calendar.DAY_OF_MONTH,-1);
         beforeTwoDays= currentF.format(g.getTime());
+        beforeTwoDaysFormat = dateFormat.format(g.getTime());
         g.set(Calendar.DAY_OF_MONTH,1);
         firstDayOfMonth = dateFormat.format(g.getTime());
         g.add(Calendar.MONTH,-2);
-        beforeTwoDays = dateFormat.format(g.getTime());
+        beforeTwoMonth = dateFormat.format(g.getTime());
 
         for (int i = 0; i < 5; i++) {
             data.put(i, 4);
@@ -67,7 +66,7 @@ public class ReportsTest {
         HomePage homePage= Util.entry();
         RepairReport repairReport = homePage.getMenu().repairReport();
         repairReport.selectStation(4);
-        repairReport.datebegin(beforeTwoDays);
+        repairReport.datebegin(beforeTwoDaysFormat);
         repairReport.show();
         if(!repairReport.ok()) fail();
         data.put(0,1);
@@ -111,7 +110,7 @@ public class ReportsTest {
         availablePowerReport.clickApplyButton();
         availablePowerReport.completeDH();
         availablePowerReport.clickCountButton();
-        if(!availablePowerReport.ok()) fail();
+        if(!availablePowerReport.ok()) fail("В колонках Na в одной из 4х нет данных или dNa%  больше 20");
         data.put(2,1);
         } catch (Throwable e){
             dataError.put(2,e.getMessage());
@@ -164,6 +163,7 @@ public class ReportsTest {
             throw e;
         }
     }
+    @Ignore
     @Stories("Контроль выполнения режимов в среднесрочной модели")
     @Test
     public void testMediumTermRegimeControl(){
