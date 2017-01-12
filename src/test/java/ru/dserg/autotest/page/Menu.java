@@ -21,7 +21,9 @@ public class Menu {
 
     @Step("Открытие списка ксраткосрочная модель и выбор станции ")
     public ShortModel choiceShortGes(){//выбор гэс
+        $("#menu").$(By.partialLinkText("Краткосрочная модель")).waitUntil(Condition.visible,30000);
         $("#menu").$(By.partialLinkText("Краткосрочная модель")).click();
+        $("#menu").$(By.partialLinkText("Чебоксарская ГЭС")).waitUntil(Condition.visible,30000);
         $("#menu").$(By.partialLinkText("Чебоксарская ГЭС")).click();
         return  new ShortModel();
     }

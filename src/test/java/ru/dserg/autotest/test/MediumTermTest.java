@@ -24,12 +24,11 @@ import static org.junit.Assert.fail;
 @Features("Среднесрочная модель")
 public class MediumTermTest {
 
-    static Date d = new Date();
-    static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH.mm");
-    static SimpleDateFormat currentF = new SimpleDateFormat("yyyy-MM-dd");
-    private static HashMap data = new HashMap();
-    private static HashMap dataError = new HashMap();
-    private static GregorianCalendar g;
+    private static Date d = new Date();
+    private static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH.mm");
+    private static SimpleDateFormat currentF = new SimpleDateFormat("yyyy-MM-dd");
+    private static HashMap<Integer,String> dataError = new HashMap<Integer,String>();
+    private static HashMap<Integer,Integer> data = new HashMap<Integer,Integer>();
     private static  String today;
     private static  String tenDaysLater;
     @After
@@ -45,7 +44,7 @@ public class MediumTermTest {
 
     }
 
-    public void granularity(String granularity ) throws Exception {
+    private void granularity(String granularity ) throws Exception {
 
         HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();
@@ -206,6 +205,7 @@ public class MediumTermTest {
     }
     @BeforeClass
     public static  void bfr(){
+        GregorianCalendar g;
         if (Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099")){
             g=new GregorianCalendar(2015,8,5);
             today = currentF.format(g.getTime());
