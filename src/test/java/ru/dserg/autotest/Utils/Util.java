@@ -42,13 +42,13 @@ public class Util {
                 "document.querySelector('input"+selector+"') " + ".value='"+date+"';");
 
     }
-    static public void findError() throws Exception {
+    static public void findError() throws  AssertionError {
         ElementsCollection collection=$$(By.className("ui-pnotify "));
         if (collection.isEmpty()) return;
         for (SelenideElement i: collection){
             if(i.$(By.className("glyphicon-warning-sign")).exists()){
 
-            throw new Exception("pnotify exception:"+i.$(By.className("ui-pnotify-text")).getText());
+            throw new  AssertionError("pnotify exception:"+i.$(By.className("ui-pnotify-text")).getText());
         }
 
         }

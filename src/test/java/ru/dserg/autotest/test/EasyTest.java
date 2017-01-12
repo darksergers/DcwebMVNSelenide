@@ -5,11 +5,15 @@ package ru.dserg.autotest.test;
 
 
 import com.codeborne.selenide.Configuration;
-import com.gurock.testrail.APIException;
 import com.gurock.testrail.DDtestrail;
 import org.junit.*;
 import ru.dserg.autotest.Utils.Util;
 import ru.dserg.autotest.page.*;
+import ru.dserg.autotest.page.MediumTerm.LongModel;
+import ru.dserg.autotest.page.MediumTerm.LongScenario;
+import ru.dserg.autotest.page.ShortTerm.OptimizationPage;
+import ru.dserg.autotest.page.ShortTerm.ShortModel;
+import ru.dserg.autotest.page.ShortTerm.ShortScenario;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 
@@ -17,11 +21,9 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import static com.codeborne.selenide.Selenide.close;
 import static  com.codeborne.selenide.Selenide.screenshot;
 
 
@@ -160,8 +162,8 @@ public class EasyTest {
    @AfterClass
     public static void testrail() throws Exception {
 
-       DDtestrail testrail = new DDtestrail(58, 2537,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
-       testrail.completeTest(data,dataError, "Мониторинг "+Configuration.baseUrl +" "+ format.format(d));
+       //DDtestrail testrail = new DDtestrail(58, 2537,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
+       //testrail.completeTest(data,dataError, "Мониторинг "+Configuration.baseUrl +" "+ format.format(d));
        HomePage homePage=Util.entry();
        ShortModel shortModel = homePage.openKratkosrochSpisok(1);
        shortModel.delete();

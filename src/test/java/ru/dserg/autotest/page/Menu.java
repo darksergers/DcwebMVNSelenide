@@ -4,9 +4,10 @@ import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 import ru.dserg.autotest.page.Manuals.DataDirectoryGES;
 import ru.dserg.autotest.page.Manuals.ExpenseCharacteristicsGA;
+import ru.dserg.autotest.page.MediumTerm.LongModel;
 import ru.dserg.autotest.page.Reports.*;
-import ru.dserg.autotest.page.menuElements.LongModelSpisok;
-import ru.dserg.autotest.page.menuElements.ShortModelSpisok;
+import ru.dserg.autotest.page.ShortTerm.OptimizationPage;
+import ru.dserg.autotest.page.ShortTerm.ShortModel;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -17,58 +18,28 @@ import static com.codeborne.selenide.Selenide.$;
 public class Menu {
 
 
-    private ShortModelSpisok shortModelSpisok= new ShortModelSpisok();
-    private LongModelSpisok longModelSpisok = new LongModelSpisok();
-    @Step("Открытие списка ксраткасрочная модель и выбор станции №{0}")
-    public  ShortModel choiceShortGes(int a){//выбор гэс
 
-        shortModelSpisok.clickSpisok();
-        switch (a){
-            case 1:  {
-                shortModelSpisok.cheboxGES();
-                return new ShortModel();
-            }
-            case 2:{
-                shortModelSpisok.saratovGES();
-                return new ShortModel();
-            }
-            case 3:{
-                shortModelSpisok.kamskayaGES();
-                return new ShortModel();
-            }
-            case 4:{
-                shortModelSpisok.votkinskayaGES();
-                return new ShortModel();
-            }
-            case 5:{
-                shortModelSpisok.volzhskayaGES();
-                return new ShortModel();
-            }
-            case 6:{
-                shortModelSpisok.zhigulevskayaGES();
-                return new ShortModel();
-            }
-            case 7:{
-                shortModelSpisok.nizhegorodskayaGES();
-                return new ShortModel();
-            }
-            default:{
-                return  null;
-            }
-        }
+    @Step("Открытие списка ксраткосрочная модель и выбор станции ")
+    public ShortModel choiceShortGes(){//выбор гэс
+        $("#menu").$(By.partialLinkText("Краткосрочная модель")).click();
+        $("#menu").$(By.partialLinkText("Чебоксарская ГЭС")).click();
+        return  new ShortModel();
     }
     @Step("Открытие списка кракосрочная модель и переход на страницу Оптимизация состава ГА")
     public OptimizationPage optimization(){
-        shortModelSpisok.clickSpisok();
-        shortModelSpisok.optimization();
+        $("#menu").$(By.partialLinkText("Краткосрочная модель")).shouldBe(Condition.visible);
+        $("#menu").$(By.partialLinkText("Краткосрочная модель")).click();
+        $("#menu").$(By.partialLinkText("Оптимизация состава ГА")).click();
         return new OptimizationPage();
 
     }
 
     @Step("Открытие списка Среднесрочная модель и выбор Волжко-Камкий каскад")
-    public LongModel longModel(){//// TODO: 15.09.2016 свитч кейс по всем станциям 
-        longModelSpisok.clickSpisok();
-        longModelSpisok.volzhskoKamskii();
+    public LongModel longModel(){
+        $("#menu").$(By.partialLinkText("Среднесрочная модель")).waitUntil(Condition.visible,30000);
+        $("#menu").$(By.partialLinkText("Среднесрочная модель")).click();
+        $("#menu").$(By.partialLinkText("Волжско-Камский каскад")).click();
+
         return  new LongModel();
         
     }
@@ -126,6 +97,12 @@ public class Menu {
         otchet();
         $("#menu").$(By.linkText("Отчёт о режимах эксплуатации оборудования")).click();
         return  new ReportEquipmentOperatingRegime();
+    }
+    @Step("Открытие списка Среднесрочная модель и выбор Контроль выполнения режимов")
+    public MediumTermRegimeControl mediumTermRegimeControl(){
+        $("#menu").$(By.partialLinkText("Среднесрочная модель")).click();
+        $("#menu").$(By.partialLinkText("Контроль выполнения режимов")).click();
+        return new MediumTermRegimeControl();
     }
 
     public static void logOut(){

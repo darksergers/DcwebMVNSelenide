@@ -1,6 +1,5 @@
-package ru.dserg.autotest.page.ShortScenarioElements;
+package ru.dserg.autotest.page.ShortTerm.ShortScenarioElements;
 
-import com.codeborne.selenide.*;
 import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 import ru.dserg.autotest.Utils.SelenideTable;

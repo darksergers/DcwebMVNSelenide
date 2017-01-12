@@ -1,11 +1,11 @@
-package ru.dserg.autotest.page;
+package ru.dserg.autotest.page.MediumTerm;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import ru.dserg.autotest.page.LongModelElements.*;
-import ru.dserg.autotest.page.LongScenarioElements.Characteristics;
+import ru.dserg.autotest.page.MediumTerm.LongModelElements.*;
+import ru.dserg.autotest.page.MediumTerm.LongScenarioElements.Characteristics;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.Selenide.$;

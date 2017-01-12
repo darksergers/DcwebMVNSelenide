@@ -1,4 +1,4 @@
-package ru.dserg.autotest.page.ShortScenarioElements;
+package ru.dserg.autotest.page.ShortTerm.ShortScenarioElements;
 
 import org.openqa.selenium.By;
 import ru.dserg.autotest.Utils.SelenideTable;

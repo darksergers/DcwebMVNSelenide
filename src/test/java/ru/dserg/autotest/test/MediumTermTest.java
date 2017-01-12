@@ -1,24 +1,21 @@
 package ru.dserg.autotest.test;
 
 import com.codeborne.selenide.Configuration;
-import com.gurock.testrail.APIException;
 import com.gurock.testrail.DDtestrail;
 import org.junit.*;
 import ru.dserg.autotest.Utils.Util;
 import ru.dserg.autotest.page.*;
+import ru.dserg.autotest.page.MediumTerm.LongModel;
+import ru.dserg.autotest.page.MediumTerm.LongScenario;
 import ru.yandex.qatools.allure.annotations.Features;
-import ru.yandex.qatools.allure.annotations.Step;
 import ru.yandex.qatools.allure.annotations.Stories;
 
-import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 
-import static com.codeborne.selenide.Selenide.close;
 import static org.junit.Assert.fail;
 
 /**
@@ -230,8 +227,8 @@ public class MediumTermTest {
     }
     @AfterClass
     public static void testrail() throws Exception {
-       DDtestrail testrail = new DDtestrail(58, 2544,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
-       testrail.completeTest(data,dataError, "Среднесрочка "+Configuration.baseUrl+" "+ format.format(d));
+      // DDtestrail testrail = new DDtestrail(58, 2544,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
+      // testrail.completeTest(data,dataError, "Среднесрочка "+Configuration.baseUrl+" "+ format.format(d));
 
         HomePage homePage=Util.entry();
         LongModel longModel = homePage.longModel();

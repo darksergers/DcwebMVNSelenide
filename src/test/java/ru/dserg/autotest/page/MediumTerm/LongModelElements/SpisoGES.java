@@ -1,4 +1,4 @@
-package ru.dserg.autotest.page.LongModelElements;
+package ru.dserg.autotest.page.MediumTerm.LongModelElements;
 
 import org.openqa.selenium.By;
 

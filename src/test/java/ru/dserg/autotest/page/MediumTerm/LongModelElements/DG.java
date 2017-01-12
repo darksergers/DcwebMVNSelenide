@@ -1,6 +1,6 @@
-package ru.dserg.autotest.page.LongModelElements;
+package ru.dserg.autotest.page.MediumTerm.LongModelElements;
 
-import ru.dserg.autotest.page.LongModel;
+import ru.dserg.autotest.page.MediumTerm.LongModel;
 
 import static com.codeborne.selenide.Selenide.$;
 

@@ -1,12 +1,12 @@
-package ru.dserg.autotest.page;
+package ru.dserg.autotest.page.MediumTerm;
 
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import ru.dserg.autotest.page.LongModelElements.SpisoGES;
-import ru.dserg.autotest.page.LongScenarioElements.Characteristics;
-import ru.dserg.autotest.page.LongScenarioElements.Remont;
-import ru.dserg.autotest.page.LongScenarioElements.Results;
+import ru.dserg.autotest.page.MediumTerm.LongModelElements.SpisoGES;
+import ru.dserg.autotest.page.MediumTerm.LongScenarioElements.Characteristics;
+import ru.dserg.autotest.page.MediumTerm.LongScenarioElements.Remont;
+import ru.dserg.autotest.page.MediumTerm.LongScenarioElements.Results;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.Selenide.$;

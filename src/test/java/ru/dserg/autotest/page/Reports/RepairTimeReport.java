@@ -17,6 +17,7 @@ public class RepairTimeReport {
     private int bad;
     @Step("Выбор станции Зейская")
     public void selectStation(){
+        $("#station-id").waitUntil(Condition.visible,30000);
         $("#station-id").selectOptionByValue("11907059");
     }
     @Step("Нажатие кнопки показать")

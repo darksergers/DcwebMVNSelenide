@@ -1,4 +1,4 @@
-package ru.dserg.autotest.page;
+package ru.dserg.autotest.page.ShortTerm;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
