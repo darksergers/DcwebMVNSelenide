@@ -1,6 +1,6 @@
 package ru.dserg.autotest.test;
 
-import com.codeborne.selenide.Configuration;
+
 import com.gurock.testrail.APIException;
 import com.gurock.testrail.DDtestrail;
 import org.junit.*;
@@ -25,10 +25,10 @@ import static org.junit.Assert.fail;
  */
 @Features("Справочники")
 public class ManualsTest {
-    static Date d = new Date();
-    static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH.mm");
-    private static HashMap dataError = new HashMap();
-    private static HashMap data = new HashMap();
+    private static Date d = new Date();
+    private static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH.mm");
+    private static HashMap<Integer,String> dataError = new HashMap<Integer,String>();
+    private static HashMap<Integer,Integer> data = new HashMap<Integer,Integer>();
 
 
     @BeforeClass

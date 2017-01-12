@@ -128,6 +128,7 @@ public class EasyTest {
             optimizationPage.select(14);
             optimizationPage.show();
             screenshot("Ololo2");
+            Util.attachImage("build/reports/tests/Ololo2.png");
             data.put(2, 1);
         } catch (Throwable e){
             dataError.put(2,e.getMessage());
@@ -144,20 +145,22 @@ public class EasyTest {
 
         data.put(1,5);
         try {
-        HomePage homePage=Util.entry();
-        LongModel longModel = homePage.longModel();
-        longModel.create();
-        longModel.getCreate().name("AutotestMonitoring"+format.format(d));
-        longModel.getCreate().beginDatePritok(today);
-        longModel.getCreate().beginDateCalculation(tenDaysLater);
-        longModel.getCreate().endDateCalculation(tenDaysLater);
-        LongScenario longScenario = longModel.getCreate().create();
-        longScenario.characteristics();
-        screenshot("Ololo3");
-        data.put(1,1);
+
+            HomePage homePage=Util.entry();
+            LongModel longModel = homePage.longModel();
+            longModel.create();
+            longModel.getCreate().name("AutotestMonitoring"+format.format(d));
+            longModel.getCreate().beginDatePritok(today);
+            longModel.getCreate().beginDateCalculation(tenDaysLater);
+            longModel.getCreate().endDateCalculation(tenDaysLater);
+            LongScenario longScenario = longModel.getCreate().create();
+            longScenario.characteristics();
+            screenshot("Ololo3");
+            Util.attachImage("build/reports/tests/Ololo1.png");
+            data.put(1,1);
     } catch (Throwable e){
-        dataError.put(1,e.getMessage());
-        throw e;
+            dataError.put(1,e.getMessage());
+            throw e;
     }
     }
    @AfterClass

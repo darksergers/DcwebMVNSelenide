@@ -1,6 +1,5 @@
 package ru.dserg.autotest.test;
 
-import com.codeborne.selenide.Configuration;
 import com.gurock.testrail.APIException;
 import com.gurock.testrail.DDtestrail;
 import org.junit.*;
@@ -29,10 +28,9 @@ public class ReportsTest {
     static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH.mm");
     private static SimpleDateFormat currentF =new SimpleDateFormat("yyyy-MM-dd");
     private static SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");//формат для input text
-    private static HashMap data = new HashMap();
-    private static HashMap dataError = new HashMap();
-    private static GregorianCalendar g= new GregorianCalendar();
-    private static String beforeTwoDays;
+    private static HashMap<Integer,String> dataError = new HashMap<Integer,String>();
+    private static HashMap<Integer,Integer> data = new HashMap<Integer,Integer>();
+        private static String beforeTwoDays;
     private static String beforeTwoDaysFormat;
     private static String yesterday;
     private static String firstDayOfMonth;
@@ -66,7 +64,7 @@ public class ReportsTest {
         HomePage homePage= Util.entry();
         RepairReport repairReport = homePage.getMenu().repairReport();
         repairReport.selectStation(4);
-        repairReport.datebegin(beforeTwoDaysFormat);
+        repairReport.datebegin( beforeTwoMonth);
         repairReport.show();
         if(!repairReport.ok()) fail();
         data.put(0,1);
