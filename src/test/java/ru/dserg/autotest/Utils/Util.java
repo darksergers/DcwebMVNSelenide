@@ -9,7 +9,13 @@ import org.openqa.selenium.NoSuchElementException;
 import ru.dserg.autotest.page.HomePage;
 import ru.dserg.autotest.page.LoginPage;
 import ru.dserg.autotest.page.Menu;
+import ru.yandex.qatools.allure.annotations.Attachment;
 import ru.yandex.qatools.allure.annotations.Step;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -79,4 +85,10 @@ public class Util {
 
     }
 
+    @Attachment(value = "{0}", type = "image/png")
+    public static byte[] attachImage(String fileName) throws IOException {
+        File file= new File(fileName);
+
+        return Files.readAllBytes(Paths.get(file.getPath()));
+    }
 }
