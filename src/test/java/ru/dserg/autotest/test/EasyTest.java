@@ -103,7 +103,7 @@ public class EasyTest {
             shortScenario.getResults().play();
             screenshot("Ololo1");
             shortScenario.back();
-            Util.attachImage("build/reports/tests/Ololo1");
+            Util.attachImage("build/reports/tests/Ololo1.png");
             data.put(0, 1);
         } catch (Throwable e){
             dataError.put(0,e.getMessage());
