@@ -156,7 +156,7 @@ public class EasyTest {
             LongScenario longScenario = longModel.getCreate().create();
             longScenario.characteristics();
             screenshot("Ololo3");
-            Util.attachImage("build/reports/tests/Ololo1.png");
+            Util.attachImage("build/reports/tests/Ololo3.png");
             data.put(1,1);
     } catch (Throwable e){
             dataError.put(1,e.getMessage());
