@@ -52,8 +52,8 @@ public class Util {
         if (collection.isEmpty()) return;
         for (SelenideElement i: collection){
             if(i.$(By.className("glyphicon-warning-sign")).exists()){
-
-            throw new  UIAssertionError(new  AssertionError("pnotify exception:"+i.$(By.className("ui-pnotify-text")).getText()));
+//super("pnotify exception:"+i.$(By.className("ui-pnotify-text")).getText()
+            throw new  UIAssertionError("pnotify exception:"+i.$(By.className("ui-pnotify-text")).getText()){};
         }
 
         }
