@@ -109,6 +109,8 @@ public class EasyTest {
             Util.attachImage("build/reports/tests/Ololo1.png");
             data.put(0, 1);
         } catch (Throwable e){
+            screenshot("Ololo1Error");
+            Util.attachImage("build/reports/tests/Ololo1Error.png");
             dataError.put(0,e.getMessage());
             throw e;
         }
@@ -135,6 +137,8 @@ public class EasyTest {
             Util.attachImage("build/reports/tests/Ololo2.png");
             data.put(2, 1);
         } catch (Throwable e){
+            screenshot("Ololo2Error");
+            Util.attachImage("build/reports/tests/Ololo2Error.png");
             dataError.put(2,e.getMessage());
             throw e;
         }
@@ -163,6 +167,8 @@ public class EasyTest {
             Util.attachImage("build/reports/tests/Ololo3.png");
             data.put(1,1);
     } catch (Throwable e){
+            screenshot("Ololo3Error");
+            Util.attachImage("build/reports/tests/Ololo3Error.png");
             dataError.put(1,e.getMessage());
             throw e;
     }
