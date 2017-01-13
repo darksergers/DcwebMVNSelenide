@@ -59,6 +59,7 @@ public class EasyTest {
         tenDaysLater = currentF.format(g.getTime());
         for (File file: new File("build/reports/tests").listFiles())
             if (file.isFile()) file.delete();
+
         for (int i=0;i<3;i++){
             data.put(i,4);
             dataError.put(i,"Все ок");
@@ -66,6 +67,8 @@ public class EasyTest {
     }
     @After
     public void aftr(){
+
+
         Util.pnotifyClose();
         try {
             Menu.logOut();
@@ -109,6 +112,7 @@ public class EasyTest {
             dataError.put(0,e.getMessage());
             throw e;
         }
+
 
 
     }
@@ -165,6 +169,8 @@ public class EasyTest {
     }
    @AfterClass
     public static void testrail() throws Exception {
+
+
 
        //DDtestrail testrail = new DDtestrail(58, 2537,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
        //testrail.completeTest(data,dataError, "Мониторинг "+Configuration.baseUrl +" "+ format.format(d));
