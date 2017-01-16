@@ -178,8 +178,8 @@ public class EasyTest {
 
 
 
-       //DDtestrail testrail = new DDtestrail(58, 2537,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
-       //testrail.completeTest(data,dataError, "Мониторинг "+Configuration.baseUrl +" "+ format.format(d));
+       DDtestrail testrail = new DDtestrail(58, 2537,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
+       testrail.completeTest(data,dataError, "Мониторинг "+Configuration.baseUrl +" "+ format.format(d));
        HomePage homePage=Util.entry();
        ShortModel shortModel = homePage.openKratkosrochSpisok(1);
        shortModel.delete();
