@@ -17,6 +17,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 
+import static com.codeborne.selenide.Selenide.screenshot;
 import static org.junit.Assert.fail;
 
 /**
@@ -69,6 +70,8 @@ public class ReportsTest {
         if(!repairReport.ok()) fail();
         data.put(0,1);
         } catch (Throwable e){
+            screenshot("Error1");
+            Util.attachImage("build/reports/tests/Error1.png");
             dataError.put(0,e.getMessage());
             throw e;
         }
@@ -87,6 +90,8 @@ public class ReportsTest {
         if(!repairTimeReport.ok()) fail();
         data.put(1,1);
         } catch (Throwable e){
+            screenshot("Error2");
+            Util.attachImage("build/reports/tests/Error2.png");
             dataError.put(1,e.getMessage());
             throw e;
         }
@@ -111,6 +116,8 @@ public class ReportsTest {
         if(!availablePowerReport.ok()) fail("В колонках Na в одной из 4х нет данных или dNa%  больше 20");
         data.put(2,1);
         } catch (Throwable e){
+            screenshot("Error3");
+            Util.attachImage("build/reports/tests/Error3.png");
             dataError.put(2,e.getMessage());
             throw e;
         }
@@ -138,6 +145,8 @@ public class ReportsTest {
         if(!reportEquipmentOperatingRegime.ok()) fail();
         data.put(3,1);
         } catch (Throwable e){
+            screenshot("Error4");
+            Util.attachImage("build/reports/tests/Error4.png");
             dataError.put(3,e.getMessage());
             throw e;
         }
@@ -157,6 +166,8 @@ public class ReportsTest {
             if (otchetRashodaGESPage.isPositive()) fail();
             data.put(4, 1);
         } catch (Throwable e){
+            screenshot("Error5");
+            Util.attachImage("build/reports/tests/Error5.png");
             dataError.put(4,e.getMessage());
             throw e;
         }
@@ -173,6 +184,7 @@ public class ReportsTest {
         try {
             Menu.logOut();
         }catch (Error  e){
+
             Util.pnotifyClose();
             Menu.logOutWithExceptiom();
         }

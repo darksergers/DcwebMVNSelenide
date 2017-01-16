@@ -18,6 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
+import static com.codeborne.selenide.Selenide.screenshot;
 import static org.junit.Assert.fail;
 
 /**
@@ -53,6 +54,8 @@ public class ManualsTest {
         cardGES.gaOk();
         data.put(0,1);
         } catch (Throwable e){
+            screenshot("Error1");
+            Util.attachImage("build/reports/tests/Error1.png");
             dataError.put(0,e.getMessage());
             throw e;
         }
@@ -72,6 +75,8 @@ public class ManualsTest {
             if (!expenseCharacteristicsGA.ok()) fail("пустая таблица");
             data.put(1, 1);
         } catch (Throwable e){
+            screenshot("Error2");
+            Util.attachImage("build/reports/tests/Error2.png");
             dataError.put(1,e.getMessage());
             throw e;
         }
