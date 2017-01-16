@@ -3,6 +3,7 @@ package ru.dserg.autotest.Utils;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.ex.UIAssertionError;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import ru.dserg.autotest.page.HomePage;
@@ -46,13 +47,13 @@ public class Util {
                 "document.querySelector('input"+selector+"') " + ".value='"+date+"';");
 
     }
-    static public void findError() throws  AssertionError {
+    static public void findError() throws UIAssertionError {
         ElementsCollection collection=$$(By.className("ui-pnotify "));
         if (collection.isEmpty()) return;
         for (SelenideElement i: collection){
             if(i.$(By.className("glyphicon-warning-sign")).exists()){
-
-            throw new  AssertionError("pnotify exception:"+i.$(By.className("ui-pnotify-text")).getText());
+//super("pnotify exception:"+i.$(By.className("ui-pnotify-text")).getText()
+            throw new  UIAssertionError("pnotify exception:"+i.$(By.className("ui-pnotify-text")).getText()){};
         }
 
         }

@@ -59,6 +59,7 @@ public class EasyTest {
         tenDaysLater = currentF.format(g.getTime());
         for (File file: new File("build/reports/tests").listFiles())
             if (file.isFile()) file.delete();
+
         for (int i=0;i<3;i++){
             data.put(i,4);
             dataError.put(i,"Все ок");
@@ -66,6 +67,8 @@ public class EasyTest {
     }
     @After
     public void aftr(){
+
+
         Util.pnotifyClose();
         try {
             Menu.logOut();
@@ -106,9 +109,12 @@ public class EasyTest {
             Util.attachImage("build/reports/tests/Ololo1.png");
             data.put(0, 1);
         } catch (Throwable e){
+            screenshot("Ololo1Error");
+            Util.attachImage("build/reports/tests/Ololo1Error.png");
             dataError.put(0,e.getMessage());
             throw e;
         }
+
 
 
     }
@@ -131,6 +137,8 @@ public class EasyTest {
             Util.attachImage("build/reports/tests/Ololo2.png");
             data.put(2, 1);
         } catch (Throwable e){
+            screenshot("Ololo2Error");
+            Util.attachImage("build/reports/tests/Ololo2Error.png");
             dataError.put(2,e.getMessage());
             throw e;
         }
@@ -159,6 +167,8 @@ public class EasyTest {
             Util.attachImage("build/reports/tests/Ololo3.png");
             data.put(1,1);
     } catch (Throwable e){
+            screenshot("Ololo3Error");
+            Util.attachImage("build/reports/tests/Ololo3Error.png");
             dataError.put(1,e.getMessage());
             throw e;
     }
@@ -166,8 +176,10 @@ public class EasyTest {
    @AfterClass
     public static void testrail() throws Exception {
 
-       //DDtestrail testrail = new DDtestrail(58, 2537,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
-       //testrail.completeTest(data,dataError, "Мониторинг "+Configuration.baseUrl +" "+ format.format(d));
+
+
+       DDtestrail testrail = new DDtestrail(58, 2537,Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
+       testrail.completeTest(data,dataError, "Мониторинг "+Configuration.baseUrl +" "+ format.format(d));
        HomePage homePage=Util.entry();
        ShortModel shortModel = homePage.openKratkosrochSpisok(1);
        shortModel.delete();
