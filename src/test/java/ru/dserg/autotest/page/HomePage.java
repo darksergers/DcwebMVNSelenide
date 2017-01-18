@@ -4,6 +4,7 @@ package ru.dserg.autotest.page;
 import ru.dserg.autotest.page.Manuals.DataDirectoryGES;
 import ru.dserg.autotest.page.Manuals.ExpenseCharacteristicsGA;
 import ru.dserg.autotest.page.MediumTerm.LongModel;
+import ru.dserg.autotest.page.Reports.MediumTermRegimeControl;
 import ru.dserg.autotest.page.Reports.OtchetRashodaGESPage;
 import ru.dserg.autotest.page.ShortTerm.OptimizationPage;
 import ru.dserg.autotest.page.ShortTerm.ShortModel;
@@ -33,6 +34,9 @@ public class HomePage {
     }
     public ExpenseCharacteristicsGA expenseCharacteristicsGA(){
         return menu.expenseCharacteristicsGA();
+    }
+    public MediumTermRegimeControl mediumTermRegimeControl(){
+        return menu.mediumTermRegimeControl();
     }
 
     public Menu getMenu() {

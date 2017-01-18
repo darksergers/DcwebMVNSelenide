@@ -173,11 +173,22 @@ public class ReportsTest {
             throw e;
         }
     }
-    @Ignore
     @Stories("Контроль выполнения режимов в среднесрочной модели")
     @Test
-    public void testMediumTermRegimeControl(){
-        
+    public void testMediumTermRegimeControl() throws Exception {
+        try{
+            HomePage homePage = Util.entry();
+            MediumTermRegimeControl mediumTermRegimeControl = homePage.mediumTermRegimeControl();
+            mediumTermRegimeControl.selectStation();
+            mediumTermRegimeControl.clickShowTable();
+            if (!mediumTermRegimeControl.checkTable()) fail();
+            data.put(5,1);
+        } catch(Throwable e){
+            screenshot("ErrorShot");
+            Util.attachImage("build/reports/tests/ErrorShot.png");
+            dataError.put(5,e.getMessage());
+            throw e;
+        }
     }
    @After
     public void aftr(){
