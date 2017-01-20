@@ -4,6 +4,7 @@ import com.gurock.testrail.APIClient;
 import com.gurock.testrail.APIException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import ru.dserg.autotest.Utils.Util;
 
 import javax.net.ssl.SSLHandshakeException;
 import java.io.IOException;
@@ -19,8 +20,13 @@ public class DDtestrail {
         this.client = new APIClient("http://testrail.digdes.com/testrail/");
         else
         this.client = new APIClientRh("http://testrail.digdes.com/testrail/");
-        client.setUser("Kalinin.s@digdes.com");
-        client.setPassword("Qwerty1");
+        try {
+            client.setUser(Util.loadProperty("user"));//"Kalinin.s@digdes.com"
+            client.setPassword(Util.loadProperty("password"));//Qwerty1
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         this.projectId = projectId;
         this.testSuitId = testSuitId;
     }
