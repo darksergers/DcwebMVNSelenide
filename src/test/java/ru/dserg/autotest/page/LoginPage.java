@@ -1,5 +1,6 @@
 package ru.dserg.autotest.page;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.By;
 import ru.dserg.autotest.Utils.Util;
@@ -32,6 +33,7 @@ public class LoginPage {
 public HomePage login() throws Exception {
 $(By.xpath("//*[@id=\'main\']/form/div/fieldset/p/input")).click();
     Util.findError();
+    $("#station-cards").waitUntil(Condition.visible,30000);
     return new HomePage();
 }
 
