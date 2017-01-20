@@ -15,14 +15,16 @@ import java.util.Map;
  * Created by Kalinin.S on 20.09.2016.
  */
 public class DDtestrail {
-    public DDtestrail(int projectId,int testSuitId,boolean isDD) {
+    private  boolean startTestreil;
+    public DDtestrail(int projectId,int testSuitId,boolean isDD) throws IOException {
         if (isDD)
         this.client = new APIClient("http://testrail.digdes.com/testrail/");
         else
         this.client = new APIClientRh("http://testrail.digdes.com/testrail/");
         try {
-            client.setUser(Util.loadProperty("user"));//"Kalinin.s@digdes.com"
-            client.setPassword(Util.loadProperty("password"));//Qwerty1
+            client.setUser(Util.loadProperty("user"));
+            client.setPassword(Util.loadProperty("password"));
+            startTestreil=Boolean.getBoolean(Util.loadProperty("startTestrail"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -38,7 +40,7 @@ public class DDtestrail {
 
     public void  completeTest(HashMap dadaTest,HashMap dataError,String name) throws IOException, APIException {
        //(new SSLTool()).disableCertificateValidation();
-
+        if (!startTestreil) return;
 
         Map data = new HashMap();
 

@@ -1,6 +1,7 @@
 package ru.dserg.autotest.test;
 
 
+import com.codeborne.selenide.Configuration;
 import com.gurock.testrail.APIException;
 import com.gurock.testrail.DDtestrail;
 import org.junit.*;
@@ -117,8 +118,8 @@ public class ManualsTest {
     public static void testrail() throws IOException, APIException {
 
 
-      // DDtestrail testrail = new DDtestrail(58, 2559, Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
-      // testrail.completeTest(data,dataError, "Справочники "+Configuration.baseUrl+" "+ format.format(d));
+      DDtestrail testrail = new DDtestrail(58, 2559, Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
+       testrail.completeTest(data,dataError, "Справочники "+Configuration.baseUrl+" "+ format.format(d));
 
     }
 
