@@ -9,6 +9,7 @@ import ru.dserg.autotest.page.HomePage;
 import ru.dserg.autotest.page.Manuals.CardGES;
 import ru.dserg.autotest.page.Manuals.DataDirectoryGES;
 import ru.dserg.autotest.page.Manuals.ExpenseCharacteristicsGA;
+import ru.dserg.autotest.page.Manuals.VolumeCurves;
 import ru.dserg.autotest.page.Menu;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
@@ -35,7 +36,7 @@ public class ManualsTest {
     @BeforeClass
     public static  void bfr(){
 
-        for (int i=0;i<2;i++){
+        for (int i=0;i<3;i++){
             data.put(i,4);
             dataError.put(i,"Все ок");
         }
@@ -81,6 +82,23 @@ public class ManualsTest {
             throw e;
         }
 
+    }
+    @Stories("Кривые объема")
+    @Test
+    public void testVolumeCurves() throws Exception {
+        data.put(2,5);
+        try {
+            HomePage homePage = Util.entry();
+            VolumeCurves volumeCurves = homePage.getMenu().volumeCurves();
+            volumeCurves.selectStation();
+            volumeCurves.ok();
+
+        }catch (Throwable e){
+            screenshot("Error2");
+            Util.attachImage("build/reports/tests/Error2.png");
+            dataError.put(2,e.getMessage());
+            throw e;
+        }
     }
 
     @After

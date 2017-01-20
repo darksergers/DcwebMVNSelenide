@@ -27,7 +27,7 @@ public class LongModel {
 
     @Step("открытие формы для создания среднесрочного сценария")
     public void create(){//кликнуть по кнопки создать
-        $(By.xpath("//*[@id=\'main-content\']/div/div[1]/div[2]/div[1]/div[1]/button[1]")).click();
+        $(By.className("create-button")).click();
         tab=Tab.Create;
 
     }
