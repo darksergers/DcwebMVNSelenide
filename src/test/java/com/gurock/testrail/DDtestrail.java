@@ -15,7 +15,7 @@ import java.util.Map;
  * Created by Kalinin.S on 20.09.2016.
  */
 public class DDtestrail {
-    private  boolean startTestreil;
+    private  boolean startTestrail;
     public DDtestrail(int projectId,int testSuitId,boolean isDD) throws IOException {
         if (isDD)
         this.client = new APIClient("http://testrail.digdes.com/testrail/");
@@ -24,7 +24,7 @@ public class DDtestrail {
         try {
             client.setUser(Util.loadProperty("user"));
             client.setPassword(Util.loadProperty("password"));
-            startTestreil=Boolean.getBoolean(Util.loadProperty("startTestrail"));
+            startTestrail=Boolean.getBoolean(Util.loadProperty("startTestrail"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -40,7 +40,7 @@ public class DDtestrail {
 
     public void  completeTest(HashMap dadaTest,HashMap dataError,String name) throws IOException, APIException {
        //(new SSLTool()).disableCertificateValidation();
-        if (!startTestreil) return;
+        if (!startTestrail) return;
 
         Map data = new HashMap();
 
