@@ -173,12 +173,45 @@ public class ReportsTest {
             throw e;
         }
     }
-    @Ignore
+
     @Stories("Контроль выполнения режимов в среднесрочной модели")
     @Test
-    public void testMediumTermRegimeControl(){
-        
+    public void testMediumTermRegimeControl() throws Exception {
+        data.put(5,5);
+        try {
+            HomePage homePage = Util.entry();
+            MediumTermRegimeControl mediumTermRegimeControl =homePage.getMenu().mediumTermRegimeControl();
+            mediumTermRegimeControl.selectStation();
+            mediumTermRegimeControl.show();
+            if(!mediumTermRegimeControl.ok())fail();
+            data.put(5, 1);
+        }catch (Throwable e){
+            screenshot("Error6");
+            Util.attachImage("build/reports/tests/Error6.png");
+            dataError.put(5,e.getMessage());
+            throw  e;
+        }
     }
+
+    @Stories("Контроль выполнения режимов в краткосрочной модели")
+    @Test
+    public void testShortTermRegimeControl() throws Exception {
+        data.put(6,5);
+        try {
+            HomePage homePage = Util.entry();
+            ShortTermRegimeControl shortTermRegimeControl = homePage.getMenu().shortTermRegimeControl();
+            shortTermRegimeControl.show();
+            if(!shortTermRegimeControl.ok())fail();
+            data.put(6, 1);
+        }catch (Throwable e){
+            screenshot("Error7");
+            Util.attachImage("build/reports/tests/Error7.png");
+            dataError.put(6,e.getMessage());
+            throw  e;
+        }
+
+    }
+
    @After
     public void aftr(){
         Util.pnotifyClose();
@@ -196,7 +229,7 @@ public class ReportsTest {
     public static void testrail() throws IOException, APIException {
 
 
-        DDtestrail testrail = new DDtestrail(58, 2560, Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
+       DDtestrail testrail = new DDtestrail(58, 2560, Configuration.baseUrl.equals("http://dc-web.vdrsk.digdes.com:8099"));
        testrail.completeTest(data,dataError, "Отчеты " +Configuration.baseUrl+" "+ format.format(d));
 
     }

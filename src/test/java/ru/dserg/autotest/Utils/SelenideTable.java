@@ -15,6 +15,10 @@ public class SelenideTable {
 
     private SelenideElement element;
 
+    public SelenideElement getElement() {
+        return element;
+    }
+
     public SelenideTable(SelenideElement element) {
         this.element = element;
     }//передается таблица!! не тело таблицы

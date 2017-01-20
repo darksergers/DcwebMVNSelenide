@@ -4,6 +4,7 @@ import com.gurock.testrail.APIClient;
 import com.gurock.testrail.APIException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import ru.dserg.autotest.Utils.Util;
 
 import javax.net.ssl.SSLHandshakeException;
 import java.io.IOException;
@@ -14,13 +15,20 @@ import java.util.Map;
  * Created by Kalinin.S on 20.09.2016.
  */
 public class DDtestrail {
-    public DDtestrail(int projectId,int testSuitId,boolean isDD) {
+    private  boolean startTestrail;
+    public DDtestrail(int projectId,int testSuitId,boolean isDD) throws IOException {
         if (isDD)
         this.client = new APIClient("http://testrail.digdes.com/testrail/");
         else
         this.client = new APIClientRh("http://testrail.digdes.com/testrail/");
-        client.setUser("Kalinin.s@digdes.com");
-        client.setPassword("Qwerty1");
+        try {
+            client.setUser(Util.loadProperty("user"));
+            client.setPassword(Util.loadProperty("password"));
+            startTestrail=Boolean.getBoolean(Util.loadProperty("startTestrail"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         this.projectId = projectId;
         this.testSuitId = testSuitId;
     }
@@ -32,7 +40,7 @@ public class DDtestrail {
 
     public void  completeTest(HashMap dadaTest,HashMap dataError,String name) throws IOException, APIException {
        //(new SSLTool()).disableCertificateValidation();
-
+        if (!startTestrail) return;
 
         Map data = new HashMap();
 

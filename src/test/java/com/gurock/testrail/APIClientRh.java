@@ -26,7 +26,7 @@ public class APIClientRh extends APIClient {
 
                 public PasswordAuthentication getPasswordAuthentication() {
                     return (new PasswordAuthentication("corp\\beshkomy",
-                            "Abc987".toCharArray()));
+                            "Abc876".toCharArray()));
                 }
             };
             Authenticator.setDefault(authenticator);

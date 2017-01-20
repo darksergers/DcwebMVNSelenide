@@ -4,6 +4,7 @@ import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 import ru.dserg.autotest.page.Manuals.DataDirectoryGES;
 import ru.dserg.autotest.page.Manuals.ExpenseCharacteristicsGA;
+import ru.dserg.autotest.page.Manuals.VolumeCurves;
 import ru.dserg.autotest.page.MediumTerm.LongModel;
 import ru.dserg.autotest.page.Reports.*;
 import ru.dserg.autotest.page.ShortTerm.OptimizationPage;
@@ -19,7 +20,7 @@ public class Menu {
 
 
 
-    @Step("Открытие списка ксраткосрочная модель и выбор станции ")
+    @Step("Открытие списка краткосрочная модель и выбор станции ")
     public ShortModel choiceShortGes(){//выбор гэс
         $("#menu").$(By.partialLinkText("Краткосрочная модель")).waitUntil(Condition.visible,30000);
         $("#menu").$(By.partialLinkText("Краткосрочная модель")).click();
@@ -27,7 +28,7 @@ public class Menu {
         $("#menu").$(By.partialLinkText("Чебоксарская ГЭС")).click();
         return  new ShortModel();
     }
-    @Step("Открытие списка кракосрочная модель и переход на страницу Оптимизация состава ГА")
+    @Step("Открытие списка краткосрочная модель и переход на страницу Оптимизация состава ГА")
     public OptimizationPage optimization(){
         $("#menu").$(By.partialLinkText("Краткосрочная модель")).shouldBe(Condition.visible);
         $("#menu").$(By.partialLinkText("Краткосрочная модель")).click();
@@ -102,10 +103,27 @@ public class Menu {
     }
     @Step("Открытие списка Среднесрочная модель и выбор Контроль выполнения режимов")
     public MediumTermRegimeControl mediumTermRegimeControl(){
+        $("#menu").$(By.partialLinkText("Среднесрочная модель")).waitUntil(Condition.visible,30000);
         $("#menu").$(By.partialLinkText("Среднесрочная модель")).click();
+        $("#menu").$(By.partialLinkText("Контроль выполнения режимов")).waitUntil(Condition.visible,30000);
         $("#menu").$(By.partialLinkText("Контроль выполнения режимов")).click();
         return new MediumTermRegimeControl();
     }
+    @Step("Открытие списка краткосрочная модель и выбор Контроль выполнения режимов")
+    public ShortTermRegimeControl shortTermRegimeControl(){
+        $("#menu").$(By.partialLinkText("Краткосрочная модель")).waitUntil(Condition.visible,30000);
+        $("#menu").$(By.partialLinkText("Краткосрочная модель")).click();
+        $("#menu").$(By.partialLinkText("Контроль выполнения режимов")).waitUntil(Condition.visible,30000);
+        $("#menu").$(By.partialLinkText("Контроль выполнения режимов")).click();
+        return new ShortTermRegimeControl();
+    }
+    @Step(" открытие списка Справочники и выбор Кривые объема")
+    public VolumeCurves volumeCurves(){
+        spavochnik();
+        $("#menu").$(By.partialLinkText("Кривые объема")).click();
+        return new VolumeCurves();
+    }
+
 
     public static void logOut(){
         $("#menu").$(By.partialLinkText("Weber")).click();

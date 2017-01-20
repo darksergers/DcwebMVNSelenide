@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Properties;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -89,5 +90,10 @@ public class Util {
         File file= new File(fileName);
 
         return Files.readAllBytes(Paths.get(file.getPath()));
+    }
+    public  static String loadProperty(String name) throws IOException {
+        Properties properties = new Properties();
+        properties.load(Util.class.getResourceAsStream("/config.properties"));
+        return properties.getProperty(name);
     }
 }
