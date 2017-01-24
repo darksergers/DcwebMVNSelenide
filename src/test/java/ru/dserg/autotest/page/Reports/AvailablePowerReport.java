@@ -4,6 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import ru.dserg.autotest.Utils.SelenideTable;
 import ru.dserg.autotest.Utils.Util;
 import ru.yandex.qatools.allure.annotations.Step;
@@ -53,6 +54,19 @@ public class AvailablePowerReport {
     }
     @Step("проверить таблицу")
     public boolean ok() throws Exception {
+        table.getElement().waitUntil(new Condition("ololo") {
+            @Override
+            public boolean apply(WebElement webElement) {
+                try {
+                    return Float.parseFloat(table.choiceTr(0,6).getText().replace(',','.'))>0;
+                } catch (Exception e) {
+                    e.printStackTrace();
+
+                }
+                return false;
+
+            }
+        },30000);
 
         for (int i = 0;i<$("#ap-report-content").$(By.tagName("tbody")).$$(By.tagName("tr")).size()-1;i++){
             for(int j = 6; j<10;j++){
