@@ -40,7 +40,7 @@ public class AvailablePowerReport {
     @Step("Заполнение колонки dh  числом 1.5")
     public void completeDH() throws Exception {
         $("#ap-report-content").$(By.tagName("tbody")).waitUntil(Condition.visible,30000);
-        for (int i = 0;i<$("#ap-report-content").$(By.tagName("tbody")).$$(By.tagName("tr")).size()-1;i++){
+        for (int i = 0;i<10;i++){
             table.typeInTable(i,4,"#ap-report-content > div.handsontableInputHolder > textarea","1.5");
         }
 
@@ -68,13 +68,13 @@ public class AvailablePowerReport {
             }
         },30000);
 
-        for (int i = 0;i<$("#ap-report-content").$(By.tagName("tbody")).$$(By.tagName("tr")).size()-1;i++){
+        for (int i = 0;i<10;i++){
             for(int j = 6; j<10;j++){
                 if(Float.parseFloat(table.choiceTr(i,j).getText().replace(',','.'))<=0) return  false;
 
             }
         }
-        for(int i = 0; i<$("#ap-report-content").$(By.tagName("tbody")).$$(By.tagName("tr")).size()-1;i++){
+        for(int i = 0; i<10;i++){
             if(Float.parseFloat(table.choiceTr(i,13).getText().replace(',','.'))>20) return  false;
         }
         return true;
