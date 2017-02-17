@@ -19,6 +19,7 @@ public class LoginPage {
 
     public LoginPage() {
 
+
         Configuration.browser="chrome";
         open(Configuration.baseUrl);
     }

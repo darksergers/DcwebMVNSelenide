@@ -32,18 +32,7 @@ public class MediumTermTest {
     private static HashMap<Integer,Integer> data = new HashMap<Integer,Integer>();
     private static  String today;
     private static  String tenDaysLater;
-    @After
-    public void aftr(){
-        Util.pnotifyClose();
-        try {
-            Menu.logOut();
-        }catch (Error  e){
-            Util.pnotifyClose();
-            Menu.logOutWithExceptiom();
-        }
 
-
-    }
 
     private void granularity(String granularity ) throws Exception {
 

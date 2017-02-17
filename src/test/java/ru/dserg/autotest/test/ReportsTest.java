@@ -212,19 +212,7 @@ public class ReportsTest {
 
     }
 
-   @After
-    public void aftr(){
-        Util.pnotifyClose();
-        try {
-            Menu.logOut();
-        }catch (Error  e){
 
-            Util.pnotifyClose();
-            Menu.logOutWithExceptiom();
-        }
-
-
-    }
     @AfterClass
     public static void testrail() throws IOException, APIException {
 

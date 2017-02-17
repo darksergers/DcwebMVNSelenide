@@ -65,18 +65,7 @@ public class EasyTest {
             dataError.put(i,"Все ок");
         }
     }
-    @After
-    public void aftr(){
 
-
-        Util.pnotifyClose();
-        try {
-            Menu.logOut();
-        }catch (Error  e){
-            Util.pnotifyClose();
-            Menu.logOutWithExceptiom();
-        }
-    }
 
 
 
